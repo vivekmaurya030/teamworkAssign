@@ -1,0 +1,85 @@
+.Ser-provider{
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 5vh 5vw;
+    margin: 0;
+    padding-bottom: 10vh;
+
+}
+.Ser-provider-head h1{
+    padding: 5vh 1vw;
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: le;
+    color: #1E1E1E;
+}
+.Ser-provider-container{
+    display: flex;
+   
+    ::-webkit-scrollbar{
+        display: none;
+    }
+
+}
+
+.Ser-provider-cards{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+}
+.Slide{
+    overflow: hidden;
+    border-radius: 25px;
+    margin: 2vh 0;
+    box-shadow: 2px 2px 5px grey;
+}
+.card{
+    overflow: hidden;
+    height: 270px;
+    transition: height .5s;
+    text-align: center;
+    border: none;
+    
+
+
+}
+.card-img{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+.card-img img{
+    width: 100%;
+    height: 100%;
+}
+.card-detail{
+    height: 0;
+    width: 100%;
+    transition: height .5s;
+    color: white
+    
+
+}
+.detail{
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.527);
+    text-align: center;
+    padding: 2vh 1vw;
+}
+.Slide:hover{
+    
+    .card{
+        height: 0;
+
+    }
+    .card-detail{
+        height: 270px;
+    }
+}

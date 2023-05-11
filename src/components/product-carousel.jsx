@@ -21,7 +21,7 @@ const divStyle= {
 function ProductImageSlider(){
   return(
     <div className="product-slide-container">
-      <Slide pauseOnHover={false} canSwipe={true} duration={3000} transitionDuration={2000}>
+      <Slide pauseOnHover={false} canSwipe={true} duration={3000} transitionDuration={500}>
         {slideImages.map((image,index) => (
           <div key={index}>
             <div style={{...divStyle,backgroundImage: `url(${image.url})`}}>

@@ -1,0 +1,99 @@
+.Reviews{
+    padding: 0vh 5vw;
+}
+.Review-title{
+    padding: 1vh 1vw;
+}
+.Review-title h1{
+    font-family: 'Inria Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 3rem;
+text-align: left;
+
+color: #1E1E1E;
+
+}
+.review-card{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding: 3vh 2.5vw;
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow: auto;
+    background: linear-gradient(180deg, #6C5886 17.5%, rgba(108, 88, 134, 0) 100%);
+    border-radius: 30px;
+}
+.SwiperSlide{
+    height: 20px;
+    width: 100%;
+    margin: 10vh 0;
+    filter: blur(2px);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: none;
+    border-radius: 30px;
+}
+.active{
+    opacity: 1;
+    filter: blur(0px);
+    background: rgb(248, 248, 248);
+}
+.review-head{
+    display: flex;
+}
+.review-head-img{
+    flex-basis: 20%;
+    width: 100%;
+    height: 100%;
+    padding: 0 .1vw;
+}
+.review-head-img img{
+    height: 100%;
+    width: 100%;
+    min-height: 70px;
+    min-width: 70px;
+    border-radius: 50%;
+    // padding: 0 1vw;
+
+}
+
+.review-head-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 80% ;
+    width: 100%;
+    height: 100%;
+    padding: 0 1vw;
+}
+.review-username{
+    width: 100%;
+    padding: .3vh 0;
+    margin: 0;
+    display: block;
+}
+.review-username h2{
+    color: #ffffff;
+    font-weight: lighter;
+    font-size:1.5rem;
+    padding: 0;
+    margin: 0;
+}
+.review-star h3{
+    font-size: 1.2rem;
+    color: #FFC400;
+}
+.review-body{
+    padding: 2vh 0;
+    width: 100%;
+}
+.review-body p{
+    height: 100px;
+    width: 100%;
+    padding: .5vh 0;
+    padding-bottom: 1vh;
+    font-size: .8rem;
+    padding-right: 2.5vw;
+    overflow: auto;
+}

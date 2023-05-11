@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Kumbh+Sans');
+@import url('https://fonts.googleapis.com/css?family=Inria+Sans');
+
+.newsletter{
+    display: flex;
+    padding: 5vh 10vw;
+    background: #B2E3FF;
+}
+.newsletter-col1{
+    flex-basis: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newsletter-col1 img{
+    width: 300px;
+
+}
+.newsletter-col2{
+    display: flex;
+    flex-direction: column;
+    padding: 0 5vw;
+    justify-content: center;
+}
+.newsletter-col2 h1{
+    font-family: 'Kumbh Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 60px;
+    color: #000000;
+}
+.newsletter input{
+    background: #FFFFFF;
+    border-radius: 35px;
+    padding: 1vh 1.4vw;
+    border: none;
+    outline: none;
+    margin-top: 2vh;
+
+}
+.subscribe-btn{
+    width: 269px;
+    height: 49px;
+    background: #000000;
+    border-radius: 24.5px;
+    font-family: 'Kumbh Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+
+}

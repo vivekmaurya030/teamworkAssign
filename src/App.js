@@ -1,14 +1,17 @@
 import './App.css';
 import './App.scss';
-import Header from './header';
-import ImageSlider from './carousel';
-import Process from './process';
-import ProductImageSlider from './product-carousel';
-import whyklara from './images/whyklara.png'
-import chakachakbg from './images/chahachakbg.png'
-import CircularImg from './circularImg';
-import Services from './services';
-
+import Header from './components/header';
+import ImageSlider from './components/carousel';
+import Process from './components/process';
+import ProductImageSlider from './components/product-carousel';
+import whyklara from './components/images/whyklara.png'
+import chakachakbg from './components/images/chakachakbg.png'
+import Services from './components/services';
+import CircularImg from './components/circularImg';
+import Reviews from './components/reviews/reviews';
+import ServiceProvider from './components/servicesProvider/serviceProvider';
+import AboutUs from './components/aboutUs/aboutUs';
+import Newsletter from './components/newsletter/newsletter';
 
 function App() {
   const chakachakStyle={
@@ -38,7 +41,10 @@ function App() {
       </div>
       <CircularImg />
       <Services />
-
+      <ServiceProvider />
+      <Reviews />
+      <AboutUs />
+      <Newsletter />
     </div>
   );
 }

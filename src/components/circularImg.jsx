@@ -6,7 +6,7 @@ import img9 from './images/img9.png'
 import img10 from './images/img10.png'
 import img11 from './images/img11.png'
 import img12 from './images/img12.png'
-import './App.scss';
+import '../../src/App.scss';
 
 
 export default function CircularImg(){
