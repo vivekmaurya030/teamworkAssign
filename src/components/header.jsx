@@ -1,6 +1,7 @@
 import React from "react";
-import { ReactDOM } from "react";
+// import { ReactDOM } from "react";
 import klaralogo from './images/klaralogo.png';
+import { Link } from "react-router-dom";
 
 export default function Header(){
     return(
@@ -16,12 +17,12 @@ export default function Header(){
         </div>
         <nav className="menu"> 
             <ul>
-                <li><a href="">HOME</a></li>
-                <li><a href="">PRODUCTS</a></li>
-                <li><a href="">REVIEWS</a></li>
-                <li><a href="">FAQS</a></li>
-                <li><a href="">BLOG</a></li>
-                <li><a href="">LOGIN / SIGN UP</a></li>
+                <li><Link to="/">HOME</Link></li>
+                <li><Link to="/">PRODUCTS</Link></li>
+                <li><Link to="/">REVIEWS</Link></li>
+                <li><Link to="/">FAQS</Link></li>
+                <li><Link to="/">BLOG</Link></li>
+                <li><Link to="/">LOGIN / SIGN UP</Link></li>
             
             </ul>
         </nav>
