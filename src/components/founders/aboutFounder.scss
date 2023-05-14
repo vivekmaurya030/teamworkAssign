@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Kumbh+Sans');
+@import url('https://fonts.googleapis.com/css?family=Inria+Sans');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+@import url('https://fonts.googleapis.com/css?family=Bentham');
+.aboutFounder{
+    width: 100%;  
+    padding: 0; 
+    margin: 0;
+}
+.aboutFounder-head{
+    margin: 0;
+    padding: 0;
+}
+.navigation{
+    width: 100%;
+    background:  #554971;
+    color: #ffff;
+    padding: 1vh 5vw;
+    font-size: 1.4rem;
+}
+
+.navigation{
+    color: aliceblue;
+}
+.aboutUs-head{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    .head-bg{
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+    .aboutUs-head-detail{
+        position: absolute;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+        
+        h1{
+            font-family: 'Bentham';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 3.5rem;
+            line-height: 58px;
+            text-align: center;
+            color: #441D39;
+            padding: 7vh 0;
+        }
+
+        .group-img{
+            width: 280px;
+            height: 280px;
+            border-radius: 156px;
+        }
+        h3{
+            font-family: 'Bentham';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1.8rem;
+            padding: 1vh 0;
+            line-height: 38px;
+            text-align: center;
+            color: #441D39;
+        }
+        p{
+            padding: 3vh 10vw;
+            font-family: 'Bentham';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 25px;
+            text-align: center;
+            color: #441D39;
+        }
+    }
+
+
+}
+
+.Founders{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.heading{
+    padding-top: 10vh;
+}
+.founder-card{
+    background: linear-gradient(180.08deg, #6C5886 -24.7%, rgba(217, 217, 217, 0.4) 108.6%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-radius: 400px;
+    margin: 20vh 10vw;
+    width: 60vw;
+    padding: 5vh 5vw;
+
+    .founder-card-img{
+        
+        height: 150px;
+        width: 150px;
+        margin-top: -100px;
+    }
+    h2{
+        font-family: 'Kumbh Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.6rem;
+        padding: 1.5vh 0;
+        padding: 0;
+        // line-height: 30px;
+        color: #000000;
+    }
+    h3{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1rem;
+        // line-height: 29px;
+        color: #000000;
+    }
+    p{
+        font-family: 'Kumbh Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 30px;
+        text-align: center;
+        color: #000000;
+    }
+}

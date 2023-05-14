@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTwitter, FaFacebook, FaYoutube, FaInstagram, FaWhatsapp, FaLinkedin, FaVoicemail } from "react-icons/fa";
 import "./footer.scss";
+import { Link } from "react-router-dom";
 import appleStore from './img/appleStore.png'
 import googlePlay from './img/googlePlay.png'
 
@@ -15,7 +16,8 @@ const Footers = () => {
         </div>
         <div className="section-middle">
           <div className="about">
-            <h3 className="heading"> About Us</h3>
+            <h3 className="heading"><Link to="/AboutUsPage" style={{color
+            :"white"}}> About Us</Link></h3>
             <p>Aditi Srivastava</p>
             <p>Shiksha Vishwakarma</p>
             <p>Shubham Tiwari</p>
