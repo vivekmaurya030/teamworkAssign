@@ -27,10 +27,12 @@ export const login = createAsyncThunk(
     'auth/register',
     async (params, { rejectWithValue }) => {
     const response = await apiPostCall(`http://localhost:3003/api/v1/user/login`, params)
-     if (response.data.status === 'error') {
+     if (response.data.status === "error") {
+        alert(response.data.message)
         return rejectWithValue(response.data)
     }
-     return response.data
+    alert("Logged in successfully!")
+    return response.data
   }
 )
 // export const register = createAsyncThunk(

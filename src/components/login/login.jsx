@@ -19,7 +19,6 @@ const LogIn = () => {
       email: attributes.email,
       password: attributes.password
     }
-    alert("clicked")
     dispatch(login(obj))
   }
   console.log("local strogewdfnb", JSON.stringify(localStorage.getItem("userDetails")));
