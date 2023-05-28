@@ -2,21 +2,27 @@
 @import url('https://fonts.googleapis.com/css?family=Inria+Sans');
 .aboutUs{
     margin: 0;
-    padding: 5vh 5vw;
+    padding: 0vh 5vw;
 }
-.aboutUs-head{
-    padding: 1vh 1vw;
+.aboutUs-header{
+    padding: 10vh 1vw;
+    padding-bottom: 1vh;
 }
-.aboutUs-head h1{
+.aboutUs-header h2{
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
     font-size: 3rem;
     text-align: left;
     color: #1E1E1E;
+    // height: 10px;
 }
 .aboutUs-body{
-    padding: 10vh 10vw;
+    padding: 2vh 10vw;
+    margin: 10vh 1vw;
 }
 .body-container{
     background: rgba(195, 172, 206, 0.38);

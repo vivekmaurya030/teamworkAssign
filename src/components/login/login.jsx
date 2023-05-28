@@ -25,6 +25,19 @@ const LogIn = () => {
   console.log("local strogewdfnb", JSON.stringify(localStorage.getItem("userDetails")));
   console.log("attributes is ---> ", attributes);
 
+  const TextFieldStyle={
+      '&:hover fieldset':{
+        boxShadow:"0px 5px 5px #4B006E",
+        outline:"none",
+        border:"none"
+      },
+      '&:focus-within fieldset, &:focus-visible fieldset, &:active fieldset':{
+        border:"1px solid #4B006E!important",
+        boxShadow:"0px 5px 5px #4B006E",
+        
+
+      }
+  }
   return (
     <div className="login">
       <div className="login-box">
@@ -46,6 +59,7 @@ const LogIn = () => {
               InputProps={{style:{color:"#4B006E"}}}
               defaultValue=""
               onChange={(e) => setAttributes((prev) => ({ ...prev, email: e.target.value }))}
+              sx={TextFieldStyle}
             />
             <span className="icon">
             <FontAwesomeIcon icon={faEnvelope} />
@@ -60,7 +74,7 @@ const LogIn = () => {
               fullWidth={true}
               type="password"
               onChange={(e) => setAttributes((prev) => ({ ...prev, password: e.target.value }))}
-
+              sx={TextFieldStyle}
             />
             <span className="icon"><FontAwesomeIcon icon={faLock} /></span>
             </div>
@@ -71,7 +85,7 @@ const LogIn = () => {
                 <div className="or-text">OR</div>
                 <div className="blank"></div>
             </div>
-            <div className="btn-box"><button className="btn signup-btn">Signup Now</button></div>
+            <div className="btn-box"><Link to="/SignUpPage"><button className="btn signup-btn">Signup Now</button></Link></div>
         </div>
       </div>
     </div>

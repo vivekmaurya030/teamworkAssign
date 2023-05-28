@@ -5,8 +5,8 @@ import aboutUs from './img/aboutUs.png'
 const AboutUs=()=>{
     return(
         <div className="aboutUs">
-            <div className="aboutUs-head">
-                <h1>About Us</h1>
+            <div className="aboutUs-header">
+                <h2>About Us</h2>
             </div>
             <div className="aboutUs-body">
                 <div className="body-container">
