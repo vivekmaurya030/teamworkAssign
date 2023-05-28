@@ -15,6 +15,7 @@ import Newsletter from '../components/newsletter/newsletter';
 import Footers from '../components/footer/footers';
 
 const HomePage=()=>{
+  
     const chakachakStyle={
         background:`url(${chakachakbg})`,
         backgroundSize:'100% 100%'

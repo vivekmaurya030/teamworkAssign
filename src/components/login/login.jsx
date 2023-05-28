@@ -5,10 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { login } from "../../Redux/AuthRedux"
 
 const LogIn = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [attributes, setAttributes] = React.useState({
     email: "",
     password: ""
@@ -19,7 +21,9 @@ const LogIn = () => {
       email: attributes.email,
       password: attributes.password
     }
-    dispatch(login(obj))
+    dispatch(login(obj)).then(() => {
+      navigate("/")
+    })
   }
   console.log("local strogewdfnb", JSON.stringify(localStorage.getItem("userDetails")));
   console.log("attributes is ---> ", attributes);
