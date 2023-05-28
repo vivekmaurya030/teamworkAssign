@@ -2,11 +2,13 @@ import { Routes, HashRouter, Route } from "react-router-dom";
 import HomePage from './pages/homePage';
 import AboutUs from "./pages/aboutUs";
 import LogInPage from "./pages/loginPage";
-
+import { store } from "../src/Redux/index"
+import { Provider } from "react-redux";
 
 const Routers = () => {
     return (
         <>
+            <Provider store={store}>
             <HashRouter>
                 <Routes>
                     <Route path = "/" element = {<HomePage />}/>
@@ -14,6 +16,7 @@ const Routers = () => {
                     <Route path="/LogInPage" element={<LogInPage/>}></Route>
                 </Routes>
             </HashRouter>
+            </Provider>
         </>
     )
 }
