@@ -7,6 +7,7 @@
     height: 100vh;
 }
 .login-box{
+    min-width: 350px;
     width: 30vw;
 
 }
@@ -41,7 +42,7 @@
 .textfield{
     width: 100%;
     display: flex;
-    margin: 5vh 0;
+    margin: 2vh 0;
 }
 .icon{
     display: grid;
@@ -69,7 +70,7 @@
 .btn{
     width: 100%;
     padding: 1vh 1vw; 
-    margin: 2vh 0;   
+    margin: 1vh 0;   
 }
 .login-btn{
     background: #4B006E;
@@ -95,7 +96,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5vh 2vw;
+    padding: 3vh 2vw;
 }
 .or-text{
     padding: 0 1rem ;
@@ -111,4 +112,25 @@
     color: #ffffff;
     border: 1px solid #4B006E;
     transition: background .5s;
+}
+.social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-icon{
+    margin: 1vw;
+    padding: 1vh;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: 1px 1px 5px grey;
+    svg{
+        height: 15px;
+        width: 15px;
+        color: rgb(199, 27, 27);
+    }
+}
+.social-icon:hover svg{
+    transform: scale(1.1);
 }

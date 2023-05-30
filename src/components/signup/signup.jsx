@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./signup.scss";
 import TextField from "@mui/material/TextField";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import FormControl from "@mui/material/FormControl";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const TextFieldStyle = {
@@ -18,6 +26,15 @@ const SignUp = () => {
       boxShadow: "0px 5px 5px #4B006E",
     },
   };
+
+  const CheckBoxStyle={
+    color: "#4B006E",
+    '&.Mui-checked': {
+      color: "#4B006E",
+    },
+    borderRadius: "4px",
+  }
+
   return (
     <div className="signup">
       <div className="signup-col1">
@@ -91,23 +108,162 @@ const SignUp = () => {
               </div>
             </div>
             <div>
-              <InputLabel id="demo-simple-select-label">Gender</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                label="Select Gender"
-                sx={{...TextFieldStyle,}}
-                // onChange={handleChange}
+              <FormControl fullWidth sx={TextFieldStyle}>
+                <InputLabel id="gender">Gender</InputLabel>
+                <Select
+                  labelId="gender"
+                  id="gender"
+                  // value="{age}"
+                  label="Gender"
+                  // onChange={handleChange}
+                >
+                  <MenuItem value="" disabled>
+                    Select Gender
+                  </MenuItem>
+                  <MenuItem value="male">Male</MenuItem>
+                  <MenuItem value="female">Female</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            <div>
+              <FormControl fullWidth sx={TextFieldStyle}>
+                <InputLabel id="country-name">Country</InputLabel>
+                <Select
+                  labelId="country-name"
+                  id="country-name"
+                  // value="{age}
+                  label="country"
+                  // onChange={handleChange}
+                >
+                  <MenuItem value="" disabled>
+                    Select Country
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            <div>
+              <FormControl fullWidth sx={TextFieldStyle}>
+                <InputLabel id="state-name">
+                  State
+                </InputLabel>
+                <Select
+                  labelId="state-name"
+                  id="state-name"
+                  // value="{age}"
+                  // sx={TextFieldStyle}
+                  label="State"
+                  // onChange={handleChange}
+                >
+                  <MenuItem value="" disabled>
+                    Select Country
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            <div>
+              <FormControl fullWidth sx={TextFieldStyle}>
+                <InputLabel id="city-name">City</InputLabel>
+                <Select
+                  labelId="city-name"
+                  id="city-name"
+                  // value="{age}"
+                  label="City"
+                  // onChange={handleChange}
+                >
+                  <MenuItem value="" disabled>
+                    Select City
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            <div className="pincode">
+              <TextField
+                className="textField"
+                id="pincode"
+                label="Pin Code :"
+                placeholder="Enter your pincode"
+                fullWidth={true}
+                type="text"
+                sx={TextFieldStyle}
+              />
+            </div>
+            <div className="dob">
+              <LocalizationProvider
+                dateAdapter={AdapterDayjs}
               >
-                <MenuItem value={"male"}>Male</MenuItem>
-                <MenuItem value={"female"}>Female</MenuItem>
-              </Select>
+                <DemoContainer components={["DatePicker"]}>
+                  <DatePicker
+                    label="Date Of Birth"
+                    slotProps={{ textField: { fullWidth: true } }}
+                    sx={TextFieldStyle}
+                  />
+                </DemoContainer>
+              </LocalizationProvider>
+            </div>
+            <div>
+              <div className="checkbox">
+                <FormControlLabel
+                  required
+                  control={<Checkbox sx={CheckBoxStyle} />}
+                  label="Sign Up for newsletter"
+           
+                />
+              </div>
+              <div className="checkbox terms">
+                <FormControlLabel
+                  required
+                  control={<Checkbox sx={CheckBoxStyle} />}
+                  label="Agreement to use KLARA Moon store"
+                />{" "}
+                <span>
+                  <Link
+                    style={{
+                      color: "#B199CF",
+                      fontFamily: "poppins,sans-serif",
+                      fontWeight: 400,
+                      margin: 0,
+                      padding: 0,
+                    }}
+                  >
+                    Terms
+                  </Link>
+                </span>{" "}
+              </div>
+              <div className="checkbox terms">
+                <FormControlLabel
+                  required
+                  sx={{'&.label':{
+                    textShadow:"0px 1px 1px grey"
+                  }}}
+                  control={<Checkbox sx={CheckBoxStyle}  />}
+                  label="Agreement for collection or utilization of information"
+                />{" "}
+                <span>
+                  <Link
+                    style={{
+                      color: "#B199CF",
+                      fontFamily: "poppins,sans-serif",
+                      fontWeight: 400,
+                      margin: 0,
+                      padding: 0,
+                    }}
+                  >
+                    Terms
+                  </Link>
+                </span>{" "}
+              </div>
+            </div>
+            <div className="signup-btn-row">
+                  <Link><button type="button" className="login-btn">Signup Now </button></Link>
             </div>
           </div>
         </div>
       </div>
       <div className="signup-col2">
-        {/* <img src="https://img.freepik.com/free-vector/privacy-policy-concept-illustration_114360-7853.jpg?w=740&t=st=1685172427~exp=1685173027~hmac=5fcf86be6c0df98f5491a3e57c7153de5282a1c2a0444221d7cd58e2289ccb37" alt="" /> */}
+        <img
+          src="https://img.freepik.com/free-vector/privacy-policy-concept-illustration_114360-7853.jpg?w=740&t=st=1685172427~exp=1685173027~hmac=5fcf86be6c0df98f5491a3e57c7153de5282a1c2a0444221d7cd58e2289ccb37"
+          alt=""
+        />
       </div>
     </div>
   );

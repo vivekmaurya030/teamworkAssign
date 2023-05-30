@@ -2,6 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 5vh 10vw;
+    background: #C4BDCD;
+
 
 }
 
@@ -16,8 +19,31 @@
         width: 100%;
     }
 }
-
-
+.signup-col1{
+    flex-basis: 60%;
+    width: 100%;
+   
+}
+.signup-col2{
+    flex-basis: 40%;
+    position: fixed;
+   right: 100px;
+   top: 15%;
+   width: 500px;
+   height: 500px;
+   
+    
+}
+.signup-col2 img{
+    width: 100%;
+    height: 100%;
+}
+.signup-form{
+    background: #FFFFFF;
+box-shadow: 28px 0px 50.4863px rgba(0, 0, 0, 0.17);
+border-radius: 32px;
+padding: 5vh 5vw;
+}
 
 
 
