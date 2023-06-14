@@ -6,6 +6,7 @@ import userIcon from "./images/userIcon.png";
 
 export default function Header(){
     console.log("efnrenf", JSON.parse(localStorage.getItem("userDetails")));
+    // localStorage.clear("userDetails")
     var userDetails = JSON.parse(localStorage.getItem("userDetails"))
 
     return(

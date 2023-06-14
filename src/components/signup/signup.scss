@@ -8,6 +8,22 @@
 
 }
 
+.flex-column{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    // border: 2px solid red;
+}
+
+.error{
+    border: 20px solid red;
+    padding: 20px;
+}
+.display-below{
+    position: relative;
+    margin-top: 20%;
+}
+
 .number{
     display: flex;
     width: 100%;
