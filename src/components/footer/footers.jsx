@@ -1,10 +1,9 @@
 import React from "react";
-import { FaTwitter, FaFacebook, FaYoutube, FaInstagram, FaWhatsapp, FaLinkedin, FaVoicemail } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaYoutube, FaInstagram, FaWhatsapp, FaLinkedin, } from "react-icons/fa";
 import "./footer.scss";
 import { Link } from "react-router-dom";
 import appleStore from './img/appleStore.png'
 import googlePlay from './img/googlePlay.png'
-
 
 
 const Footers = () => {
@@ -49,7 +48,6 @@ const Footers = () => {
               <div className="whatsapp"><FaWhatsapp className="social-icon" id="whatsapp" /></div>
               <div className="linkedin"><FaLinkedin className="social-icon" id="linkedin" /></div>
               <div className="youtube"><FaYoutube className="social-icon" id="youtube" /></div>
-              <FaVoicemail />
             </div>
             <div className="play-store">
               <img src={googlePlay} alt="#" />

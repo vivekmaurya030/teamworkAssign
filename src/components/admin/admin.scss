@@ -1,0 +1,114 @@
+// admin Head
+
+.admin{
+    background: #C4BDCD;
+    width: 100%;
+    height: 100%;
+    padding: 1.25vh;
+    padding-bottom:0;
+}
+.admin-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75vh 3vw;
+    background: #FFFFFF;
+    // margin: 2vh;
+    box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.07);
+
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    h1{
+        color: #4B006E;
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.95rem;
+        margin: 0;
+        padding: 0;
+    }
+    p{
+        display: flex;
+        font-family: 'Poppins',sans-serif;
+        padding: 0;
+        margin: 0;
+        font-style: normal;
+        font-weight: 400;
+        font-size: .8rem;
+    }
+    .cmp{
+        color:  #B199CF;
+        font-weight: bold;
+    }
+}
+
+.title{
+    h1{
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1rem ;
+        color: #1A1A1A;
+        margin: 0;
+        padding: 0;
+    }
+}
+.avatar{
+    display: flex;
+    align-items: center;
+    p{
+        padding: 0 .5vw;
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+.admin-body{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.body{
+    display: flex;
+    padding: 3vh 1vw;
+    .side{
+        flex: 1;
+        width: 100%;
+        position: sticky
+        // width: ;
+    }
+    .main{
+        flex: 4;
+        margin: 0 4vw;
+        .row1{
+            display: flex;
+            align-items: center;
+            margin-bottom: 1vh;
+
+        .row1-col1{
+            flex: 1;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        .row1-col2{
+            flex: 1;
+            padding: 0;
+            margin: 0;
+            margin-left: 6vw;
+            overflow: hidden;
+            height: 100%;
+        }
+        }
+        .row2{
+            margin-top: 5vh;
+        }
+    }
+
+}

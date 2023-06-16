@@ -12,10 +12,10 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Link } from "react-router-dom";
-
+import image from './img/image.png'
 const SignUp = () => {
   const TextFieldStyle = {
-    margin: "1.5vh 0",
+    margin: "1vh 0",
     "&:hover fieldset": {
       boxShadow: "0px 5px 5px #4B006E",
       outline: "none",
@@ -33,6 +33,7 @@ const SignUp = () => {
       color: "#4B006E",
     },
     borderRadius: "4px",
+    
   }
 
   return (
@@ -200,7 +201,7 @@ const SignUp = () => {
                 </DemoContainer>
               </LocalizationProvider>
             </div>
-            <div>
+            <div className="approval">
               <div className="checkbox">
                 <FormControlLabel
                   required
@@ -254,14 +255,14 @@ const SignUp = () => {
               </div>
             </div>
             <div className="signup-btn-row">
-                  <Link><button type="button" className="login-btn">Signup Now </button></Link>
+                  <Link><button type="button" className="login-btn signupbtn">Signup Now </button></Link>
             </div>
           </div>
         </div>
       </div>
       <div className="signup-col2">
         <img
-          src="https://img.freepik.com/free-vector/privacy-policy-concept-illustration_114360-7853.jpg?w=740&t=st=1685172427~exp=1685173027~hmac=5fcf86be6c0df98f5491a3e57c7153de5282a1c2a0444221d7cd58e2289ccb37"
+          src={image}
           alt=""
         />
       </div>

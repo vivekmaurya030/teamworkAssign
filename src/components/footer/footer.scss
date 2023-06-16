@@ -43,7 +43,7 @@
     }
       .icons {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         div{
             border-radius: 50%;
             background-color: #301c97;
@@ -52,12 +52,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1vh 1vw;
+            // padding: 1vh 1vw;
             margin: 0 5px;
             cursor: pointer;
         }
         .social-icon {
           color: #ffffff;
+          font-size: 1rem;
+          z-index: 1;
         }
         .twitter {
           background-color: #33CCFF;
