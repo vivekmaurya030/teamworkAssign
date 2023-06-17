@@ -16,8 +16,11 @@ export function apiPostCall(path, params) {
     })
     .catch((error) => {
       if (error.response) {
+        alert(error.response.data.message);
+        // alert(error.response)
         return error.response
       } else if (error.request) {
+        // alert(error.request)
         return error.request
       } else {
         return error.message
