@@ -60,7 +60,7 @@ const AboutFounder = () => {
       </div>
       <div className="Founders">
         <div className="heading"><h1>Get to know our founders!</h1></div>
-        <div className="body">
+        <div className="container">
           {founderDetail.map((item) => (
             <div className="founder-card">
               <div className="founder-card-img" style={{background:`url(${item.profile})`, backgroundSize:"100% 100%"}}></div>

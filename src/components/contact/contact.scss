@@ -1,0 +1,149 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.contact{
+    display: flex;
+
+}
+.Contact-col1{
+    flex: 2;
+    padding: 2vh 8vw;
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.col1-part1{
+    flex: 1;
+    padding: 0 5vw;
+}
+.col1-part2{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.text{
+    padding-top: 10vh;
+    p{
+        font-size: .8rem;
+        font-weight: 500;
+        padding: 10px 0;
+
+    }
+}
+.contact-head{
+    padding: 3vh 0;
+    h1{
+        font-size: 3.75rem;
+    }
+    .head-color{
+        color: #4B006E;
+    }
+}
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 5vw;
+}
+.sub-btn{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #4B006E;
+    border-radius: 10px;
+    background: #4B006E;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+        &:hover{
+            color: #4B006E;
+            background-color: white;
+
+        }
+}
+.Contact-col2{
+    flex: 1;
+}
+.map{
+    width: 100%;
+    height: 150px;
+    position: relative;
+    margin-bottom: 5vh;
+}
+.box-over-map{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3.47692px rgba(0, 0, 0, 0.25);
+    margin-top: 5px;
+    margin-right: 5px;
+    
+    h3{
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4B006E;
+        padding: 0 2px;
+        margin: 0;
+        
+    }
+    p{
+        padding: 0 5px;
+        margin: 0;
+        font-size: .7rem;
+    }
+}
+.map iframe{
+    width: 100%;
+    height: 100%;
+}
+.info{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    
+    h3{
+        font-size: 1.1rem;
+        padding-left: 5px;
+    }
+    .icons{
+        font-size: 1.1rem;
+        padding: 0;
+        margin: 0;
+        color: #4B006E;
+    }
+}
+.Contact-col2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    color: #4B006E;
+    padding-left:5vw;
+    width: 100%;
+}
+.col2-row{
+    h2{
+        font-size: 2.5rem;
+        padding: 2vh 0;
+    }
+    p{
+        padding: 0;
+        margin: 0;
+        font-size: 1.3rem;
+    }
+    .social-btn{
+        flex: 1;
+        margin: 0 2vw;
+        margin-top: 10vh;
+        font-size: 1.8rem;
+        text-shadow: 10px 10px 10px 10px #4B006E;
+    }
+
+}

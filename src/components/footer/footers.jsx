@@ -7,6 +7,7 @@ import googlePlay from './img/googlePlay.png'
 
 
 const Footers = () => {
+  
   return (
     <div>
       <div className="footerMain">
@@ -36,7 +37,7 @@ const Footers = () => {
               About Klara
             </h3>
             <p>FAQs</p>
-            <p>Contact</p>
+            <p><Link to="/ContactPage">Contact</Link></p>
             <p>Blog</p>
           </div>
           <div className="about">

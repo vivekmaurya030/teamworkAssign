@@ -1,7 +1,7 @@
 import React from "react";
 import './admin.scss'
 
-const Adminhead =()=>{
+const Adminhead =(prop)=>{
     return(
         <div className="admin-head">
         <div className="logo">
@@ -11,7 +11,7 @@ const Adminhead =()=>{
           </p>
         </div>
         <div className="title">
-          <h1>Admin Dashboard</h1>
+          <h1>{prop.title}</h1>
         </div>
         <div className="avatar">
           <img

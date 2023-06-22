@@ -23,7 +23,7 @@ const NewAdmin=()=>{
     return (
         <div className="newadmin">
             <div className="newadmin-head">
-                <Adminhead/>
+                <Adminhead title="Admin DashBoard"/>
             </div>
             <div className="newadmin-body">
                 <div className="sidebarnav">

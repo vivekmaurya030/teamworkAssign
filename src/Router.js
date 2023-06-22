@@ -6,6 +6,8 @@ import { store } from "../src/Redux/index"
 import { Provider } from "react-redux";
 import SignUpPage from "./pages/signupPage";
 import NewAdminPage from "./pages/newadminPage";
+import ContactPage from "./pages/contactPage";
+
 
 
 const Routers = () => {
@@ -19,6 +21,7 @@ const Routers = () => {
                     <Route path="/LogInPage" element={<LogInPage/>}></Route>
                     <Route path="/SignUpPage" element={<SignUpPage />}></Route>
                     <Route path="/NewAdmin" element={<NewAdminPage />}></Route>
+                    <Route path="/ContactPage" element={<ContactPage />}></Route>
 
                 </Routes>
             </HashRouter>
