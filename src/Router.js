@@ -8,7 +8,7 @@ import SignUpPage from "./pages/signupPage";
 import NewAdminPage from "./pages/newadminPage";
 import ContactPage from "./pages/contactPage";
 
-
+import FaqPage from "./pages/faqsPage"
 
 const Routers = () => {
     return (
@@ -18,6 +18,7 @@ const Routers = () => {
                 <Routes>
                     <Route path = "/" element = {<HomePage />}/>
                     <Route path = "/AboutUsPage" element = {<AboutUs />}/>
+                    <Route path = "/FAQs" element = { <FaqPage />}> </Route>
                     <Route path="/LogInPage" element={<LogInPage/>}></Route>
                     <Route path="/SignUpPage" element={<SignUpPage />}></Route>
                     <Route path="/NewAdmin" element={<NewAdminPage />}></Route>
