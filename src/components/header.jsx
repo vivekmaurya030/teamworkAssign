@@ -16,7 +16,10 @@ export default function Header(){
                 <img src={klaralogo} alt="" />
             </div>
             <div className="logo-head">
-                <h1>Klara</h1>
+            <h2>KLARA MOON</h2>
+          <h6>
+            cleaning service providing&nbsp;<span className="cmpy">Company</span>
+          </h6>
             </div>
 
         </div>

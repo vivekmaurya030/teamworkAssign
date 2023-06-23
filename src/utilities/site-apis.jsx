@@ -29,8 +29,10 @@ export function apiPostCall(path, params) {
 }
 
 export function apiPostCall1(path, params) {
+  const userData = JSON.parse(localStorage.getItem('userDetails'))
+  console.log(userData.Authorization)
   let headers = {}
-  return axiosAPI.post(path, params, { headers: {'Authorization': `Bearer ${(localStorage.getItem('Authorization'))}`} })
+  return axiosAPI.post(path, params, { headers: {'Authorization': `Bearer ${userData.Authorization}`} })
     .then((response) => {
       return response
     })

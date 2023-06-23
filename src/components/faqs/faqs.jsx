@@ -5,11 +5,11 @@ import "./faqs.css"
 const faqs = () => {
     return (
         <>
-                <div className="nav">
+                <div className="navbar">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">FAQs</a></li>
                 </div>
-                <div className ="header">
+                <div className ="faqheader">
                     <h1>Frequently Asked Questions</h1>
                     <form className="searchbar">
                         <input type="text" placeholder="How can we help you?" />

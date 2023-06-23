@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React from "react";
+import React, { useState } from "react";
 import "./contact.scss";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -10,6 +10,8 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import {apiPostCall1} from '../../utilities/site-apis'
+
 
 const Contact = () => {
   const TextFieldStyle = {
@@ -31,6 +33,29 @@ const Contact = () => {
     },
     borderRadius: "4px",
   };
+  const handleClick =()=>{
+    apiPostCall1('http://localhost:3003/api/v1/contactUs',contactData)
+    alert("We will contact you soon..........")
+    clearField()
+    
+  }
+  const clearField =()=>{
+    document.getElementById("name").value="";
+    document.getElementById("email").value="";
+    document.getElementById("message").value="";
+  }
+
+  const [userContact,setContact]=useState({
+    name:"",
+    email:"",
+    message:"",
+  });
+  
+  const contactData={
+    name:userContact.name,
+    email:userContact.email,
+    message:userContact.message,
+  }
   return (
     <div className="contact">
       <div className="Contact-col1">
@@ -48,6 +73,7 @@ const Contact = () => {
                 label="Name :"
                 placeholder="Enter your full name"
                 fullWidth={true}
+                onChange={(e) => setContact((prev) => ({ ...prev, name: e.target.value }))}
                 type="text"
                 sx={TextFieldStyle}
               />
@@ -60,6 +86,7 @@ const Contact = () => {
                 placeholder="Enter your email address"
                 fullWidth={true}
                 type="text"
+                onChange={(e) => setContact((prev) => ({ ...prev, email: e.target.value }))}
                 sx={TextFieldStyle}
               />
             </div>
@@ -72,6 +99,7 @@ const Contact = () => {
                 multiline
                 rows={5}
                 fullWidth={true}
+                onChange={(e) => setContact((prev) => ({ ...prev, message: e.target.value }))}
                 type="text"
                 sx={TextFieldStyle}
               />
@@ -84,12 +112,12 @@ const Contact = () => {
                   textShadow: "0px 1px 1px grey",
                 },
               }}
-              control={<Checkbox sx={CheckBoxStyle}  required/>}
+              control={<Checkbox sx={CheckBoxStyle} defaultChecked/>}
               label="I Would like to receive the newsletter."
             />
           </div>
           <div className="submit">
-            <button className="sub-btn">Submit</button>
+            <button className="sub-btn" onClick={handleClick}>Submit</button>
           </div>
         </div>
         <div className="col1-part2">
