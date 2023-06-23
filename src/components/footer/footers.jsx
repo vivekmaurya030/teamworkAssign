@@ -37,7 +37,8 @@ const Footers = () => {
               About Klara
             </h3>
             <p>FAQs</p>
-            <p><Link to="/ContactPage">Contact</Link></p>
+            <p><Link to="/ContactPage" style={{color
+            :"#fffefe7d"}}>Contact</Link></p>
             <p>Blog</p>
           </div>
           <div className="about">
