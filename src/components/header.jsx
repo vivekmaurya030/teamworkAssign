@@ -3,7 +3,8 @@ import React from "react";
 import klaralogo from './images/klaralogo.png';
 import { Link } from "react-router-dom";
 import userIcon from "./images/userIcon.png";
-
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 export default function Header(){
     console.log("efnrenf", JSON.parse(localStorage.getItem("userDetails")));
     // localStorage.clear("userDetails")
@@ -31,9 +32,10 @@ export default function Header(){
                 <li><Link to="/FAQs">FAQS</Link></li>
                 <li><Link to="/">BLOG</Link></li>
                 <li><Link to="/NewAdmin">ADMIN</Link></li>
-                {userDetails ? <img src={userIcon} alt = "" className="userIcon"/> : <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
-            
+                {userDetails ? <NotificationsNoneOutlinedIcon className="userIcon"/> : ""}
+                {userDetails ? <PersonOutlineOutlinedIcon className="userIcon"/> : <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
             </ul>
+            
         </nav>
     </div>
     )

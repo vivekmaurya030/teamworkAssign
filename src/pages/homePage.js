@@ -16,10 +16,6 @@ import Footers from '../components/footer/footers';
 
 const HomePage=()=>{
   
-    const chakachakStyle={
-        background:`url(${chakachakbg})`,
-        backgroundSize:'100% 100%'
-      }
       return (
         <div>
           <Header />
@@ -38,8 +34,11 @@ const HomePage=()=>{
             </div>
           </div>
     
-          <div className="chakachak" style={chakachakStyle}>
+          <div className="chakachak" style={{background:`url(${chakachakbg})`,
+        backgroundSize:'100% 100%',}}>
+            <div className='chakachak-inner'>
             <h1>Chakachak</h1>
+            </div>
           </div>
           <CircularImg />
           <Services />
