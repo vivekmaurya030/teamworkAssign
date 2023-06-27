@@ -26,7 +26,7 @@ export default function Header(){
         <nav className="menu"> 
             <ul>
                 <li><Link to="/">HOME</Link></li>
-                <li><Link to="/">PRODUCTS</Link></li>
+                <li><Link to="/ProductOrderPage">PRODUCTS</Link></li>
                 <li><Link to="/">REVIEWS</Link></li>
                 <li><Link to="/FAQs">FAQS</Link></li>
                 <li><Link to="/">BLOG</Link></li>

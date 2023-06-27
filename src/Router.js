@@ -9,6 +9,7 @@ import NewAdminPage from "./pages/newadminPage";
 import ContactPage from "./pages/contactPage";
 
 import FaqPage from "./pages/faqsPage"
+import ProductOrderPage from "./pages/productOrderPage";
 
 const Routers = () => {
     return (
@@ -23,6 +24,7 @@ const Routers = () => {
                     <Route path="/SignUpPage" element={<SignUpPage />}></Route>
                     <Route path="/NewAdmin" element={<NewAdminPage />}></Route>
                     <Route path="/ContactPage" element={<ContactPage />}></Route>
+                    <Route path="/ProductOrderPage" element={<ProductOrderPage />}></Route>
 
                 </Routes>
             </HashRouter>

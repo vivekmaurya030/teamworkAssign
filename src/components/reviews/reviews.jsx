@@ -52,7 +52,7 @@ const Reviews=() => {
         scale:.8,
         slideShadows: false}
       }
-      pagination={{ clickable: true }}
+      pagination={{ clickable: false }}
       effect="coverflow"
       grabCursor={true}
       autoplay={{delay:3000}}
