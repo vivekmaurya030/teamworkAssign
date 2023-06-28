@@ -17,6 +17,7 @@ import { renderTimeViewClock } from "@mui/x-date-pickers/timeViewRenderers";
 import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import Autocomplete from '@mui/material/Autocomplete';
 import Switch from "@mui/material/Switch";
 import moment from "moment";
 import Chip from "@mui/material/Chip";
@@ -33,6 +34,16 @@ const ProductOrder = () => {
       },
     },
   };
+
+  const PetMenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 2.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
 
   const TextFieldStyle = {
     margin: "1vh 0",
@@ -59,7 +70,50 @@ const ProductOrder = () => {
     },
   };
 
-  const serviceList = [
+  const AutocompleteStyle ={
+
+    "& + .MuiAutocomplete-popper .MuiAutocomplete-option": {
+         backgroundColor: "blue",
+     },
+    "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']":
+       {
+         backgroundColor: "red",
+       },
+    "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected ='true'].Mui-focused":
+    {
+       backgroundColor: "green",
+    },
+   }
+  // const additem =()=>{
+  //   const newItem =[serviceList];
+    
+  //   return newItem
+  // }
+  const [serviceList, setServiceList] = React.useState([]);
+  const handleServicetSelect = (event, value) => setServiceList(value);
+
+  const [petList, setPetList] = React.useState([]);
+  const handlePetSelect = (event, value) => setPetList(value);
+  const out =()=>{
+    console.log(petList)
+    console.log(orderDetail);
+    console.log(petList);
+  }
+  const petData=[
+    "Dog",
+    "Cat",
+    "Monkey",
+    "Cow",
+    "Buffalo",
+    "Parrot",
+    "Hen",
+    "Monitor Lizard",
+    "Crocdile",
+    "Alligator",
+    "Fish",
+  "Other"  ]
+
+  const serviceData = [
     "Home Cleaning",
     "Carpet Cleaning",
     "Office Cleaning",
@@ -74,18 +128,18 @@ const ProductOrder = () => {
   const [toggled, setToggled] = useState(false);
   const [pettoggled, setpetToggled] = useState(false);
   const [orderDetail, setOrderDetail] = useState({
-    serviceList: "",
+    service: [],
     phone: "",
     dateTime: "",
     address: "",
     area: "",
     supplies: "0",
-    pet: "none",
+    pet: [],
     note: "",
   });
 
   const OrderData = {
-    service: orderDetail.service,
+    service: "",
     phone: orderDetail.phone,
     dateTime: orderDetail.dateTime,
     address: orderDetail.address,
@@ -95,16 +149,7 @@ const ProductOrder = () => {
     note: orderDetail.note,
   };
 
-  const [service, setServiceList] = React.useState([]);
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setServiceList(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
-  };
+  
 
   return (
     <div className="productOrder">
@@ -189,43 +234,25 @@ const ProductOrder = () => {
               <h3>Choose your service</h3>
             </div>
             <div className="input">
-              <FormControl fullWidth sx={TextFieldStyle}>
-                <Select
-                  labelId="demo-multiple-chip-label"
-                  id="demo-multiple-chip"
-                  multiple
-                  sx={TextFieldStyle}
-                  value={service}
-                  onChange={handleChange}
-                  input={<OutlinedInput id="select-multiple-chip" />}
-                  renderValue={(selected) => (
-                    <Box
-                      sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}
-                      onChange={(e) =>
-                        setServiceList((prev) => ({
-                          ...prev,
-                          service: e.target.value,
-                        }))
-                      }
-                    >
-                      {selected.map((value) => (
-                        <Chip
-                          key={value}
-                          label={value}
-                          sx={{ color: "white", background: "#4B006E" }}
-                        />
-                      ))}
-                    </Box>
-                  )}
-                  MenuProps={MenuProps}
-                >
-                  {serviceList.map((name) => (
-                    <MenuItem key={name} value={name}>
-                      {name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+            <Autocomplete
+        multiple
+        id="tags-outlined"
+        options={serviceData}
+        getOptionLabel={(option) => option}
+        filterSelectedOptions
+        sx={AutocompleteStyle}
+        onChange={handleServicetSelect}
+        style={{color:"white",background:""}}
+        InputProps={PetMenuProps}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            placeholder="Select services..."
+            
+            sx={TextFieldStyle}
+          />
+        )}
+      />
             </div>
           </div>
           <div className="col2-row1">
@@ -413,19 +440,23 @@ const ProductOrder = () => {
               className="input"
               style={{ display: pettoggled ? "" : "none" }}
             >
-              <TextField
-                className="textField"
-                id="area"
-                label=""
-                onChange={(e) =>
-                  setOrderDetail((prev) => ({ ...prev, pet: e.target.value }))
-                }
-                placeholder="Which pet have?"
-                required={pettoggled ? true : false}
-                fullWidth={true}
-                type="text"
-                sx={TextFieldStyle}
-              />
+              <Autocomplete
+        multiple
+        id="tags-outlined"
+        options={petData}
+        getOptionLabel={(option) => option}
+        filterSelectedOptions
+        onChange={handlePetSelect}
+        style={{color:"white",background:""}}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            placeholder="choose your pet"
+            
+            sx={TextFieldStyle}
+          />
+        )}
+      />
             </div>
           </div>
           <div className="col">
@@ -448,7 +479,7 @@ const ProductOrder = () => {
             </div>
           </div>
           <div className="row-order-btn">
-            <button className="order-btn" onClick={console.log(OrderData)}>
+            <button className="order-btn" onClick={out}>
               Place Order
             </button>
           </div>

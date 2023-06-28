@@ -6,6 +6,7 @@ import User from "./admin_component/user";
 import Employee from "./admin_component/employee";
 import UpdateUser from "./admin_component/updateUser";
 import Analytics from "./admin_component/analytics";
+import Notification from "../notification/notification";
 
 
 const NewAdmin=()=>{
@@ -19,6 +20,7 @@ const NewAdmin=()=>{
         employee: <Employee/>,
         updateUser: <UpdateUser />,
         analytics: <Analytics />,
+        notification: <Notification />
       };
     return (
         <div className="newadmin">
@@ -37,6 +39,7 @@ const NewAdmin=()=>{
             <li className={active === 'employee' ? 'active' : ''} onClick={() => handleActive('employee')}>Employee</li>
             <li className={active === 'updateUser' ? 'active' : ''} onClick={() => handleActive('updateUser')}>Update User</li>
             <li className={active === 'analytics' ? 'active' : ''} onClick={() => handleActive('analytics')}>Analytics</li>
+            <li className={active === 'notification' ? 'active' : ''} onClick={() => handleActive('notification')}>Notification</li>
 
             </div>
         </div>

@@ -1,0 +1,78 @@
+.notification{
+    border-radius: 17px;
+    overflow: hidden;
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.50);
+    height: 80vh;
+}
+.notification-head{
+    color:black;
+    background: #B199CF;
+    padding: 1vh 2vw;
+}
+.noti-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1{
+        font-size: 2.2rem;
+
+    }
+    p{font-size: 1rem;}
+    p:hover{
+        cursor: pointer;
+        color: white;
+
+    }
+}
+.noti-nav ul{
+    display: flex;
+    align-items: center;
+    li{
+        padding: .5vh 1vw;
+        
+        
+    }
+    li:hover{
+        color: white;
+        cursor: pointer;
+    }
+}
+.noti-body{
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+    padding: 3vh 3vw;
+    padding-bottom: 15vh;
+    background: white;
+    .noti-row{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1vh 1vw;
+        border-bottom: .5px solid grey ;
+        h5{
+            font-size: .9rem;
+            font-weight: 400;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+.noti-action-btn{
+    margin-left: 1vw;
+    border: 1px solid #4B006E;
+    border-radius: 20px;
+    padding: .5vh 1vw;
+    font-size: .7rem;
+}
+.accept-btn{
+    background: #4B006E;
+    color: white;
+
+}
+.reject-btn{
+    color: white;
+    background: rgba(255, 68, 0, 0.735);
+    border-color: rgba(255, 68, 0, 0.735);
+    margin-left: 2vw;
+}

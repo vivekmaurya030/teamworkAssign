@@ -32,7 +32,7 @@ export default function Header(){
                 <li><Link to="/FAQs">FAQS</Link></li>
                 <li><Link to="/">BLOG</Link></li>
                 <li><Link to="/NewAdmin">ADMIN</Link></li>
-                {userDetails ? <NotificationsNoneOutlinedIcon className="userIcon"/> : ""}
+                {userDetails ? <Link to="/notification"><NotificationsNoneOutlinedIcon className="userIcon"/></Link> : ""}
                 {userDetails ? <PersonOutlineOutlinedIcon className="userIcon"/> : <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
             </ul>
             

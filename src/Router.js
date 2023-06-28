@@ -25,6 +25,7 @@ const Routers = () => {
                     <Route path="/NewAdmin" element={<NewAdminPage />}></Route>
                     <Route path="/ContactPage" element={<ContactPage />}></Route>
                     <Route path="/ProductOrderPage" element={<ProductOrderPage />}></Route>
+                    <Route path="/notification" element={<NewAdminPage />}></Route>
 
                 </Routes>
             </HashRouter>
