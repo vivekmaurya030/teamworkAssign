@@ -17,7 +17,6 @@ const Notification =()=>{
         {name:"Malaika Arora", service:"Furniture CLeaning"},
         {name:"Avneet Kaur", service:"Home CLeaning"},
     ]
-
     return(
         <div className="notification">
            <div className="notification-head">
@@ -42,7 +41,7 @@ const Notification =()=>{
                                 <h5>{item.name}&nbsp;is requesting for {item.service}</h5>
                             </div>
                             <div className="noti-action">
-                                <button className="noti-action-btn accept-btn">Accept</button>
+                                <button className="noti-action-btn accept-btn" >Accept</button>
                                 <button className="noti-action-btn viewdetail-btn">View Detail</button>
                                 <button className="noti-action-btn reject-btn">Reject</button>
                             </div>

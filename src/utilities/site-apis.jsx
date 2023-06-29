@@ -63,12 +63,14 @@ export function apiPutCall(path, params) {
     });
 }
 export function apiGETCall1(path, params) {
-  let headers = {}
+  let headers = {};
+  const userData = JSON.parse(localStorage.getItem('userDetails'))
+  console.log(userData.Authorization)
   const searchParams = new URLSearchParams();
   Object.keys(params).forEach(key => searchParams.append(key, params[key]));
   let newUrl = `${path}?`+searchParams.toString();
   console.log("newUrl are", localStorage.getItem('Authorization'));
-  return axiosAPI.get(newUrl, { headers: {'Authorization': `Bearer ${(localStorage.getItem('Authorization'))}`} })
+  return axiosAPI.get(newUrl, { headers: {'Authorization': `Bearer ${userData.Authorization}`} })
     .then((response) => {
       return response
     })

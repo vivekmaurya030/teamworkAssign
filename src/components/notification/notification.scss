@@ -53,7 +53,7 @@
         h5{
             font-size: .9rem;
             font-weight: 400;
-            padding: 0;
+            padding: 1vh 0;
             margin: 0;
         }
     }
@@ -72,7 +72,7 @@
 }
 .reject-btn{
     color: white;
-    background: rgba(255, 68, 0, 0.735);
-    border-color: rgba(255, 68, 0, 0.735);
-    margin-left: 2vw;
+    background: red;
+    border-color: red;
+    // margin-left: 2vw;
 }
