@@ -10,6 +10,8 @@ import ContactPage from "./pages/contactPage";
 
 import FaqPage from "./pages/faqsPage"
 import ProductOrderPage from "./pages/productOrderPage";
+import Notification from "./components/notification/notification";
+import { Component } from "react";
 
 const Routers = () => {
     return (
@@ -25,7 +27,8 @@ const Routers = () => {
                     <Route path="/NewAdmin" element={<NewAdminPage />}></Route>
                     <Route path="/ContactPage" element={<ContactPage />}></Route>
                     <Route path="/ProductOrderPage" element={<ProductOrderPage />}></Route>
-                    <Route path="/notification" element={<NewAdminPage />}></Route>
+                    <Route exact path="/notification" element={<NewAdminPage/>}>
+                    </Route>
 
                 </Routes>
             </HashRouter>

@@ -8,11 +8,10 @@ import UpdateUser from "./admin_component/updateUser";
 import Analytics from "./admin_component/analytics";
 import Notification from "../notification/notification";
 
-
-const NewAdmin=()=>{
+const NewAdmin=(prop)=>{
     const [active,setActive]=useState("userList")
 
-    const handleActive=(item)=>{
+     const handleActive=(item)=>{
         setActive(item)
     }   
     const componentMap = {

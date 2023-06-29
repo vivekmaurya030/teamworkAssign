@@ -92,9 +92,10 @@ const ProductOrder = () => {
   //   return newItem
   // }
   const [serviceData, setServiceData] = useState([]);
-  var serviceArr = serviceData.map((obj) => obj.name)
+  const [serviceList, setServiceList] = useState([]);
+  // var serviceArr = serviceData.map((obj) => obj.name)
   // const [isServiceEmpty, setIsServiceEmpty] = useState(false);
-  const handleServicetSelect = (event, value) => setServiceData(value);
+  const handleServiceSelect = (event, value) => setServiceList(value);
   const dispatch = useDispatch();
   
   // setIsServiceEmpty(() => {
@@ -110,18 +111,13 @@ const ProductOrder = () => {
   useEffect(() => {
     // console.log("isServiceEmpty is ", isServiceEmpty);
      apiGETCall1("http://localhost:3003/api/v1/masterService", "").then((res) => {
-      console.log("response is ", res);
+      // console.log("response is ", res);
       setServiceData(res.data.data.response)  
      })
   }, []);
-  console.log("service dat ais ", serviceData);
-  const [petList, setPetList] = React.useState([]);
-  const handlePetSelect = (event, value) => setPetList(value);
-  const out =()=>{
-    console.log(petList)
-    console.log(orderDetail);
-    console.log(petList);
-  }
+  // console.log("service dat ais ", serviceData);
+  const [petList, setPetList] = useState([]);
+  const handlePetSelect = (event, value) => setPetList(value)
   const petData=[
     "Dog",
     "Cat",
@@ -136,10 +132,16 @@ const ProductOrder = () => {
     "Fish",
   "Other"  ]
 
+  const click=()=>{
+    console.log(serviceList)
+    console.log(petList)
+    console.log(orderDetail)
+  }
+
   const [toggled, setToggled] = useState(false);
   const [pettoggled, setpetToggled] = useState(false);
   const [orderDetail, setOrderDetail] = useState({
-    service: [],
+    service: "",
     phone: "",
     dateTime: "",
     address: "",
@@ -149,18 +151,9 @@ const ProductOrder = () => {
     note: "",
   });
 
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setServiceData(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
 
   const OrderData = {
-    service: "",
+    service: orderDetail.service,
     phone: orderDetail.phone,
     dateTime: orderDetail.dateTime,
     address: orderDetail.address,
@@ -255,35 +248,23 @@ const ProductOrder = () => {
               <h3>Choose your service</h3>
             </div>
             <div className="input">
-            <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
-        <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
-          multiple
-          value={serviceArr}
-          onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-          MenuProps={MenuProps}
-        >
-          {serviceData.map((name) => (
-            <MenuItem
-              key={name}
-              value={name}
-              // style={getStyles(name, personName, theme)}
-            >
-              {/* {name} */}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+            <Autocomplete
+        multiple
+        id="tags-outlined-ser"
+        options={serviceData}
+        getOptionLabel={(option) => option.name}
+        filterSelectedOptions
+        onChange={handleServiceSelect}
+        style={{color:"white",background:""}}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            placeholder="Select Services..."
+            
+            sx={TextFieldStyle}
+          />
+        )}
+      />
             </div>
           </div>
           <div className="col2-row1">
@@ -483,7 +464,6 @@ const ProductOrder = () => {
           <TextField
             {...params}
             placeholder="choose your pet"
-            
             sx={TextFieldStyle}
           />
         )}
@@ -510,7 +490,7 @@ const ProductOrder = () => {
             </div>
           </div>
           <div className="row-order-btn">
-            <button className="order-btn" onClick={out}>
+            <button className="order-btn" onClick={click}>
               Place Order
             </button>
           </div>

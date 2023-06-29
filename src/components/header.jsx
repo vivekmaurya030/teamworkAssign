@@ -2,14 +2,14 @@ import React from "react";
 // import { ReactDOM } from "react";
 import klaralogo from './images/klaralogo.png';
 import { Link } from "react-router-dom";
-import userIcon from "./images/userIcon.png";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+
 export default function Header(){
     console.log("efnrenf", JSON.parse(localStorage.getItem("userDetails")));
     // localStorage.clear("userDetails")
     var userDetails = JSON.parse(localStorage.getItem("userDetails"))
-
+    
     return(
     <div className="header">
         <div className="logo">
