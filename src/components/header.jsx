@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 // import { ReactDOM } from "react";
 import klaralogo from './images/klaralogo.png';
 import { Link } from "react-router-dom";
@@ -9,22 +9,19 @@ export default function Header(){
     console.log("efnrenf", JSON.parse(localStorage.getItem("userDetails")));
     // localStorage.clear("userDetails")
     var userDetails = JSON.parse(localStorage.getItem("userDetails"))
-
-    const [isDivVisible, setIsDivVisible] = useState(false);
-  
-
-  const handleClick = () => {
-    setIsDivVisible(!isDivVisible);
-  };
-  useEffect(() => {
-    window.addEventListener('popstate', (e) => {
-      window.history.go(1);
-    });
-  }, []);
-  const handleLogout =()=>{
-    localStorage.clear()
-    
-
+  // useEffect(() => {
+  //   window.addEventListener('popstate', (e) => {
+  //     window.history.go(1);
+  //   });
+  // }, []);
+  const handleDashboard=(item)=>{
+    if (userDetails.data.roles[0] == ["organisationAdmin"]  ) {
+      item="/NewAdmin"
+      return item;
+    }
+    else 
+      item ="/UserDashboardPage"
+      return item
   }
     
     return(
@@ -50,7 +47,7 @@ export default function Header(){
                 <li><Link to="/">BLOG</Link></li>
                 <li><Link to="/NewAdmin">ADMIN</Link></li>
                 {userDetails ? <Link to="/notification"><NotificationsNoneOutlinedIcon className="userIcon"/></Link> : ""}
-                {userDetails ? <Link style={{color:"black"}}><PersonOutlineOutlinedIcon onClick={handleClick} className="userIcon"/></Link> : <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
+                {userDetails ?  <Link to={handleDashboard()}><PersonOutlineOutlinedIcon className="userIcon"/></Link>: <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
             </ul>
             
         </nav>

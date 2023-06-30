@@ -107,13 +107,16 @@ const SignUp = () => {
  
   // For handling checkboxes
 
+  const [redirect,setRedirect]=useState(false)
 
   const handleSubmit = () => {
     if(!userData.isAggrement || !userData.isInformation || !userData.isNewsLetter) {
       alert("Please check all fields");
+      setRedirect(true)
       return;
     };
 
+    
     const prepareObj = {
        email: userData.email,
        phone: {
@@ -405,7 +408,7 @@ const SignUp = () => {
               </div>
             </div>
             <div className="signup-btn-row">
-                  <Link><button type="button" className="login-btn signupbtn" onClick={handleSubmit}>Signup Now </button></Link>
+                  <Link to= {redirect ? "/LogInPage":""} ><button type="button" className="login-btn signupbtn" onClick={handleSubmit}>Signup Now </button></Link>
             </div>
           </div>
         </div>

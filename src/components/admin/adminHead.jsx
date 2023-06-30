@@ -9,17 +9,18 @@ const Adminhead =(prop)=>{
 
   const handleClick = () => {
     setIsDivVisible(!isDivVisible);
+    // console.log(userDetails);
   };
-  useEffect(() => {
-    window.addEventListener('popstate', (e) => {
-      window.history.go(1);
-    });
-  }, []);
+var userDetails = JSON.parse(localStorage.getItem("userDetails"))
+
+  // useEffect(() => {
+  //   window.addEventListener('popstate', (e) => {
+  //     window.history.go(1);
+  //   });
+  // }, []);
   const handleLogout =()=>{
     localStorage.clear()
-    
-
-  }
+      }
     return(
         <div className="admin-head">
         <div className="logo">
@@ -39,15 +40,15 @@ const Adminhead =(prop)=>{
             style={{ height: "40px", width: "40px", borderRadius: "50%" }}
             
           />
-          <p>admin.name@mail.com</p>
+          <p>{userDetails.data.email}</p>
           <ArrowDropDownOutlinedIcon  />
 
           </div>
-          {isDivVisible && <div className="avatar-dropdown" >
+          <div className="avatar-dropdown" style={{display: isDivVisible? "":"none"}}>
             <ul>
               <Link to="/" style={{color:"white"}}><li onClick={handleLogout}><LogoutIcon className="dropdown-icon"/>Logout</li></Link>
             </ul>
-          </div>}
+          </div>
         </div>
       </div>
     )

@@ -477,7 +477,10 @@ const ProductOrder = () => {
       </div>
       <div className="col3" style={{display: preview ? "":"none"}}>
                 <div className="orderContainer">
-                <button onClick={click}>back</button>                  
+                    <div>
+                      <h1>Try to Ressolve</h1>
+                    </div>
+                <button onClick={click} className="back-btn">Bye waps ja rha hu </button>                  
                 </div>
       </div>
     </div>
