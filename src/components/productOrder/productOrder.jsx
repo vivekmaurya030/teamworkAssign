@@ -3,9 +3,7 @@ import "./productOrder.scss";
 import imgproductOrder from "./img/imgproductOrder.png";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
 import { apiGETCall1 } from "../../utilities/site-apis"
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";
@@ -16,13 +14,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { renderTimeViewClock } from "@mui/x-date-pickers/timeViewRenderers";
 import TextField from "@mui/material/TextField";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import Autocomplete from '@mui/material/Autocomplete';
 import Switch from "@mui/material/Switch";
 import moment from "moment";
-import Chip from "@mui/material/Chip";
-import Box from "@mui/material/Box";
 import { useDispatch } from "react-redux";
 
 const ProductOrder = () => {
@@ -71,21 +65,6 @@ const ProductOrder = () => {
       backgroundColor: "#4B006E",
     },
   };
-
-  const AutocompleteStyle ={
-
-    "& + .MuiAutocomplete-popper .MuiAutocomplete-option": {
-         backgroundColor: "blue",
-     },
-    "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']":
-       {
-         backgroundColor: "red",
-       },
-    "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected ='true'].Mui-focused":
-    {
-       backgroundColor: "green",
-    },
-   }
   // const additem =()=>{
   //   const newItem =[serviceList];
     
@@ -133,15 +112,16 @@ const ProductOrder = () => {
   "Other"  ]
 
   const click=()=>{
-    console.log(serviceList)
+    console.log(serviceData)
     console.log(petList)
     console.log(orderDetail)
+    setPreview(!preview)
   }
 
   const [toggled, setToggled] = useState(false);
   const [pettoggled, setpetToggled] = useState(false);
   const [orderDetail, setOrderDetail] = useState({
-    service: "",
+    service: [],
     phone: "",
     dateTime: "",
     address: "",
@@ -162,8 +142,7 @@ const ProductOrder = () => {
     pet: orderDetail.pet,
     note: orderDetail.note,
   };
-
-  
+  const [preview,setPreview]=useState(false)
 
   return (
     <div className="productOrder">
@@ -187,7 +166,7 @@ const ProductOrder = () => {
           <img src={imgproductOrder} alt="" />
         </div>
       </div>
-      <div className="col2">
+      <div className="col2" style={{display: preview ? "none":""}}>
         <div className="orderContainer">
           <div className="col2-row1" style={{ display: "none " }}>
             <div className="row1-col1">
@@ -495,6 +474,11 @@ const ProductOrder = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div className="col3" style={{display: preview ? "":"none"}}>
+                <div className="orderContainer">
+                <button onClick={click}>back</button>                  
+                </div>
       </div>
     </div>
   );

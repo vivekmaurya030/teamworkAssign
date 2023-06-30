@@ -57,7 +57,7 @@
         padding: 0;
     }
 }
-.avatar{
+.avatar-body{
     display: flex;
     align-items: center;
     p{
@@ -67,10 +67,42 @@
         font-weight: 500;
     }
 }
+.avatar{
+    display: block;
+    position: relative;
+}
 .admin-body{
     display: flex;
     padding: 0;
     margin: 0;
+}
+.avatar-dropdown{
+    position: absolute;
+    background: #4b006e90;
+    color: white;
+    padding: 1vh 2vw;
+    border-radius: 20px;
+    margin-top: 2vh;
+    width: 100%;
+    ul{
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        padding: 0;
+        margin: 0;
+    }
+    :hover{
+        li{
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+    }
+}
+.dropdown-icon{
+    transform: rotate(180deg);
+    margin-right: 1vh;
+
 }
 
 .body{
