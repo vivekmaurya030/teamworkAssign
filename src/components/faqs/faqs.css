@@ -15,26 +15,32 @@
     font-size: 1.2rem;
 }
 .faqheader{
-    background-image: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.1)), url(img/human.jpg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.1)), url(img/human.jpg); */
     width: 100%;
     height: 90vh;
     background-size: 100%;
     background-size: cover;
 }
 .faqheader h1{
-    color: white;
+    color: black;
     font-size: 3rem;
     text-align: center;
     padding-top: 17%;
 }
 .searchbar{
-    width: 90%;
+    width: 100%;
     max-width: 400px;
     display: flex;
     border-radius: 60px;
     padding: 8px 18px;
     background: rgba(255,255,255,0.2);
     margin-top: 3vh;
+    align-items: center;
+    justify-content: center;
 }
 .searchbar input{
     background: none;
@@ -65,22 +71,36 @@
     font-size: 19px;
 }
 .contactus{
-    /* display: flex; */
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 5vh 0;
+    /* padding: 5vh 0; */
     background: rgb(87, 186, 211);
 }
-.icon img{
+.callguy img{
     width: auto;
-    height: 150px;
+    height: 200px;
     margin-right: 5vw;
 }
-.text h1{
-    padding: 2vh 0;
+.text{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 0;
+    padding: 10vh 0;
 }
-.text h3 a{
+.text h1{
+    /* padding: 2vh 0; */
+    padding: 0;
+    margin: 0;
+    font-size: 1.9rem;
+}
+.text h3{
     text-decoration: none;
     color: black;
+    font-size: 1rem;
+    padding-top: 2vh;
 }
 .text h3 a:hover{
     color: blue;

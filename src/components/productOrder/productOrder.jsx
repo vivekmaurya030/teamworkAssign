@@ -4,7 +4,7 @@ import imgproductOrder from "./img/imgproductOrder.png";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
-import { apiGETCall1 } from "../../utilities/site-apis"
+import { apiGETCall1 } from "../../utilities/site-apis";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
@@ -14,15 +14,15 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { renderTimeViewClock } from "@mui/x-date-pickers/timeViewRenderers";
 import TextField from "@mui/material/TextField";
-import Autocomplete from '@mui/material/Autocomplete';
+import Autocomplete from "@mui/material/Autocomplete";
 import Switch from "@mui/material/Switch";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { createOrder } from "../../Redux/OrderRedux"
-
+import { createOrder } from "../../Redux/OrderRedux";
 
 const ProductOrder = () => {
+  const [total,setTotal]=useState(0)
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {
@@ -42,7 +42,6 @@ const ProductOrder = () => {
       },
     },
   };
-
 
   const TextFieldStyle = {
     margin: "1vh 0",
@@ -70,43 +69,45 @@ const ProductOrder = () => {
   };
   // const additem =()=>{
   //   const newItem =[serviceList];
-    
+
   //   return newItem
   // }
   const [serviceData, setServiceData] = useState([]);
   const [serviceList, setServiceList] = useState([]);
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
   // var serviceArr = serviceData.map((obj) => obj.name)
   // const [isServiceEmpty, setIsServiceEmpty] = useState(false);
-  
+
   const dispatch = useDispatch();
-  var userDetails = JSON.parse(localStorage.getItem("userDetails")) 
-  
+  var userDetails = JSON.parse(localStorage.getItem("userDetails"));
+
   // setIsServiceEmpty(() => {
   //   if(serviceList.length === 0) {
   //     return false;
   //   }
   //   else {
   //     return true;
-  //   }  
-  // }); 
-
+  //   }
+  // });
 
   useEffect(() => {
     // console.log("isServiceEmpty is ", isServiceEmpty);
-     if(!userDetails) {
-      alert("Please login/signup first!!")
-      navigate("/")
-     }
-     apiGETCall1("http://localhost:3003/api/v1/masterService", "").then((res) => {
-      // console.log("response is ", res);
-      setServiceData(res.data.data.response)  
-     })
+    if (!userDetails) {
+      alert("Please login/signup first!!");
+      navigate("/");
+    }
+    apiGETCall1("http://localhost:3003/api/v1/masterService", "").then(
+      (res) => {
+        // console.log("response is ", res);
+        setServiceData(res.data.data.response);
+      }
+    );
   }, []);
   // console.log("service dat ais ", serviceData);
   const [petList, setPetList] = useState([]);
 
-  const petData=[
+  const petData = [
     "Dog",
     "Cat",
     "Monkey",
@@ -118,18 +119,16 @@ const ProductOrder = () => {
     "Crocdile",
     "Alligator",
     "Fish",
-  "Other"  ]
+    "Other",
+  ];
   //  console.log("userdetails is ", userDetails);
-  const click=()=>{
-    console.log(serviceData)
-    console.log(petList)
-    console.log(orderDetail)
-    setPreview(!preview)
-  }
+  const click = () => {
+    setPreview(!preview);
+  };
 
   const [toggled, setToggled] = useState(false);
   const [pettoggled, setpetToggled] = useState(false);
-  const [price, setPrice] = useState([])
+  const [price, setPrice] = useState([]);
 
   var [orderDetail, setOrderDetail] = useState({
     service: [],
@@ -142,45 +141,43 @@ const ProductOrder = () => {
     note: "",
   });
 
-
   const handleServiceSelect = (event, value) => {
     console.log("event is ", event, value);
-    setServiceList(value)
-    const newArr = value.map((e) => e._id)
+    setServiceList(value);
+    const newArr = value.map((e) => e._id);
     console.log(" newArr is ", newArr);
     setOrderDetail((prev) => ({
       ...prev,
-      service: newArr
-    }))
-  }
+      service: newArr,
+    }));
+  };
 
   const handlePetSelect = (event, value) => {
-    setPetList(value)
-    const newArr = value.map((e) => e)
+    setPetList(value);
+    const newArr = value.map((e) => e);
     console.log(" newArr is ", newArr);
     setOrderDetail((prev) => ({
       ...prev,
-      pet: newArr
-    }))
-  }
+      pet: newArr,
+    }));
+  };
   console.log("orderDetail iis ", orderDetail);
 
   useEffect(() => {
     let newArr = [];
-    if(orderDetail?.service?.length != 0 && orderDetail.area != '') {
+    if (orderDetail?.service?.length != 0 && orderDetail.area != "") {
       newArr = serviceList.map((item) => {
         console.log("item is ", item);
-         return {
+        return {
           name: item.name,
-          price: item.price * orderDetail.area
-         }
-      })
+          price: item.price * orderDetail.area,
+        };
+      });
     }
     console.log("newArr is ", newArr);
-    setPrice(newArr)
+    setPrice(newArr);
     console.log("price is ", price);
-  }, [orderDetail.area, orderDetail.service])
-
+  }, [orderDetail.area, orderDetail.service]);
 
   const handleSubmit = async () => {
     const OrderData = {
@@ -195,14 +192,15 @@ const ProductOrder = () => {
       address: orderDetail.address,
       notes: orderDetail.note,
     };
+    click();
 
     dispatch(createOrder(OrderData)).then((res) => {
       console.log("response is ", res);
-      setOrderDetail({})
-    })
-  }
+      setOrderDetail({});
+    });
+  };
 
-  const [preview,setPreview]=useState(false)
+  const [preview, setPreview] = useState(false);
 
   return (
     <div className="productOrder">
@@ -226,7 +224,7 @@ const ProductOrder = () => {
           <img src={imgproductOrder} alt="" />
         </div>
       </div>
-      <div className="col2" style={{display: preview ? "none":""}}>
+      <div className="col2" style={{ display: preview ? "none" : "" }}>
         <div className="orderContainer">
           <div className="col2-row1" style={{ display: "none " }}>
             <div className="row1-col1">
@@ -276,7 +274,6 @@ const ProductOrder = () => {
                         />
                       </InputAdornment>
                     }
-                    
                   />
                 </FormControl>
               </div>
@@ -287,23 +284,22 @@ const ProductOrder = () => {
               <h3>Choose your service</h3>
             </div>
             <div className="input">
-            <Autocomplete
-        multiple
-        id="tags-outlined-ser"
-        options={serviceData}
-        getOptionLabel={(option) => option.name}
-        filterSelectedOptions
-        onChange={handleServiceSelect}
-        style={{color:"white",background:""}}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            placeholder="Select Services..."
-            
-            sx={TextFieldStyle}
-          />
-        )}
-      />
+              <Autocomplete
+                multiple
+                id="tags-outlined-ser"
+                options={serviceData}
+                getOptionLabel={(option) => option.name}
+                filterSelectedOptions
+                onChange={handleServiceSelect}
+                style={{ color: "white", background: "" }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    placeholder="Select Services..."
+                    sx={TextFieldStyle}
+                  />
+                )}
+              />
             </div>
           </div>
           <div className="col2-row1">
@@ -492,21 +488,21 @@ const ProductOrder = () => {
               style={{ display: pettoggled ? "" : "none" }}
             >
               <Autocomplete
-        multiple
-        id="tags-outlined"
-        options={petData}
-        getOptionLabel={(option) => option}
-        filterSelectedOptions
-        onChange={handlePetSelect}
-        style={{color:"white",background:""}}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            placeholder="choose your pet"
-            sx={TextFieldStyle}
-          />
-        )}
-      />
+                multiple
+                id="tags-outlined"
+                options={petData}
+                getOptionLabel={(option) => option}
+                filterSelectedOptions
+                onChange={handlePetSelect}
+                style={{ color: "white", background: "" }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    placeholder="choose your pet"
+                    sx={TextFieldStyle}
+                  />
+                )}
+              />
             </div>
           </div>
           <div className="col">
@@ -529,11 +525,6 @@ const ProductOrder = () => {
             </div>
           </div>
 
-          <div>
-          {price?.length > 0 ? price.map((item) => (
-              <h3> {item.name} :-  {item.price}</h3>
-          )) : null}
-          </div>
           <div className="row-order-btn">
             <button className="order-btn" onClick={handleSubmit}>
               Place Order
@@ -541,13 +532,44 @@ const ProductOrder = () => {
           </div>
         </div>
       </div>
-      <div className="col3" style={{display: preview ? "":"none"}}>
-                <div className="orderContainer">
-                    <div>
-                      <h1>Try to Ressolve</h1>
-                    </div>
-                <button onClick={click} className="back-btn">Bye waps ja rha hu </button>                  
-                </div>
+      <div className="col3" style={{ display: preview ? "" : "none" }}>
+        <div className="orderContainer">
+          <div>
+            {price?.length > 0
+              ? price.map((item) => (
+                  <div className="service-block">
+                    <div><h2>{item.name}</h2></div>
+                    <div className="service-price"><h3>Price:</h3><p>₹&nbsp;{item.price}</p></div>
+                    
+                    <p>{toggled ? <b>Includes company's cleaning supplies</b>:""}</p>
+                  </div>
+                ))
+              : null}
+          </div>
+          <div className="summary">
+          {price?.length > 0
+              ? price.map((item) => (
+                  <div className="summary-list">
+                    <h4>{item.name}</h4>
+                    <h5>₹&nbsp;{item.price}</h5>
+                    {/* {setTotal(total+item.price)} */}
+                  </div>
+                ))
+              : null}
+              <div className="total">
+                <h2>Total</h2>
+                <h2>₹&nbsp;{total}</h2>
+              </div>
+          </div>
+          <div className="confirm-back-btn">
+          <button onClick={click} className="confirm-btn">
+            Go Back
+          </button>
+          <button  className="confirm-btn">
+            Confirm
+          </button>
+          </div>
+        </div>
       </div>
     </div>
   );
