@@ -15,7 +15,7 @@ import Newsletter from '../components/newsletter/newsletter';
 import Footers from '../components/footer/footers';
 
 const HomePage=()=>{
-  
+      // localStorage.clear('userDetails')
       return (
         <div>
           <Header />

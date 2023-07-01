@@ -18,6 +18,9 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Switch from "@mui/material/Switch";
 import moment from "moment";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { createOrder } from "../../Redux/OrderRedux"
+
 
 const ProductOrder = () => {
   const ITEM_HEIGHT = 48;
@@ -72,10 +75,12 @@ const ProductOrder = () => {
   // }
   const [serviceData, setServiceData] = useState([]);
   const [serviceList, setServiceList] = useState([]);
+  const navigate = useNavigate()
   // var serviceArr = serviceData.map((obj) => obj.name)
   // const [isServiceEmpty, setIsServiceEmpty] = useState(false);
-  const handleServiceSelect = (event, value) => setServiceList(value);
+  
   const dispatch = useDispatch();
+  var userDetails = JSON.parse(localStorage.getItem("userDetails")) 
   
   // setIsServiceEmpty(() => {
   //   if(serviceList.length === 0) {
@@ -89,6 +94,10 @@ const ProductOrder = () => {
 
   useEffect(() => {
     // console.log("isServiceEmpty is ", isServiceEmpty);
+     if(!userDetails) {
+      alert("Please login/signup first!!")
+      navigate("/")
+     }
      apiGETCall1("http://localhost:3003/api/v1/masterService", "").then((res) => {
       // console.log("response is ", res);
       setServiceData(res.data.data.response)  
@@ -96,7 +105,7 @@ const ProductOrder = () => {
   }, []);
   // console.log("service dat ais ", serviceData);
   const [petList, setPetList] = useState([]);
-  const handlePetSelect = (event, value) => setPetList(value)
+
   const petData=[
     "Dog",
     "Cat",
@@ -110,7 +119,7 @@ const ProductOrder = () => {
     "Alligator",
     "Fish",
   "Other"  ]
-
+  //  console.log("userdetails is ", userDetails);
   const click=()=>{
     console.log(serviceData)
     console.log(petList)
@@ -120,7 +129,9 @@ const ProductOrder = () => {
 
   const [toggled, setToggled] = useState(false);
   const [pettoggled, setpetToggled] = useState(false);
-  const [orderDetail, setOrderDetail] = useState({
+  const [price, setPrice] = useState([])
+
+  var [orderDetail, setOrderDetail] = useState({
     service: [],
     phone: "",
     dateTime: "",
@@ -132,16 +143,65 @@ const ProductOrder = () => {
   });
 
 
-  const OrderData = {
-    service: orderDetail.service,
-    phone: orderDetail.phone,
-    dateTime: orderDetail.dateTime,
-    address: orderDetail.address,
-    area: orderDetail.area,
-    supplies: orderDetail.supplies,
-    pet: orderDetail.pet,
-    note: orderDetail.note,
-  };
+  const handleServiceSelect = (event, value) => {
+    console.log("event is ", event, value);
+    setServiceList(value)
+    const newArr = value.map((e) => e._id)
+    console.log(" newArr is ", newArr);
+    setOrderDetail((prev) => ({
+      ...prev,
+      service: newArr
+    }))
+  }
+
+  const handlePetSelect = (event, value) => {
+    setPetList(value)
+    const newArr = value.map((e) => e)
+    console.log(" newArr is ", newArr);
+    setOrderDetail((prev) => ({
+      ...prev,
+      pet: newArr
+    }))
+  }
+  console.log("orderDetail iis ", orderDetail);
+
+  useEffect(() => {
+    let newArr = [];
+    if(orderDetail?.service?.length != 0 && orderDetail.area != '') {
+      newArr = serviceList.map((item) => {
+        console.log("item is ", item);
+         return {
+          name: item.name,
+          price: item.price * orderDetail.area
+         }
+      })
+    }
+    console.log("newArr is ", newArr);
+    setPrice(newArr)
+    console.log("price is ", price);
+  }, [orderDetail.area, orderDetail.service])
+
+
+  const handleSubmit = async () => {
+    const OrderData = {
+      userId: userDetails.data.userId,
+      date: orderDetail.dateTime,
+      service: orderDetail.service,
+      houseArea: orderDetail.area,
+      havePet: orderDetail.pet ? true : false,
+      petName: orderDetail.pet,
+      donateToEmployee: orderDetail.supplies ? true : false,
+      donatedAmount: orderDetail.supplies,
+      address: orderDetail.address,
+      notes: orderDetail.note,
+    };
+
+    dispatch(createOrder(OrderData)).then((res) => {
+      console.log("response is ", res);
+      setOrderDetail({})
+    })
+  }
+
   const [preview,setPreview]=useState(false)
 
   return (
@@ -468,8 +528,14 @@ const ProductOrder = () => {
               />
             </div>
           </div>
+
+          <div>
+          {price?.length > 0 ? price.map((item) => (
+              <h3> {item.name} :-  {item.price}</h3>
+          )) : null}
+          </div>
           <div className="row-order-btn">
-            <button className="order-btn" onClick={click}>
+            <button className="order-btn" onClick={handleSubmit}>
               Place Order
             </button>
           </div>

@@ -118,7 +118,7 @@ const SignUp = () => {
 
     
     const prepareObj = {
-       email: userData.email,
+       email: userData?.email,
        phone: {
         work: userData.mobile,
         mobile: userData.phone

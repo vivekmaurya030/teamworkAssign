@@ -15,7 +15,8 @@ export default function Header(){
   //   });
   // }, []);
   const handleDashboard=(item)=>{
-    if (userDetails.data.roles[0] == ["organisationAdmin"]) {
+    console.log("userDetails is ", userDetails);
+    if (userDetails?.data?.roles[0] == ["organisationAdmin"]  ) {
       item="/NewAdmin"
       return item;
     }

@@ -24,7 +24,7 @@ const initialState = {
 // example of creating redux thunk
 
 export const login = createAsyncThunk(
-    'auth/register',
+    'auth/login',
     async (params, { rejectWithValue }) => {
     const response = await apiPostCall(`http://localhost:3003/api/v1/user/login`, params)
      if (response.data.status === "error") {
@@ -108,5 +108,5 @@ export const counterSlice = createSlice({
     }    
 })
 
-export const {  } = counterSlice.actions
+export const { setLoginRedirectUrl, setIsSignUp, logout } = counterSlice.actions
 export default counterSlice.reducer
