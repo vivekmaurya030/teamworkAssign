@@ -1,7 +1,10 @@
 import React,{useState}from "react";
 import Adminhead from "../admin/adminHead";
 import UserProfile from "./userDashboardComponent/userprofile";
-
+import MyOrders from "./userDashboardComponent/myOrders";
+import MyAddresses from "./userDashboardComponent/myAddresses";
+// import {ContactPage} from '../../pages/contactPage'
+import ChangePassword from "./userDashboardComponent/changePassword";
 const UserDashboard =()=>{
     const [active,setActive]=useState("profile")
 
@@ -10,10 +13,10 @@ const UserDashboard =()=>{
     }   
     const componentMap = {
         profile: <UserProfile />,
-        // myOrders: <Employee/>,
-        // myAddresses: <UpdateUser />,
-        // contactUs: <Analytics />,
-        // changePassword: <Notification />
+        myOrders: <MyOrders />,
+        myAddresses: <MyAddresses />,
+        // contactUs: <ContactPage/> ,
+        changePassword: <ChangePassword />
       };
 
     return (

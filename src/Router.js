@@ -10,9 +10,8 @@ import ContactPage from "./pages/contactPage";
 
 import FaqPage from "./pages/faqsPage"
 import ProductOrderPage from "./pages/productOrderPage";
-import Notification from "./components/notification/notification";
-import { Component } from "react";
 import UserDashboardPage from "./pages/userDashboardPage";
+import NewAdmin from "./components/admin/notification";
 
 const Routers = () => {
     return (
@@ -29,7 +28,7 @@ const Routers = () => {
                     <Route path="/ContactPage" element={<ContactPage />}></Route>
                     <Route path="/ProductOrderPage" element={<ProductOrderPage />}></Route>
                     <Route path="/UserDashboardPage" element={<UserDashboardPage />}></Route>
-                    <Route exact path="/notification" element={<NewAdminPage/>}>
+                    <Route exact path="/notification" element={<NewAdmin/>}>
                     </Route>
 
                 </Routes>
