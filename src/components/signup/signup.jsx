@@ -344,6 +344,7 @@ const SignUp = () => {
                     label="Date Of Birth"
                     slotProps={{ textField: { fullWidth: true } }}
                     sx={TextFieldStyle}
+                    disableFuture
                     onChange={(e) => setUserData((prev) => ({ ...prev, dob: moment(e.$d).format() }))}
                     // onChange={(e) => console.log("edefbgr is ", moment(e.$d).format())}
                   />
