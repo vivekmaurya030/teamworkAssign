@@ -40,7 +40,7 @@ var userDetails = JSON.parse(localStorage.getItem("userDetails"))
             style={{ height: "40px", width: "40px", borderRadius: "50%" }}
             
           />
-          <p>{userDetails.data.email}</p>
+          <p>{userDetails?.data?.email}</p>
           <ArrowDropDownOutlinedIcon  />
 
           </div>

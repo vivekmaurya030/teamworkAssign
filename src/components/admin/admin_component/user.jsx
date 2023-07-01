@@ -161,7 +161,7 @@ const User = () => {
                 ></div>
                 <div className="user-name">
                   <h4>{item.name}</h4>
-                  <p>{item.email}</p>
+                  <p>{item?.email}</p>
                 </div>
               </div>
               <div className="user-id">
