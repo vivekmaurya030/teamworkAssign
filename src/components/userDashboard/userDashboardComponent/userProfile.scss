@@ -1,0 +1,27 @@
+.userProfile{
+    height: 80vh;
+    background: white;
+    padding: 2vh 3vw;
+    padding-bottom: 5vh;
+    border-radius: 20px;
+    overflow: auto;
+}
+
+.profile-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+    }
+}
+.profile-body{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 1vh 5vw;
+}
+.profile-detail{
+    // width: 50%;
+}

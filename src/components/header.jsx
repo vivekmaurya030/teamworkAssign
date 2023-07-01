@@ -15,7 +15,7 @@ export default function Header(){
   //   });
   // }, []);
   const handleDashboard=(item)=>{
-    if (userDetails.data.roles[0] == ["organisationAdmin"]  ) {
+    if (userDetails.data.roles[0] == ["organisationAdmin"]) {
       item="/NewAdmin"
       return item;
     }
@@ -45,7 +45,7 @@ export default function Header(){
                 <li><Link to="/">REVIEWS</Link></li>
                 <li><Link to="/FAQs">FAQS</Link></li>
                 <li><Link to="/">BLOG</Link></li>
-                <li><Link to="/NewAdmin">ADMIN</Link></li>
+                {/* <li><Link to="/NewAdmin">ADMIN</Link></li> */}
                 {userDetails ? <Link to="/notification"><NotificationsNoneOutlinedIcon className="userIcon"/></Link> : ""}
                 {userDetails ?  <Link to={handleDashboard()}><PersonOutlineOutlinedIcon className="userIcon"/></Link>: <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
             </ul>
