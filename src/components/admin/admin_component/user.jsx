@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./user.scss";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
@@ -11,6 +11,8 @@ import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 import PhotoCameraFrontOutlinedIcon from "@mui/icons-material/PhotoCameraFrontOutlined";
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import { apiGETCall1 } from "../../../utilities/site-apis";
 
 const data = [
   {
@@ -86,7 +88,6 @@ const data = [
     state: "Bengaluru",
   },
 ];
-
 const User = () => {
   return (
     <div>
@@ -174,6 +175,9 @@ const User = () => {
                 <h5>{item.state}</h5>
               </div>
               <div className="edit-btn">
+                <div className="edit">
+                  <RemoveRedEyeOutlinedIcon />
+                </div>
                 <div className="edit">
                   <ModeEditOutlineOutlinedIcon />
                 </div>

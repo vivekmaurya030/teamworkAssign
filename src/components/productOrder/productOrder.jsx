@@ -20,6 +20,14 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { createOrder } from "../../Redux/OrderRedux";
+import { Link } from "react-router-dom";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 const ProductOrder = () => {
   const [total,setTotal]=useState(0)
@@ -104,6 +112,16 @@ const ProductOrder = () => {
       }
     );
   }, []);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   // console.log("service dat ais ", serviceData);
   const [petList, setPetList] = useState([]);
 
@@ -541,7 +559,7 @@ const ProductOrder = () => {
                     <div><h2>{item.name}</h2></div>
                     <div className="service-price"><h3>Price:</h3><p>₹&nbsp;{item.price}</p></div>
                     
-                    <p>{toggled ? <b>Includes company's cleaning supplies</b>:""}</p>
+                    <p>{toggled ? "Includes company's cleaning supplies":""}</p>
                   </div>
                 ))
               : null}
@@ -565,11 +583,30 @@ const ProductOrder = () => {
           <button onClick={click} className="confirm-btn">
             Go Back
           </button>
-          <button  className="confirm-btn">
+          <Link><button  className="confirm-btn" onClick={handleClickOpen}>
             Confirm
-          </button>
+          </button></Link>
           </div>
         </div>
+      </div>
+      <div>
+      <Dialog
+        open={open}
+        // onClose={handleClose}  
+        sx={{background: "rgba(20, 20, 20, 0.68)"}}      
+      >
+        <DialogContent className="msg-content" sx={{boxShadow: "0px 40px 40px 14px rgba(3, 3, 3, 0.54)"
+      }}>
+          <div className="msg-row1"><CheckCircleIcon style={{color:"#4B006E",fontSize:"3rem"}}/></div>
+          <div className="msg-row1">
+            <h1> Your order has been placed!! </h1>
+            <p>You will be receiving a confirmation email with a order details</p>
+          </div>
+          <div className="msg-row1">
+            <Link to="/"><button className="icon ok-btn" onClick={handleClose}>OK</button></Link>
+          </div>
+        </DialogContent>
+      </Dialog>
       </div>
     </div>
   );
