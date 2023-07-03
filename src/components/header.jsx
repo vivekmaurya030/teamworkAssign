@@ -16,7 +16,7 @@ export default function Header(){
   // }, []);
   const handleDashboard=(item)=>{
     console.log("userDetails is ", userDetails);
-    if (userDetails?.data?.roles[0] == ["organisationAdmin"]  ) {
+    if (userDetails?.data?.roles[0] == ["organisationAdmin"] || ["superAdmin"]  ) {
       item="/NewAdmin"
       return item;
     }

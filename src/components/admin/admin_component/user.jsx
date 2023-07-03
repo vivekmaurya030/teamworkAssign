@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./user.scss";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
@@ -88,8 +88,28 @@ const data = [
     state: "Bengaluru",
   },
 ];
+
+
 const User = () => {
-  return (
+
+  var userDetails = JSON.parse(localStorage.getItem("userDetails"));
+  var [usersData, setUsersData] = useState([]);
+
+  useEffect(() => {
+    if (userDetails.data.roles[0]==["organisationAdmin"] || ["superAdmin"]) {
+      apiGETCall1("http://localhost:3003/api/v1/user/?roles=organisationAdmin", "").then(
+      (res) => {
+        // console.log("response is ", res);
+        setUsersData(res.data.data.response);
+        console.log(res.data.data.response,"user data");
+        // console.log(usersData)
+      })
+    }
+  }, [])
+
+  // const profiles= usersData.map(obj=> obj._id)
+  // console.log(profiles,"profile");
+   return (
     <div>
       <div className="widget">
         <div className="box" style={{ marginLeft: "0" }}>
@@ -127,7 +147,7 @@ const User = () => {
         <div className="user-head">
           <div className="user-title">
             <h1>Users</h1>
-            <p id="total-user">{data.length} Users</p>
+            <p id="total-user">{usersData.length} Users</p>
           </div>
           <div className="user-search">
             <input
@@ -146,12 +166,13 @@ const User = () => {
           </div>
         </div>
         <div className="users-body">
-          {data.map((item) => (
-            <div className="user-row">
+        {/* {usersData.map((obj) => { */}
+           {usersData.map((item) => (
+            <div className="user-row" key={item._id}>
               <div className="user-profile">
                 <div
                   style={{
-                    background: `url(${item.profile})`,
+                    // background: `url(${item.profile})`,
                     height: "30px",
                     width: "30px",
                     borderRadius: "50%",
@@ -161,20 +182,24 @@ const User = () => {
                   className="profile"
                 ></div>
                 <div className="user-name">
-                  <h4>{item.name}</h4>
+                  {/* <h4>{item.profile=(da)=>d.map(data => data.username)}</h4> */}
+                  
                   <p>{item?.email}</p>
                 </div>
               </div>
-              <div className="user-id">
-                <h5>{item.id}</h5>
+              <div className="user-profile">
+                <h5>{item.ID}</h5>
               </div>
-              <div className="user-mob">
-                <h5>{item.mobile}</h5>
+              <div className="user-profile">
+                <h5>{item.roles }</h5>
               </div>
-              <div className="user-state">
-                <h5>{item.state}</h5>
+              <div className="user-profile">
+                {/* <h5>{item.mobile}</h5> */}
               </div>
-              <div className="edit-btn">
+              <div className="user-profile">
+                {/* <h5>{item.state}</h5> */}
+              </div>
+              <div className="edit-btn user-profile">
                 <div className="edit">
                   <RemoveRedEyeOutlinedIcon />
                 </div>
@@ -186,7 +211,7 @@ const User = () => {
                 </div>
               </div>
             </div>
-          ))}
+))} 
         </div>
       </div>
     </div>

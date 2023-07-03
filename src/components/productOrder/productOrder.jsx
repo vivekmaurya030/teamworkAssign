@@ -3,8 +3,10 @@ import "./productOrder.scss";
 import imgproductOrder from "./img/imgproductOrder.png";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import { apiGETCall1 } from "../../utilities/site-apis";
+import { apiGETCall1, apiGetCall } from "../../utilities/site-apis";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
@@ -22,10 +24,7 @@ import { useNavigate } from "react-router";
 import { createOrder } from "../../Redux/OrderRedux";
 import { Link } from "react-router-dom";
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
@@ -89,6 +88,7 @@ const ProductOrder = () => {
 
   const dispatch = useDispatch();
   var userDetails = JSON.parse(localStorage.getItem("userDetails"));
+  const [organisation,setOrganisation]=useState([])
 
   // setIsServiceEmpty(() => {
   //   if(serviceList.length === 0) {
@@ -109,10 +109,9 @@ const ProductOrder = () => {
       (res) => {
         // console.log("response is ", res);
         setServiceData(res.data.data.response);
-      }
-    );
+      });
   }, []);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -157,6 +156,7 @@ const ProductOrder = () => {
     supplies: "0",
     pet: [],
     note: "",
+    organisation:""
   });
 
   const handleServiceSelect = (event, value) => {
@@ -169,6 +169,18 @@ const ProductOrder = () => {
       service: newArr,
     }));
   };
+
+  const handleOrganisatonSelect = (event, value) => {
+    console.log("event is ", event, value);
+    setServiceList(value);
+    const newArr = value.map((e) => e._id);
+    console.log(" newArr is ", newArr);
+    setOrderDetail((prev) => ({
+      ...prev,
+      service: newArr,
+    }));
+  };
+
 
   const handlePetSelect = (event, value) => {
     setPetList(value);
@@ -521,6 +533,28 @@ const ProductOrder = () => {
                   />
                 )}
               />
+            </div>
+          </div>
+          <div className="col">
+            <div className="inputHead">
+              <h3>Choose your service</h3>
+            </div>
+            <div className="input">
+            <FormControl fullWidth sx={TextFieldStyle}>
+                <Select
+                  MenuProps={MenuProps}
+                  className="select-organisation"
+                  id="organisation-name"
+                  // onChange={(e) => setUserData((prev) => ({ ...prev, state: e.target.value }))}
+                  // onChange={handleChange}
+                >
+                {/* {
+                    organisation.map((item,index)=>(
+                        <MenuItem value= {item}>{item}</MenuItem>
+                  ))
+                } */}
+                </Select>
+              </FormControl>
             </div>
           </div>
           <div className="col">
