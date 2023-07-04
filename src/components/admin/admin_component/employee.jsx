@@ -31,17 +31,17 @@ const Employee =()=>{
   useEffect(() => {
     // const emp = employeeData.filter(item => item.roles==="organisationAdmin"|| item.roles==="superAdmin");
 
-        setEmplyeeData(employeeData.filter(item => item.roles==="organisationAdmin"|| item.roles==="superAdmin"))
+        // setEmplyeeData(employeeData.filter(item => item.roles==="organisationAdmin"|| item.roles==="superAdmin"))
   }, [])
-  
-  
+
 
     return(
         <div className="employee users" style={{height:"80vh"}}>
         <div className="user-head">
           <div className="user-title">
             <h1>Employees</h1>
-            <p id="total-user">{emplyeeData.length} Employees</p>
+            
+            {/* <p id="total-user">{countEmp} Employees</p> */}
           </div>
           <div className="user-search">
             <input
@@ -61,8 +61,8 @@ const Employee =()=>{
         </div>
         <div className="users-body">
         {/* {usersData.map((obj) => { */}
-           {emplyeeData.map((item) => (
-             <div className="user-row" key={item._id}>
+           {employeeData.map((item) => (
+            item?.roles!="user" && <div className="user-row" key={item._id}>
               <div className="user-profile">
                 <div
                   style={{
@@ -76,7 +76,7 @@ const Employee =()=>{
                   className="profile"
                 ></div>
                 <div className="user-name">
-                  {/* <h4>{item.profile=(da)=>d.map(data => data.username)}</h4> */}
+                  <h4>{item?.profile?.firstName + item?.profile?.lastName}</h4>
                   
                   <p>{item?.email}</p>
                 </div>
@@ -105,6 +105,7 @@ const Employee =()=>{
                 </div>
               </div>
             </div>
+            
 ))} 
         </div>
       </div>

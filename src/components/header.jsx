@@ -43,6 +43,7 @@ export default function Header(){
             <ul>
                 <li><Link to="/">HOME</Link></li>
                 <li><Link to="/ProductOrderPage">PRODUCTS</Link></li>
+                <li><Link to="/OurServicesPage">SERVICES</Link></li>
                 <li><Link to="/">REVIEWS</Link></li>
                 <li><Link to="/FAQs">FAQS</Link></li>
                 <li><Link to="/">BLOG</Link></li>

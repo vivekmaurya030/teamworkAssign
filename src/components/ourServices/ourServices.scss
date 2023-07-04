@@ -1,0 +1,147 @@
+@import url(./image/pexels-john-tekeridis-1428348.jpg);
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav-ser{
+    background-color: rgb(77, 49, 80);
+    height: 8vh;
+}
+.nav-ser ul{
+    display: flex;
+    padding: 2vh 1vw;
+}
+.nav-ser ul li{
+    list-style-type: none;
+    margin: 0 1vw;
+}
+.nav-ser ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+}
+.nav-ser ul li a:hover{
+    color: rgb(62, 59, 236);
+}
+.header-ser{
+    background-image: url(image/pexels-john-tekeridis-1428348.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80vh;
+    width: 100%;
+    text-align: center;
+}
+.header-ser h1{
+    font-size: 4.5rem;
+    padding-top: 23vh;
+    font-weight: 300;
+}
+.header-ser p{
+    font-size: 1.5rem;
+    padding: 7vh 12vw;
+}
+.service{
+    padding: 9vh .5vw;
+}
+.service1{
+    // background-image: linear-gradient(rgb(0,0,0,0.6),rgba(0,0,0,0.6)),url(image/pexels-rdne-stock-project-5591580.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 55vh;
+    margin-bottom: 7vh;
+}
+.image{
+    flex-basis: 40%;
+}
+.image img{
+    height: 27vh;
+    width: 22vw;
+    border-radius: 110px;
+}
+.content{
+    flex-basis: 60%;
+    padding-left: 6vw;
+}
+.content h3{
+    color: white;
+    font-size: 1.7rem;
+    padding-bottom: 4vh;
+}
+.content p{
+    color: white;
+    font-size: 1.2rem;
+    padding-bottom: 5vh;
+}
+.content button{
+    outline: none;
+    padding: 1vh 1vw;
+    font-size: 1.3rem;
+    border-radius: 20px;
+    border: 1px solid rgb(38, 38, 82);
+    background: rgb(29, 52, 73);
+    color: antiquewhite;
+}
+.content button:hover{
+    color: black;
+}
+.service2{
+    // background-image: linear-gradient(rgb(0,0,0,0.6),rgba(0,0,0,0.6)),url(image/pexels-tima-miroshnichenko-6195288.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 55vh;
+    margin-bottom: 7vh;
+}
+.service3{
+    // background-image: linear-gradient(rgb(0,0,0,0.6),rgba(0,0,0,0.6)),url(image/pexels-tima-miroshnichenko-6195198.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 55vh;
+    margin-bottom: 7vh;
+}
+.service4{
+    // background-image: linear-gradient(rgb(0,0,0,0.6),rgba(0,0,0,0.6)),url(image/pexels-cottonbro-studio-4107284.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 55vh;
+    margin-bottom: 7vh;
+}
+.service5{
+    // background-image: linear-gradient(rgb(0,0,0,0.6),rgba(0,0,0,0.6)),url(image/pexels-karolina-grabowska-4239145.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 55vh;
+}
+

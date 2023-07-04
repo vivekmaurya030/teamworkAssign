@@ -6,7 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import { apiGETCall1, apiGetCall } from "../../utilities/site-apis";
+import { apiGETCall1, apiGetCall, apiPostCall1 } from "../../utilities/site-apis";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
@@ -110,11 +110,17 @@ const ProductOrder = () => {
         // console.log("response is ", res);
         setServiceData(res.data.data.response);
       });
+      apiGETCall1("http://localhost:3003/api/v1/user/?roles=organisationAdmin", "").then(
+        (res) => {
+          // console.log("response is ", res);
+          setOrganisation(res.data.data.response);
+        });
   }, []);
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
+    apiPostCall1("http://localhost:3003/api/v1/order",data)
   };
 
   const handleClose = () => {
@@ -209,6 +215,20 @@ const ProductOrder = () => {
     console.log("price is ", price);
   }, [orderDetail.area, orderDetail.service]);
 
+  const data={
+    userId: userDetails.data.userId,
+      date: orderDetail.dateTime,
+      service: orderDetail.service,
+      houseArea: orderDetail.area,
+      havePet: orderDetail.pet ? true : false,
+      petName: orderDetail.pet,
+      donateToEmployee: orderDetail.supplies ? true : false,
+      donatedAmount: orderDetail.supplies,
+      address: orderDetail.address,
+      notes: orderDetail.note,
+      organisation:orderDetail.organisation,
+  }
+
   const handleSubmit = async () => {
     const OrderData = {
       userId: userDetails.data.userId,
@@ -221,6 +241,7 @@ const ProductOrder = () => {
       donatedAmount: orderDetail.supplies,
       address: orderDetail.address,
       notes: orderDetail.note,
+      organisation:orderDetail.organisation,
     };
     click();
 
@@ -537,7 +558,7 @@ const ProductOrder = () => {
           </div>
           <div className="col">
             <div className="inputHead">
-              <h3>Choose your service</h3>
+              <h3>Select the organisation</h3>
             </div>
             <div className="input">
             <FormControl fullWidth sx={TextFieldStyle}>
@@ -545,14 +566,16 @@ const ProductOrder = () => {
                   MenuProps={MenuProps}
                   className="select-organisation"
                   id="organisation-name"
-                  // onChange={(e) => setUserData((prev) => ({ ...prev, state: e.target.value }))}
+                  onChange={(e) =>
+                    setOrderDetail((prev) => ({ ...prev, area: e.target.value }))
+                  }
                   // onChange={handleChange}
                 >
-                {/* {
+                {
                     organisation.map((item,index)=>(
-                        <MenuItem value= {item}>{item}</MenuItem>
+                      item?.roles=="organisationAdmin" && <MenuItem value= {item?._id}>{item?.email}</MenuItem>
                   ))
-                } */}
+                }
                 </Select>
               </FormControl>
             </div>

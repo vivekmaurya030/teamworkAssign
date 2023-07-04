@@ -182,7 +182,7 @@ const User = () => {
                   className="profile"
                 ></div>
                 <div className="user-name">
-                  {/* <h4>{item.profile=(da)=>d.map(data => data.username)}</h4> */}
+                  <h4>{item?.profile?.fullName}</h4>
                   
                   <p>{item?.email}</p>
                 </div>
@@ -199,7 +199,7 @@ const User = () => {
               <div className="user-profile">
                 {/* <h5>{item.state}</h5> */}
               </div>
-              <div className="edit-btn user-profile">
+              <div className="edit-btn user-profil">
                 <div className="edit">
                   <RemoveRedEyeOutlinedIcon />
                 </div>
