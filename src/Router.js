@@ -13,6 +13,7 @@ import ProductOrderPage from "./pages/productOrderPage";
 import UserDashboardPage from "./pages/userDashboardPage";
 import NewAdmin from "./components/admin/notification";
 import OurServicesPage from "./pages/ourServicesPage";
+import FoundersPage from "./pages/foundersPage";
 
 
 const Routers = () => {
@@ -31,6 +32,7 @@ const Routers = () => {
                     <Route path="/ProductOrderPage" element={<ProductOrderPage />}></Route>
                     <Route path="/UserDashboardPage" element={<UserDashboardPage />}></Route>
                     <Route path="/OurServicesPage" element={<OurServicesPage/>}></Route>
+                    <Route path="/FoundersPage" element={<FoundersPage />}></Route>
                     <Route exact path="/notification" element={<NewAdmin/>}>
                     </Route>
 

@@ -46,7 +46,7 @@ export default function Header(){
                 <li><Link to="/OurServicesPage">SERVICES</Link></li>
                 <li><Link to="/">REVIEWS</Link></li>
                 <li><Link to="/FAQs">FAQS</Link></li>
-                <li><Link to="/">BLOG</Link></li>
+                <li><Link to="/FoundersPage">FOUNDERS</Link></li>
                 {/* <li><Link to="/NewAdmin">ADMIN</Link></li> */}
                 {userDetails ? <Link to="/notification"><NotificationsNoneOutlinedIcon className="userIcon"/></Link> : ""}
                 {userDetails ?  <Link to={handleDashboard()}><PersonOutlineOutlinedIcon className="userIcon"/></Link>: <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
