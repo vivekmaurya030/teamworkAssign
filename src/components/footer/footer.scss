@@ -2,11 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Inria+Sans');
 .footerMain {
   background: #36213e;
-  padding: 5vh 10vw;
+  padding: 2vh 5vw;
+
   .logo-footer {
     display: flex;
     align-items: center;
-    text-align: left;
+    text-align: center;
+    justify-content: center;
     color: #fffefe;
     h1{
         font-size: 4rem;
@@ -14,69 +16,61 @@
   }
   .section-middle {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     .about {
-      width: max-content;
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
       padding: 2vh;
       .heading {
         color: #fffefe;
-        font-size: 1.5rem;
-        text-decoration: underline;
-        padding-bottom: 2vh;
-        span {
-          border: 1px solid #1c9782;
-          border: none;
-          color: #1c9782;
-        }
+        font-size: 1rem;
+        // text-decoration: underline;
+        padding-bottom: 1vh;
+       
       }
       p {
         color: #fffefe7d;
-        font-size: .9rem;
-        font-family: "Kumbh Sans";
+        font-size: .8rem;
+        // font-family: "Kumbh Sans";
         font-style: normal;
-        font-weight: 500;
-        line-height: 20px;
+        // font-weight: 500;
+        // line-height: 20px;
         
       }
       p:hover{
         color: #fffefe;
     }
-      .icons {
+      .icons-btn{
         display: flex;
-        justify-content: space-around;
-        div{
-            border-radius: 50%;
-            background-color: #301c97;
-            flex-basis: 16.66%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            // padding: 1vh 1vw;
-            margin: 0 5px;
+        flex-wrap: wrap;
+        // justify-content: space-around;
+        .social-btn{
+            // border-radius: 
             cursor: pointer;
         }
         .social-icon {
           color: #ffffff;
-          font-size: 1rem;
+          font-size: 2rem;
           z-index: 1;
         }
-        .twitter {
+        #twitter {
           background-color: #33CCFF;
         }
-        .instagram{
+        #instagram{
             background: linear-gradient(315deg, #FBE18A 0.96%, #FCBB45 21.96%, #F75274 38.96%, #D53692 52.96%, #8F39CE 74.96%, #5B4FE9 100.96%);
         }
-        .facebook {
+        #facebook {
             background-color:  #337FFF;
           }
-          .whatsapp {
+          #whatsapp {
             background-color: #00D95F;
           }
-          .linkedin {
+          #linkedin {
             background-color:  #006699;
           }
-          .youtube {
+          #youtube {
             background-color:  #FF3000;
           }
           
@@ -84,11 +78,11 @@
       .play-store {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         position: relative;
-        margin-top: 2rem;
+        margin-top: 1rem;
         img {
-          width: 127px;
+          width: 100px;
           padding: 0.4rem;
         }
       }

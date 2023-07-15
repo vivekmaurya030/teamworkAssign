@@ -7,14 +7,14 @@ import group from './img/group.jpeg';
 const founderDetail = [
   {
     name: "Vivek Maurya",
-    desig: "CEO",
+    desig: "Frontend Developer",
     about:
       " I am the CEO of a leading klara company. At our company, we believe that cleanliness is not just a chore, but a way of life. I am proud to lead a team of dedicated professionals who share this belief. In addition to my role as CEO, I am also a frontend developer. Combining my technical expertise with my passion for cleaning, I am constantly looking for innovative ways to improve our services and make our clients' lives easier.",
     profile: "https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     name: "Aditi Srivastava",
-    desig: "Designer",
+    desig: "UI Designer",
     about:
       " Hi, my name is  Aditi Srivastava, and I am frontend developer and designer for a leading cleaning company. As a frontend developer, my role is to create user-friendly interfaces that make it easy, By combining my technical skills with my eye for design, I am able to create visually appealing and functional websites that showcase our company's services in the best possible light.",
     profile: "'https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'",
@@ -28,14 +28,14 @@ const founderDetail = [
   },
   {
     name: "Akash Gupta",
-    desig: "Demotivational Speaker",
+    desig: "Frontend Developer",
     about:
       " Hi, I'm Akash Gupta, and I'm a frontend developer at a cleaning providing service company. My role is to create visually stunning and user-friendly interfaces that make it easy for our clients to access our cleaning services. As a frontend developer, I'm proud to be a part of a company that is dedicated to creating a cleaner and healthier world.",
     profile: "https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     name: "Shiksha Vishwakarma",
-    desig: "Designer",
+    desig: "UI Designer",
     about:
       " I'm  Shiksha Vishwakarma, the co-founder of the company  and I am a digital designer and frontend developer. As a digital designer, my role is to create eye-catching designs that engage and delight our clients. By combining my skills in design and development, I am able to create websites that meet the highest standards of quality and functionality. ",
     profile: "https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

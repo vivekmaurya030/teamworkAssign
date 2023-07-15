@@ -1,19 +1,27 @@
 import React from "react";
-import { FaTwitter, FaFacebook, FaYoutube, FaInstagram, FaWhatsapp, FaLinkedin, } from "react-icons/fa";
+
 import "./footer.scss";
 import { Link } from "react-router-dom";
 import appleStore from './img/appleStore.png'
 import googlePlay from './img/googlePlay.png'
-
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const Footers = () => {
   
   return (
     <div>
       <div className="footerMain">
-        <div className="logo-footer">
-          <h1>KLARA</h1>
-        </div>
+      <div className="logo-head">
+            <h2 style={{color:"white",fontSize:"3rem"}}>KLARA MOON</h2>
+          <h6 style={{color:"white",textAlign:"center"}}>
+            cleaning service providing&nbsp;<span className="cmpy">Company</span>
+          </h6>
+            </div>
         <div className="section-middle">
           <div className="about">
             <h3 className="heading"><Link to="/AboutUsPage" style={{color
@@ -43,13 +51,13 @@ const Footers = () => {
           </div>
           <div className="about">
             <h3 className="heading">Social Links</h3>
-            <div className="icons">
-              <div className="twitter"><FaTwitter className="social-icon" id="twitter" /></div>
-              <div className="instagram"><FaInstagram className="social-icon" id="instagram" /></div>
-              <div className="facebook"><FaFacebook className="social-icon" id="facebook" /></div>
-              <div className="whatsapp"><FaWhatsapp className="social-icon" id="whatsapp" /></div>
-              <div className="linkedin"><FaLinkedin className="social-icon" id="linkedin" /></div>
-              <div className="youtube"><FaYoutube className="social-icon" id="youtube" /></div>
+            <div className="icons-btn">
+              <div className="social-btn"><TwitterIcon className="social-icon" id="twitter" /></div>
+              <div className="social-btn"><InstagramIcon className="social-icon" id="instagram" /></div>
+              <div className="social-btn"><FacebookOutlinedIcon className="social-icon" id="facebook" /></div>
+              <div className="social-btn"><WhatsAppIcon className="social-icon" id="whatsapp" /></div>
+              {/* <div className="social-btn"><LinkedInIcon className="social-icon" id="linkedin" /></div> */}
+              <div className="social-btn"><YouTubeIcon className="social-icon" id="youtube" /></div>
             </div>
             <div className="play-store">
               <img src={googlePlay} alt="#" />

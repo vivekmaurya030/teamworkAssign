@@ -44,7 +44,7 @@ export default function Header(){
                 <li><Link to="/">HOME</Link></li>
                 <li><Link to="/ProductOrderPage">PRODUCTS</Link></li>
                 <li><Link to="/OurServicesPage">SERVICES</Link></li>
-                <li><Link to="/">REVIEWS</Link></li>
+                <li><Link to="/FeedbackPage">REVIEWS</Link></li>
                 <li><Link to="/FAQs">FAQS</Link></li>
                 <li><Link to="/FoundersPage">FOUNDERS</Link></li>
                 {/* <li><Link to="/NewAdmin">ADMIN</Link></li> */}

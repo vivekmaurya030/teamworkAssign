@@ -1,12 +1,12 @@
 import Header from "../components/header";
-import FAQPage from "../components/faqs/faqs";
 import Footers from "../components/footer/footers";
+import Faqs from "../components/faqs/faqs";
 
 const LogInPage=()=>{
     return(
         <>
             <Header /> 
-           <FAQPage/>
+           <Faqs/>
            <Footers/>
         </>
     )

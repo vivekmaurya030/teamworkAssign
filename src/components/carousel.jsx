@@ -1,6 +1,7 @@
 import React from "react"
 import 'react-slideshow-image/dist/styles.css'
 import {Fade,Zoom, Slide} from 'react-slideshow-image'
+import SearchIcon from '@mui/icons-material/Search';
 
 
 const slideImages = [
@@ -24,7 +25,7 @@ function ImageSlider(){
       <Fade arrows={false} pauseOnHover={false} canSwipe={true} >
         {slideImages.map((image,index) => (
           <div key={index}>
-            <div style={{...divStyle,backgroundImage: `url(${image.url})`}}>
+            <div style={{...divStyle,backgroundImage: `linear-gradient(rgb(75, 0, 110,.6),rgba(0,0,0,0.6)),url(${image.url})`}}>
               
             </div>
           </div>
@@ -36,7 +37,7 @@ function ImageSlider(){
         </div>
         <div class="search">
           <input type="text" name="search" id="search" placeholder="Search services, procduct, etc." />
-          <button>&#128512;</button>
+          <button><SearchIcon /></button>
         </div>
       </div>
       

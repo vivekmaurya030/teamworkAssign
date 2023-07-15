@@ -14,6 +14,7 @@ import UserDashboardPage from "./pages/userDashboardPage";
 import NewAdmin from "./components/admin/notification";
 import OurServicesPage from "./pages/ourServicesPage";
 import FoundersPage from "./pages/foundersPage";
+import FeedbackPage from "./pages/feedbackPage";
 
 
 const Routers = () => {
@@ -33,6 +34,7 @@ const Routers = () => {
                     <Route path="/UserDashboardPage" element={<UserDashboardPage />}></Route>
                     <Route path="/OurServicesPage" element={<OurServicesPage/>}></Route>
                     <Route path="/FoundersPage" element={<FoundersPage />}></Route>
+                    <Route path="/FeedbackPage" element={<FeedbackPage />}></Route>
                     <Route exact path="/notification" element={<NewAdmin/>}>
                     </Route>
 
