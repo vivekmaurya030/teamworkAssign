@@ -18,9 +18,9 @@ var userDetails = JSON.parse(localStorage.getItem("userDetails"))
   //     window.history.go(1);
   //   });
   // }, []);
-  const handleLogout =()=>{
+  const handleLogout =() => {
     localStorage.clear()
-      }
+    }
     return(
         <div className="admin-head">
         <div className="logo">

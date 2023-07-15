@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './notification.scss'
+import { getNotification } from "../../Redux/orderRedux"
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
 
 const Notification =()=>{
+    const dispatch = useDispatch();
+    const [services, setServices] = useState([""])
+    const [allCount, setAllCount] = useState()
+    const [acceptCount, setAcceptCount] = useState()
+
+    const combinedReduxNotification = useSelector((state) => state.order.notificationList);
+    console.log("combinedReduxNotification is ", combinedReduxNotification);
     const notiData=[
         {name:"Mony Singh", service:"Home CLeaning"},
         {name:"Disha Patani", service:"Home CLeaning"},
@@ -17,6 +28,28 @@ const Notification =()=>{
         {name:"Malaika Arora", service:"Furniture CLeaning"},
         {name:"Avneet Kaur", service:"Home CLeaning"},
     ]
+
+  
+    // useEffect(() => {
+    //     console.log("combinedReduxNotification.length is ", combinedReduxNotification.data.length);
+    //     if(combinedReduxNotification.data.length > 0) {
+    //         let tempString
+    //         for (let obj of combinedReduxNotification.data) {
+    //             console.log("obj.orderDetails.name is ", obj.orderDetails.name);
+    //             tempString += obj.orderDetails.name
+    //         }
+    //         setServices(tempString)
+    //     }
+    //     console.log("services is ", services);
+    // }, [combinedReduxNotification])
+    useEffect(() => {
+        // localStorage.clear()
+        dispatch(getNotification({}))
+        console.log("combinedReduxNotification is ", combinedReduxNotification);
+    }, [])
+
+    console.log("combinedReduxNotification is ", combinedReduxNotification);
+
     return(
         <div className="notification">
            <div className="notification-head">
@@ -35,10 +68,10 @@ const Notification =()=>{
             </div>
             <div className="noti-body">
                 {
-                    notiData.map((item)=>(
+                    combinedReduxNotification.data?.length > 0 && combinedReduxNotification.data.map((item)=>(
                         <div className="noti-row">
                             <div className="noti-mesage">
-                                <h5>{item.name}&nbsp;is requesting for {item.service}</h5>
+                                <h5>{item?.userDetails?.profile?.fullName}&nbsp;is requesting for {item?.orderDetails?.service.map((service) => service.name)}</h5>
                             </div>
                             <div className="noti-action">
                                 <button className="noti-action-btn accept-btn" >Accept</button>

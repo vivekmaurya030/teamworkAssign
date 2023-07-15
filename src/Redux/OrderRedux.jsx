@@ -14,7 +14,8 @@ const initialState = {
   otp:null,
   errorMessage:'',
   isVerified: false,
-  orderDetails: {}
+  orderDetails: {},
+  notificationList: []
 };
 
 
@@ -29,6 +30,17 @@ export const createOrder = createAsyncThunk(
     }
     return response.data
   }
+)
+
+export const getNotification = createAsyncThunk(
+  'order/getNotification',
+  async (params, { rejectWithValue }) => {
+  const response = await apiGETCall1(`http://localhost:3003/api/v1/notification`, params)
+   if (response.data.status === "error") {
+      return rejectWithValue(response.data)
+  }
+  return response.data
+}
 )
 
 
@@ -50,6 +62,19 @@ export const counterSlice = createSlice({
     state.orderDetails = action.payload.data;
     // alert('Role updated successfully.')
     },
+
+    [getNotification.pending]: (state, action) => {
+    state.isFetching = true
+    },
+    [getNotification.rejected]: (state, action) => {
+     state.isFetching = false
+    },
+    [getNotification.fulfilled]: (state, action) => {
+    state.isFetching = false
+    state.error = null
+    state.notificationList = action.payload.data;
+    // alert('Role updated successfully.')
+      },
     }    
 })
 

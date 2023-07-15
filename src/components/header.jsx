@@ -6,7 +6,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 
 export default function Header(){
-    console.log("efnrenf", JSON.parse(localStorage.getItem("userDetails")));
+    // console.log("efnrenf", JSON.parse(localStorage.getItem("userDetails")));
     // localStorage.clear("userDetails")
     var userDetails = JSON.parse(localStorage.getItem("userDetails"))
   // useEffect(() => {

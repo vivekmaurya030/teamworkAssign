@@ -77,7 +77,7 @@ export const counterSlice = createSlice({
     state.error = null
     console.log("login data is ", action.payload);
     localStorage.setItem("userDetails", JSON.stringify(action.payload.data))
-    state.roles = action.payload.data.data.roles;
+    // state.roles = action.payload.data.roles;
     state.userDetails = action.payload.data;
     console.log("payload is", action.payload.data);
     // alert('Role updated successfully.')

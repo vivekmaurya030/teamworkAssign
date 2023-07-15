@@ -21,7 +21,7 @@ import Switch from "@mui/material/Switch";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { createOrder } from "../../Redux/OrderRedux";
+import { createOrder } from "../../Redux/orderRedux";
 import { Link } from "react-router-dom";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -152,6 +152,7 @@ const ProductOrder = () => {
   const [toggled, setToggled] = useState(false);
   const [pettoggled, setpetToggled] = useState(false);
   const [price, setPrice] = useState([]);
+  const [totalPrice, setTotalPrice] = useState("")
 
   var [orderDetail, setOrderDetail] = useState({
     service: [],
@@ -188,6 +189,16 @@ const ProductOrder = () => {
   };
 
 
+  useEffect(() => {
+    if(price.length > 0) {
+      let prices = 0
+      for (let obj of price) {
+        prices += obj.price
+      }
+      setTotalPrice(prices)
+    }
+
+  }, [price])
   const handlePetSelect = (event, value) => {
     setPetList(value);
     const newArr = value.map((e) => e);
@@ -607,33 +618,33 @@ const ProductOrder = () => {
           </div>
         </div>
       </div>
-      <div className="col3" style={{ display: preview ? "" : "none" }}>
+      <div>
+      {/* className="col3" style={{ display: preview ? "" : "none" }} */}
         <div className="orderContainer">
-          <div>
-            {price?.length > 0
-              ? price.map((item) => (
+          {/* <div>
+            {price?.length > 0 &&
+               price.map((item) => (
                   <div className="service-block">
                     <div><h2>{item.name}</h2></div>
-                    <div className="service-price"><h3>Price:</h3><p>₹&nbsp;{item.price}</p></div>
+                    <div className="service-price"><h3>Price:</h3><p>₹{item.price}</p></div>
                     
-                    <p>{toggled ? "Includes company's cleaning supplies":""}</p>
+                    <p>{"Includes company's cleaning supplies"}</p>
                   </div>
                 ))
-              : null}
-          </div>
+              }
+          </div> */}
           <div className="summary">
-          {price?.length > 0
-              ? price.map((item) => (
+          {price?.length > 0 && price.map((item) => (
                   <div className="summary-list">
                     <h4>{item.name}</h4>
                     <h5>₹&nbsp;{item.price}</h5>
                     {/* {setTotal(total+item.price)} */}
                   </div>
                 ))
-              : null}
+            }
               <div className="total">
                 <h2>Total</h2>
-                <h2>₹&nbsp;{total}</h2>
+                <h2>₹&nbsp;{totalPrice}</h2>
               </div>
           </div>
           <div className="confirm-back-btn">
