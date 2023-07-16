@@ -26,7 +26,7 @@ const initialState = {
 export const login = createAsyncThunk(
     'auth/login',
     async (params, { rejectWithValue }) => {
-    const response = await apiPostCall(`http://localhost:3003/api/v1/user/login`, params)
+    const response = await apiPostCall(`https://backend-klara.onrender.com/api/v1/user/login`, params)
      if (response.data.status === "error") {
         alert(response.data.message)
         return rejectWithValue(response.data)
@@ -39,7 +39,7 @@ export const login = createAsyncThunk(
 export const registerUser = createAsyncThunk(
     'auth/register',
     async (params, { rejectWithValue }) => {
-      const response = await apiPostCall(`http://localhost:3003/api/v1/user/createUser`, params)
+      const response = await apiPostCall(`https://backend-klara.onrender.com/api/v1/user/createUser`, params)
       if (response.data.status === 'error') {
         return rejectWithValue(response.data)
       }

@@ -20,7 +20,7 @@ const UserProfile = () => {
   const [edit, setEdit] = useState(true);
   useEffect(() => {
     // console.log("isServiceEmpty is ", isServiceEmpty);
-    apiGETCall1("http://localhost:3003/api/v1/user/createUser", "").then(
+    apiGETCall1("https://backend-klara.onrender.com/api/v1/user/createUser", "").then(
       (res) => {
         console.log("response is ", res);
         //   setServiceData(res.data.data.response)

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './notification.scss'
-import { getNotification } from "../../Redux/orderRedux"
+import { getNotification, updateNotification } from "../../Redux/orderRedux"
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -10,24 +10,12 @@ const Notification =()=>{
     const [services, setServices] = useState([""])
     const [allCount, setAllCount] = useState()
     const [acceptCount, setAcceptCount] = useState()
+    const [rejectToggle, setRejectToggle] = useState(false)
+    const [acceptToggle, setAcceptToggle] = useState(false)
+
 
     const combinedReduxNotification = useSelector((state) => state.order.notificationList);
     console.log("combinedReduxNotification is ", combinedReduxNotification);
-    const notiData=[
-        {name:"Mony Singh", service:"Home CLeaning"},
-        {name:"Disha Patani", service:"Home CLeaning"},
-        {name:"Mouni Roy", service:"Carpet CLeaning"},
-        {name:"Malaika Arora", service:"Furniture CLeaning"},
-        {name:"Avneet Kaur", service:"Home CLeaning"},{name:"Mony Singh", service:"Home CLeaning"},
-        {name:"Disha Patani", service:"Home CLeaning"},
-        {name:"Mouni Roy", service:"Carpet CLeaning"},
-        {name:"Malaika Arora", service:"Furniture CLeaning"},
-        {name:"Avneet Kaur", service:"Home CLeaning"},{name:"Mony Singh", service:"Home CLeaning"},
-        {name:"Disha Patani", service:"Home CLeaning"},
-        {name:"Mouni Roy", service:"Carpet CLeaning"},
-        {name:"Malaika Arora", service:"Furniture CLeaning"},
-        {name:"Avneet Kaur", service:"Home CLeaning"},
-    ]
 
   
     // useEffect(() => {
@@ -42,12 +30,48 @@ const Notification =()=>{
     //     }
     //     console.log("services is ", services);
     // }, [combinedReduxNotification])
+
     useEffect(() => {
         // localStorage.clear()
         dispatch(getNotification({}))
         console.log("combinedReduxNotification is ", combinedReduxNotification);
     }, [])
 
+    useEffect(() => {
+        // localStorage.clear()
+        dispatch(getNotification({}))
+        console.log("combinedReduxNotification is ", combinedReduxNotification);
+    }, [acceptToggle, rejectToggle]);
+
+    const handleAccept = async (event, item) => {
+        if(!acceptToggle) {
+            let updateObj = {
+                id: item._id,
+                status: "accepted"
+            }
+            dispatch(updateNotification(updateObj)).then(() => {
+                setAcceptToggle(true);
+            })
+        }
+    };
+
+    const handleViewDetail = async (event, item) => {
+        alert("view details called")
+        console.log("item is ", item);
+    }
+
+    const handleReject = async (event, item) => {
+
+        if(!rejectToggle) {
+            let updateObj = {
+                id: item._id,
+                status: "rejected"
+            }
+            dispatch(updateNotification(updateObj)).then(() => {
+                setRejectToggle(true);
+            })
+        }
+    }
     console.log("combinedReduxNotification is ", combinedReduxNotification);
 
     return(
@@ -74,9 +98,17 @@ const Notification =()=>{
                                 <h5>{item?.userDetails?.profile?.fullName}&nbsp;is requesting for {item?.orderDetails?.service.map((service) => service.name)}</h5>
                             </div>
                             <div className="noti-action">
-                                <button className="noti-action-btn accept-btn" >Accept</button>
-                                <button className="noti-action-btn viewdetail-btn">View Detail</button>
-                                <button className="noti-action-btn reject-btn">Reject</button>
+                                {
+                                    item.status === 'accepted' || item.status === 'pending' ?                             
+                                    <button className="noti-action-btn accept-btn" onClick={event => handleAccept(event, item)}>{item.status === 'accepted' ? "Accepted" : "Accept"}</button>
+                                    : null
+                                }
+                                <button className="noti-action-btn viewdetail-btn" onClick={event => handleViewDetail(event, item)}>View Detail</button>
+                                {
+                                    item.status === 'rejected' || item.status === 'pending' ? 
+                                    <button className="noti-action-btn reject-btn" onClick={event => handleReject(event, item)}>{item.status === 'rejected' ? "Rejected" : "Reject"}</button>
+                                    : null
+                                }
                             </div>
                         </div>
                     ))

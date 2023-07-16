@@ -97,7 +97,7 @@ const User = () => {
 
   useEffect(() => {
     if (userDetails.data.roles[0]==["organisationAdmin"] || ["superAdmin"]) {
-      apiGETCall1("http://localhost:3003/api/v1/user/?roles=organisationAdmin", "").then(
+      apiGETCall1("https://backend-klara.onrender.com/api/v1/user/?roles=organisationAdmin", "").then(
       (res) => {
         // console.log("response is ", res);
         setUsersData(res.data.data.response);

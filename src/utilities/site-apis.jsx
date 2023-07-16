@@ -48,7 +48,9 @@ export function apiPostCall1(path, params) {
 }
 export function apiPutCall(path, params) {
   let headers = {}
-  return axiosAPI.put(path, params, { headers: {'Authorization': `Bearer ${(localStorage.getItem('Authorization'))}`} })
+  delete params.id
+  const userData = JSON.parse(localStorage.getItem('userDetails'))
+  return axiosAPI.put(path, params, { headers: {'Authorization': `Bearer ${userData.Authorization}`} })
     .then((response) => {
       return response
     })

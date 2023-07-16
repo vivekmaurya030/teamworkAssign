@@ -34,7 +34,7 @@ const Contact = () => {
     borderRadius: "4px",
   };
   const handleClick =()=>{
-    apiPostCall1('http://localhost:3003/api/v1/contactUs',contactData)
+    apiPostCall1('https://backend-klara.onrender.com/api/v1/contactUs',contactData)
     alert("We will contact you soon..........")
     clearField()
     

@@ -105,12 +105,12 @@ const ProductOrder = () => {
       alert("Please login/signup first!!");
       navigate("/");
     }
-    apiGETCall1("http://localhost:3003/api/v1/masterService", "").then(
+    apiGETCall1("https://backend-klara.onrender.com/api/v1/masterService", "").then(
       (res) => {
         // console.log("response is ", res);
         setServiceData(res.data.data.response);
       });
-      apiGETCall1("http://localhost:3003/api/v1/user/?roles=organisationAdmin", "").then(
+      apiGETCall1("https://backend-klara.onrender.com/api/v1/user/?roles=organisationAdmin", "").then(
         (res) => {
           // console.log("response is ", res);
           setOrganisation(res.data.data.response);
@@ -120,7 +120,7 @@ const ProductOrder = () => {
 
   const handleClickOpen = () => {
     setOpen(true);
-    apiPostCall1("http://localhost:3003/api/v1/order",data)
+    apiPostCall1("https://backend-klara.onrender.com/api/v1/order",data)
   };
 
   const handleClose = () => {
