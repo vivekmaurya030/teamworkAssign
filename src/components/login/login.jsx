@@ -47,7 +47,7 @@ const LogIn = () => {
         <div className="login-header">
           <h1>KLARA MOON</h1>
           <p>
-            cleaning service providing&nbsp;<p className="cmp">Company</p>
+            Cleaning Service Providing&nbsp;<p className="cmp">Company</p>
           </p>
         </div>
         <div className="login-body">

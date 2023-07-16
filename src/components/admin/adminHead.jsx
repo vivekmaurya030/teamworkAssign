@@ -26,7 +26,7 @@ var userDetails = JSON.parse(localStorage.getItem("userDetails"))
         <div className="logo">
           <h1>KLARA MOON</h1>
           <p>
-            cleaning service providing&nbsp;<span className="cmp">Company</span>
+            Cleaning Service Providing&nbsp;<span className="cmp">Company</span>
           </p>
         </div>
         <div className="title">

@@ -34,7 +34,7 @@ export default function Header(){
             <div className="logo-head">
             <h2>KLARA MOON</h2>
           <h6>
-            cleaning service providing&nbsp;<span className="cmpy">Company</span>
+            Cleaning Service Providing&nbsp;<span className="cmpy">Company</span>
           </h6>
             </div>
 

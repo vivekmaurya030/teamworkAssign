@@ -155,7 +155,7 @@ const SignUp = () => {
           <div className="signup-header">
             <h1>KLARA MOON</h1>
             <p>
-              cleaning service providing&nbsp;<p className="cmp">Company</p>
+              Cleaning Service Providing&nbsp;<p className="cmp">Company</p>
             </p>
           </div>
           <div className="signup-form-body">
