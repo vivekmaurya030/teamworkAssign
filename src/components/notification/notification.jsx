@@ -3,6 +3,7 @@ import './notification.scss'
 import { getNotification, updateNotification } from "../../Redux/OrderRedux"
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Link, Navigate } from "react-router-dom";
 
 
 const Notification =()=>{
@@ -92,8 +93,11 @@ const Notification =()=>{
     }
     console.log("combinedReduxNotification is ", combinedReduxNotification);
 
+    
+
     return(
-        <div className="notification">
+        <div>
+            <div className="notification">
            <div className="notification-head">
             <div className="noti-title">
                 <h1>Notification</h1>
@@ -121,7 +125,7 @@ const Notification =()=>{
                                     <button className="noti-action-btn accept-btn" onClick={event => handleAccept(event, item)}>{item.status === 'accepted' ? "Accepted" : "Accept"}</button>
                                     : null
                                 }
-                                <button className="noti-action-btn viewdetail-btn" onClick={event => handleViewDetail(event, item)}>View Detail</button>
+                                <Link to="/ViewOrderDetailPage"><button className="noti-action-btn viewdetail-btn" onClick={event => handleViewDetail(event, item)}>View Detail</button></Link>
                                 {
                                     item.status === 'rejected' || item.status === 'pending' ? 
                                     <button className="noti-action-btn reject-btn" onClick={event => handleReject(event, item)}>{item.status === 'rejected' ? "Rejected" : "Reject"}</button>
@@ -132,6 +136,7 @@ const Notification =()=>{
                     ))
                 }
             </div>
+        </div>
         </div>
     )
 }
