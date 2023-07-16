@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 // import { loadState } from "../utility/browser-storage";
 
 import AuthRedux from './AuthRedux';
-import OrderRedux from './orderRedux';
+import OrderRedux from './OrderRedux';
 
 const reducers = combineReducers({
   auth: AuthRedux,

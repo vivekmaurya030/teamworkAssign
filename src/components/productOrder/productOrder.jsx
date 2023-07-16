@@ -21,7 +21,7 @@ import Switch from "@mui/material/Switch";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { createOrder } from "../../Redux/orderRedux";
+import { createOrder } from "../../Redux/OrderRedux";
 import { Link } from "react-router-dom";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -619,9 +619,9 @@ const ProductOrder = () => {
         </div>
       </div>
       <div>
-      {/* className="col3" style={{ display: preview ? "" : "none" }} */}
+      <div className="col3" style={{ display: preview ? "" : "none" }}>
         <div className="orderContainer">
-          {/* <div>
+          <div>
             {price?.length > 0 &&
                price.map((item) => (
                   <div className="service-block">
@@ -632,7 +632,7 @@ const ProductOrder = () => {
                   </div>
                 ))
               }
-          </div> */}
+          </div>
           <div className="summary">
           {price?.length > 0 && price.map((item) => (
                   <div className="summary-list">
@@ -658,6 +658,7 @@ const ProductOrder = () => {
         </div>
       </div>
       <div>
+        </div>
       <Dialog
         open={open}
         // onClose={handleClose}  

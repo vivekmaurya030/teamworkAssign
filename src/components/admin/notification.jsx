@@ -19,7 +19,8 @@ const NewAdmin=(prop)=>{
         employee: <Employee/>,
         updateUser: <UpdateUser />,
         analytics: <Analytics />,
-        notification: <Notification />
+        notification: <Notification />,
+
       };
     return (
         <div className="newadmin">
@@ -39,7 +40,6 @@ const NewAdmin=(prop)=>{
             <li className={active === 'updateUser' ? 'active' : ''} onClick={() => handleActive('updateUser')}>Update User</li>
             <li className={active === 'analytics' ? 'active' : ''} onClick={() => handleActive('analytics')}>Analytics</li>
             <li className={active === 'notification' ? 'active' : ''} onClick={() => handleActive('notification')}>Notification</li>
-
             </div>
         </div>
                 </div>
