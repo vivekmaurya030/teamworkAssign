@@ -10,6 +10,7 @@ const Notification =()=>{
     const [services, setServices] = useState([""])
     const [allCount, setAllCount] = useState()
     const [acceptCount, setAcceptCount] = useState()
+    const [rejectCount, setRejectCount] = useState()
     const [rejectToggle, setRejectToggle] = useState(false)
     const [acceptToggle, setAcceptToggle] = useState(false)
 
@@ -43,6 +44,23 @@ const Notification =()=>{
         console.log("combinedReduxNotification is ", combinedReduxNotification);
     }, [acceptToggle, rejectToggle]);
 
+    useEffect(() => {
+        if(combinedReduxNotification.data?.length > 0) {
+            let rejectCount = 0 
+            let acceptCount = 0
+            for (let obj of combinedReduxNotification.data) {
+                if(obj.status === "accepted") {
+                    ++acceptCount
+                }
+                else if(obj.status === "rejected") {
+                    ++rejectCount
+                }
+
+            }
+            setAcceptCount(acceptCount);
+            setRejectCount(rejectCount);
+        }
+    }, [combinedReduxNotification])
     const handleAccept = async (event, item) => {
         if(!acceptToggle) {
             let updateObj = {
@@ -82,12 +100,12 @@ const Notification =()=>{
                 <p>Mark all as read</p>
             </div>
             </div> 
+            
             <div className="noti-nav">
                 <ul>
-                    <li>All(1)</li>
-                    <li>Accepted</li>
-                    <li>Rejected</li>
-                    <li>Archieved(5)</li>
+                    <li>All({combinedReduxNotification?.count})</li>
+                    <li>Accepted({acceptCount})</li>
+                    <li>Rejected({rejectCount})</li>
                 </ul>
             </div>
             <div className="noti-body">
@@ -95,7 +113,7 @@ const Notification =()=>{
                     combinedReduxNotification.data?.length > 0 && combinedReduxNotification.data.map((item)=>(
                         <div className="noti-row">
                             <div className="noti-mesage">
-                                <h5>{item?.userDetails?.profile?.fullName}&nbsp;is requesting for {item?.orderDetails?.service.map((service) => service.name)}</h5>
+                                <h5><b>{item?.userDetails?.profile?.fullName}</b>&nbsp;is requesting for <b> {item?.orderDetails?.service.map((service) => service.name + ", " )}</b></h5>
                             </div>
                             <div className="noti-action">
                                 {

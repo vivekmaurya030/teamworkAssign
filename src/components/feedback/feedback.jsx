@@ -117,7 +117,7 @@ const Feedback = () => {
           </div>
           <div className="feedback-row">
             <div className="row1-row1">
-                <h2>Were you satisfied with our staff’s cleaning service and behavior?</h2>
+                <h2>Were you satisfied with our staff’s Cleaning Service and behavior?</h2>
             </div>
             <div className="row1-row2">
             <FormControl fullWidth sx={TextFieldStyle}>
