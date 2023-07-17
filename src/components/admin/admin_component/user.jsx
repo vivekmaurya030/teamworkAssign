@@ -102,6 +102,7 @@ const User = () => {
         // console.log("response is ", res);
         setUsersData(res.data.data.response);
         console.log(res.data.data.response,"user data");
+        console.log(usersData,"ekf");
         // console.log(usersData)
       })
     }
@@ -168,8 +169,8 @@ const User = () => {
         <div className="users-body">
         {/* {usersData.map((obj) => { */}
            {usersData.map((item) => (
-            <div className="user-row" key={item._id}>
-              <div className="user-profile">
+          item?.roles=="user" && <div className="user-row" key={item._id}>
+              <div className="user-profile-name">
                 <div
                   style={{
                     // background: `url(${item.profile})`,
@@ -199,7 +200,7 @@ const User = () => {
               <div className="user-profile">
                 {/* <h5>{item.state}</h5> */}
               </div>
-              <div className="edit-btn user-profil">
+              <div className="edit-btn user-profile">
                 <div className="edit">
                   <RemoveRedEyeOutlinedIcon />
                 </div>

@@ -85,6 +85,11 @@
         
     }
 }
+.row3-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .orderDetail-row1{
     display: flex;
     align-items: center;
@@ -105,9 +110,9 @@
     }
 }
 .orderDetail-row2{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
     padding: 1vh 0;
     h5{
         font-size: 1rem;
@@ -145,13 +150,23 @@
 }
 .row3-services{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    // align-items: center;
     justify-content: space-between;
-    padding: .5vh 0;
-    border-bottom: 1px groove;
     h4{
         font-size: .9rem;
         font-weight: 400;
+        padding: 0;
+        margin: 0;
+    }
+}
+.ser-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vh 0;
+    border-bottom: 1px groove;
+    h4{
         padding: 0;
     }
 }

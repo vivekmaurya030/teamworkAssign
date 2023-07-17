@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { ReactDOM } from "react";
 import klaralogo from './images/klaralogo.png';
 import { Link } from "react-router-dom";
@@ -14,15 +14,14 @@ export default function Header(){
   //     window.history.go(1);
   //   });
   // }, []);
+  useEffect(()=>{
+    var userDetails = JSON.parse(localStorage.getItem("userDetails"))
+    console.log("userDetails is ", userDetails);
+    },[])
   const handleDashboard=(item)=>{
     console.log("userDetails is ", userDetails);
-    if (userDetails?.data?.roles[0] == ["organisationAdmin"] || ["superAdmin"]  ) {
-      item="/NewAdmin"
-      return item;
-    }
-    else 
-      item ="/UserDashboardPage"
-      return item
+    userDetails?.data?.roles == "user" ? item="/UserDashboardPage":item="/NewAdmin"
+    return item
   }
     
     return(

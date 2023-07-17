@@ -1,66 +1,135 @@
-import React from "react";
-import  './viewOrderDetail.scss'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import "./viewOrderDetail.scss";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Link, useParams } from "react-router-dom";
+import { apiGETCall1 } from "../../utilities/site-apis";
+import moment from "moment";
 
+const ViewOrderDetail = () => {
+  var [orderDetail, setOrderDetail] = useState([]);
+  // const [services,setServices]=useState([])
+  const [orderTotal, setOrderTotal] = useState(0);
 
-const ViewOrderDetail =()=>{
-    return(
-        <div className="viewOrderDetail">
-            <div className="viewOrderDetail-top">
-                <div className="orderText">
-                    <h4>Home Cleaning request from Poonam Pandey</h4>
-                </div>
-                <div className="orderBtn">
-                    <button className="accept">Accept</button>
-                    <button className="reject">Reject</button>
-                </div>
-            </div>
-            <div className="viewOrderDetail-mid">
-                <h1>Order Detail</h1>
-            </div>
-            <div className="viewOrderDetail-bottom">
+  // useEffect(() => {
+  //     if(orderDetail?.data?.orderDetails?.service?.price.length > 0) {
+  //       let prices = 0
+  //       for (let obj of prices) {
+  //         prices += obj.price
+  //       }
+  //       setOrderTotal(prices)
+  //     }
 
-                <div className="orderDetails">
-                    <div className="OrderDetail-Back">
-                        <Link to="/notification"><p><ArrowBackIcon />&nbsp;Go Back</p></Link>
-                    </div>
-                    <div className="orderDetail-row1">
-                        <div><h1>Poonam Pandey</h1></div>
-                        <div><h3>Order No. : 23456789</h3></div>
-                    </div>
-                    <div className="orderDetail-row2">
-                        <div><h5>Date: 29/06/2023</h5></div>
-                        <div><h5>Status: Pending</h5></div>
-                        <div><h3>Order Price: ₹ 800</h3></div>
-                    </div>
-                    <div className="orderDetail-col">
-                    <div className="orderDetail-row3">
-                    <div className="row3-head">
-                        <h2>Services</h2>
-                    </div>
-                        <div className="row3-services">
-                            <h4>Toilet cleaning</h4>
-                            <h4>₹ 400</h4>
-                        </div>
-                        <div className="row3-services">
-                            <h4>Home cleaning</h4>
-                            <h4>₹ 440</h4>
-                        </div>
-                    </div>
-                    <div className="orderDetail-row4">
-                        <div className="row4-head">
-                            <h2>Address</h2>
-                        </div>
-                        <div className="row4-address">
-                            <h5>234, Park Avenue, Raj Nagar, New Delhi, India</h5>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
+  //   }, [prices])
+
+  useEffect(() => {
+    const url = window.location.href;
+    const params = new URLSearchParams(url.split("?")[1]);
+    const id = params.get("id");
+    console.log(params);
+    apiGETCall1("http://localhost:3003/api/v1/notification", { id: id }).then(
+      (res) => {
+        console.log("fesg", res.data.data);
+        setOrderDetail(res.data.data);
+        console.log(orderDetail, "ek");
+        // console.log(res.data.data);
+      }
+    );
+    console.log(orderTotal, "gsgsd");
+  }, []);
+
+  return (
+    <div className="viewOrderDetail">
+      <div className="viewOrderDetail-top">
+        <div className="orderText">
+          {orderDetail.data &&
+            orderDetail.data.map((item) => (
+              <h4>
+                {item?.userDetails?.profile?.fullName} booked for&nbsp;
+                {item?.orderDetails?.service?.map((ser, index) => (
+                  <b>{ser.name},&nbsp;</b>
+                ))}
+              </h4>
+            ))}
         </div>
-    )
-}
+        <div className="orderBtn">
+          <button className="accept">Accept</button>
+          <button className="reject">Reject</button>
+        </div>
+      </div>
+      <div className="viewOrderDetail-mid">
+        <h1>Order Detail</h1>
+      </div>
+      <div className="viewOrderDetail-bottom">
+        <div className="orderDetails">
+          <div className="OrderDetail-Back">
+            <Link to="/notification">
+              <p>
+                <ArrowBackIcon />
+                &nbsp;Go Back
+              </p>
+            </Link>
+          </div>
+          <div className="orderDetail-row1">
+            <div>
+              {orderDetail.data &&
+                orderDetail.data.map((item) => (
+                  <h1>{item?.userDetails?.profile?.fullName}</h1>
+                ))}
+            </div>
+            <div>
+              {orderDetail.data &&
+                orderDetail.data.map((item) => (
+                  <h3>Order Id: <b>{item?.orderId}</b></h3>
+                ))}
+            </div>
+          </div>
+          <div className="orderDetail-row2">
+            {orderDetail.data &&
+              orderDetail.data.map((item) => (
+                <div className="row3-row">
+                  <h5>Date: {item?.orderDetails?.date}</h5>
+                  <h5>
+                    Status:{" "}
+                    {item?.status.toLowerCase().charAt(0).toUpperCase() +
+                      item?.status.slice(1)}
+                  </h5>
+                  <h3>Order Price: ₹&nbsp;{orderTotal}</h3>
+                </div>
+              ))}
+          </div>
+          <div className="orderDetail-col">
+            <div className="orderDetail-row3">
+              <div className="row3-head">
+                <h2>Services</h2>
+              </div>
+              {orderDetail.data &&
+                orderDetail.data.map((item) => (
+                  <div className="row3-services">
+                    {item?.orderDetails?.service?.map((ser, index) => (
+                      <div className="ser-list">
+                        <h4>{ser.name}&nbsp;</h4>
+                        <h4>₹&nbsp;{ser.price}</h4>
+                      </div>
+                    ))}
+                    {/* <h4>₹ 400</h4> */}
+                  </div>
+                ))}
+            </div>
+            <div className="orderDetail-row4">
+              <div className="row4-head">
+                <h2>Address</h2>
+              </div>
+              <div className="row4-address">
+                {orderDetail.data && orderDetail.data.map((item)=>(
+                    <h5>{item?.orderDetails?.address}</h5>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default ViewOrderDetail;

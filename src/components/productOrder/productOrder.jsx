@@ -29,7 +29,6 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
 const ProductOrder = () => {
-  const [total,setTotal]=useState(0)
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {

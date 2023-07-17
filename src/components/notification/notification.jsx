@@ -3,11 +3,12 @@ import './notification.scss'
 import { getNotification, updateNotification } from "../../Redux/OrderRedux"
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import ViewOrderDetail from '../viewOrderDetail/viewOrderDetail'
 
 const Notification =()=>{
     const dispatch = useDispatch();
+    const navigate =useNavigate();
     const [services, setServices] = useState([""])
     const [allCount, setAllCount] = useState()
     const [acceptCount, setAcceptCount] = useState()
@@ -73,10 +74,10 @@ const Notification =()=>{
             })
         }
     };
-
     const handleViewDetail = async (event, item) => {
-        alert("view details called")
+        // alert("view details called")
         console.log("item is ", item);
+        navigate(`/ViewOrderDetailPage?id=${item._id}`)
     }
 
     const handleReject = async (event, item) => {
@@ -125,7 +126,7 @@ const Notification =()=>{
                                     <button className="noti-action-btn accept-btn" onClick={event => handleAccept(event, item)}>{item.status === 'accepted' ? "Accepted" : "Accept"}</button>
                                     : null
                                 }
-                                <Link to="/ViewOrderDetailPage"><button className="noti-action-btn viewdetail-btn" onClick={event => handleViewDetail(event, item)}>View Detail</button></Link>
+                                <button className="noti-action-btn viewdetail-btn" onClick={event => handleViewDetail(event, item)}>View Detail</button>
                                 {
                                     item.status === 'rejected' || item.status === 'pending' ? 
                                     <button className="noti-action-btn reject-btn" onClick={event => handleReject(event, item)}>{item.status === 'rejected' ? "Rejected" : "Reject"}</button>

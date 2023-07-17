@@ -17,6 +17,13 @@
     background: #4B006E;
     border-radius: 25px;
 }
+.user-profile,.edit-btn{
+    flex: 1;
+}
+.user-profile-name{
+    flex: 1.5;
+    margin-left: 2vw;
+}
 
 .user-head{
     display: flex;
@@ -108,10 +115,15 @@
     padding: 2px 0;
     border-bottom: 1px solid lightgrey;
 }
-.user-profile{
+.user-profile,.user-profile-name{
     display: flex;
     align-items: center;
+    // flex-basis: 25%;
+    // width: 100%;
+    // text-align: center;
+    // justify-content: center;
     padding: 10px 0;
+    // margin-left: 2vw;
     h4{
         font-size: 1rem;
         padding: 0;
