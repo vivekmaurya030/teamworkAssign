@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './ourServices.scss'
 import { Link } from "react-router-dom";
 
 const OurServices =()=>{
+    useEffect(()=>{
+        window.scrollTo({top:"0",behavior:"smooth"})},[])
 
     const ServicesData=[
         {img:"https://images.pexels.com/photos/5245961/pexels-photo-5245961.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",title:"Regular Cleaning",info:" Regular cleaning services are usually provided on a weekly, bi-weekly, or monthly basis. This includes general cleaning tasks to maintain the cleanliness and tidiness of the home. It typically involves dusting, vacuuming, mopping floors, cleaning surfaces, and removing cobwebs."},

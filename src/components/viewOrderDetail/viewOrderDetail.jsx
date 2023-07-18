@@ -4,11 +4,13 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Link, useParams } from "react-router-dom";
 import { apiGETCall1 } from "../../utilities/site-apis";
 import moment from "moment";
+import Loader from "../loader/loader";
 
 const ViewOrderDetail = () => {
   var [orderDetail, setOrderDetail] = useState([]);
   // const [services,setServices]=useState([])
   const [orderTotal, setOrderTotal] = useState(0);
+  const [loader, setLoader] = useState(true);
 
   // useEffect(() => {
   //     if(orderDetail?.data?.orderDetails?.service?.price.length > 0) {
@@ -33,22 +35,25 @@ const ViewOrderDetail = () => {
     const url = window.location.href;
     const params = new URLSearchParams(url.split("?")[1]);
     const id = params.get("id");
-    console.log(params);
+    // console.log(params);
     apiGETCall1("https://backend-klara.onrender.com/api/v1/notification", { id: id }).then(
       (res) => {
-        console.log("fesg", res.data.data);
+        // console.log("fesg", res.data.data);
         handlePriceTotal(res.data.data.data[0])
-        console.log("ordew rfwuieifbw e4f", res.data.data.data[0]);
+        setLoader(false);
+        // console.log("ordew rfwuieifbw e4f", res.data.data.data[0]);
         setOrderDetail(res.data.data);
-        console.log(orderDetail, "ek");
+        // console.log(orderDetail, "ek");
         // console.log(res.data.data);
       }
     );
-    console.log(orderTotal, "gsgsd");
+    // console.log(orderTotal, "gsgsd");
   }, []);
 
   return (
-    <div className="viewOrderDetail">
+    <>
+    {
+      loader ? <Loader/>:<div className="viewOrderDetail">
       <div className="viewOrderDetail-top">
         <div className="orderText">
           {orderDetail.data &&
@@ -78,6 +83,13 @@ const ViewOrderDetail = () => {
                 &nbsp;Go Back
               </p>
             </Link>
+            {
+              orderDetail.data &&
+              orderDetail.data.map((item) => (
+                <button disabled="disabled" className="status-btn"> {item?.status.toLowerCase().charAt(0).toUpperCase() +
+                  item?.status.slice(1)}</button>
+              ))
+            }
           </div>
           <div className="orderDetail-row1">
             <div>
@@ -98,11 +110,6 @@ const ViewOrderDetail = () => {
               orderDetail.data.map((item) => (
                 <div className="row3-row">
                   <h5>Date: {item?.orderDetails?.date}</h5>
-                  <h5>
-                    Status:{" "}
-                    {item?.status.toLowerCase().charAt(0).toUpperCase() +
-                      item?.status.slice(1)}
-                  </h5>
                   <h3>Order Price: ₹&nbsp;{orderTotal}</h3>
                 </div>
               ))}
@@ -139,6 +146,8 @@ const ViewOrderDetail = () => {
         </div>
       </div>
     </div>
+    }
+    </>
   );
 };
 

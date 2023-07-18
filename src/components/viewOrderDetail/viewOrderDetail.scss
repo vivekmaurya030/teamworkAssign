@@ -76,6 +76,16 @@
 .OrderDetail-Back{
     border-bottom: .5px solid grey;
     padding: 2vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .status-btn{
+        border: none;
+        color: white;
+        background: #4b006e;
+        padding: 1vh 1vw;
+        border-radius: 10px;
+    }
     p{
         padding: 0;
         margin: 0;

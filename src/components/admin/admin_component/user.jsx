@@ -13,6 +13,7 @@ import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 import PhotoCameraFrontOutlinedIcon from "@mui/icons-material/PhotoCameraFrontOutlined";
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import { apiGETCall1 } from "../../../utilities/site-apis";
+import Loader from "../../loader/loader";
 
 const data = [
   {
@@ -92,6 +93,7 @@ const data = [
 
 const User = () => {
 
+  const [loader, setLoader] = useState(true);
   var userDetails = JSON.parse(localStorage.getItem("userDetails"));
   var [usersData, setUsersData] = useState([]);
 
@@ -101,8 +103,9 @@ const User = () => {
       (res) => {
         // console.log("response is ", res);
         setUsersData(res.data.data.response);
-        console.log(res.data.data.response,"user data");
-        console.log(usersData,"ekf");
+        // console.log(res.data.data.response,"user data");
+        // console.log(usersData,"ekf");
+        setLoader(false)
         // console.log(usersData)
       })
     }
@@ -111,7 +114,9 @@ const User = () => {
   // const profiles= usersData.map(obj=> obj._id)
   // console.log(profiles,"profile");
    return (
-    <div>
+    <>
+    {
+      loader ? <Loader/>:<div>
       <div className="widget">
         <div className="box" style={{ marginLeft: "0" }}>
           <Widget
@@ -216,6 +221,8 @@ const User = () => {
         </div>
       </div>
     </div>
+    }
+    </>
   );
 };
 

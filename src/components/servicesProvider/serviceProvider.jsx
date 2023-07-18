@@ -12,18 +12,18 @@ const ServiceProvider = () => {
   const [count, setCount] = useState(0);
   const companyDetail = [
     {
-      companyName: "Paradigm Shift Co.",
+      companyName: "Sprakle Cleaners",
       companyImg:
         "https://images.pexels.com/photos/443383/pexels-photo-443383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       companyDetail:
-        " I highly recommend KLARA for anyone looking for a reliable and professional cleaning service.Nick Green, DeveloperI highly recommend KLARA for anyone looking for a reliable and professional cleaning service",
+        " When it comes to homes, Sparkle Cleaners takes the responsibility of transforming living spaces into havens of cleanliness. From regular house cleaning to deep cleaning and even move-in or move-out cleaning, their team of skilled professionals ensures that every nook and cranny is attended to with meticulous attention. Whether it's eliminating dust, sanitizing surfaces, or revitalizing carpets and windows, Sparkle Cleaners leaves no stone unturned.",
     },
     {
-      companyName: "Catalyst Creations Co.",
+      companyName: "Fresh & Clear Cleaning Services",
       companyImg:
         "https://images.pexels.com/photos/4767875/pexels-photo-4767875.jpeg?auto=compress&cs=tinysrgb&w=600",
       companyDetail:
-        " I highly recommend KLARA for anyone looking for a reliable and professional cleaning service.Nick Green, DeveloperI highly recommend KLARA for anyone looking for a reliable and professional cleaning service",
+        " Fresh & Clear Cleaning Services is a professional cleaning company dedicated to providing exceptional cleaning solutions for residential and commercial clients. With a focus on delivering freshness and clarity, we aim to transform spaces into pristine environments that promote well-being and productivity..",
     },
     {
       companyName: "Nick Green",
@@ -59,7 +59,7 @@ const ServiceProvider = () => {
   return (
     <div className="Ser-provider">
       <div className="Ser-provider-head">
-        <h1>Service Providers</h1>
+        <h1>Collabrators</h1>
       </div>
       <Swiper 
         slidesPerView={4}

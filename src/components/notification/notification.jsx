@@ -118,7 +118,6 @@ const Notification =()=>{
             <div className="noti-title">
                 <h1>Notification</h1>
                 <p>Mark all as read</p>
-                <Link to="/Loader">Loder</Link>
             </div>
             </div> 
             
