@@ -18,7 +18,6 @@ import FeedbackPage from "./pages/feedbackPage";
 import ViewOrderDetailPage from "./pages/viewOrderPage";
 import Loader from "./components/loader/loader";
 
-
 const Routers = () => {
     return (
         <>

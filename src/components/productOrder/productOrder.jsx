@@ -21,7 +21,7 @@ import Switch from "@mui/material/Switch";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { createOrder } from "../../Redux/OrderRedux";
+import { createOrder } from "../../Redux/orderRedux";
 import { Link } from "react-router-dom";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';

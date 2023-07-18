@@ -26,7 +26,7 @@ const ViewOrderDetail = () => {
     const params = new URLSearchParams(url.split("?")[1]);
     const id = params.get("id");
     console.log(params);
-    apiGETCall1("http://localhost:3003/api/v1/notification", { id: id }).then(
+    apiGETCall1("https://backend-klara.onrender.com/api/v1/notification", { id: id }).then(
       (res) => {
         console.log("fesg", res.data.data);
         setOrderDetail(res.data.data);
