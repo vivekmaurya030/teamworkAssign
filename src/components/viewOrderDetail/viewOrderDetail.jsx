@@ -50,6 +50,7 @@ const ViewOrderDetail = () => {
     // console.log(orderTotal, "gsgsd");
   }, []);
 
+
   return (
     <>
     {
@@ -86,7 +87,7 @@ const ViewOrderDetail = () => {
             {
               orderDetail.data &&
               orderDetail.data.map((item) => (
-                <button disabled="disabled" className="status-btn"> {item?.status.toLowerCase().charAt(0).toUpperCase() +
+                <button disabled="disabled" className="status-btn" style={{background: item?.status=="accepted" ? "#11820F":""|| item?.status=="rejected" ? "#BC0A0A":""}}> {item?.status.toLowerCase().charAt(0).toUpperCase() +
                   item?.status.slice(1)}</button>
               ))
             }

@@ -117,7 +117,7 @@ const User = () => {
     <>
     {
       loader ? <Loader/>:<div>
-      <div className="widget">
+      {/* <div className="widget">
         <div className="box" style={{ marginLeft: "0" }}>
           <Widget
             bg={Top_purple}
@@ -148,7 +148,7 @@ const User = () => {
             icon2Title="Permissions"
           />
         </div>
-      </div>
+      </div> */}
       <div className="users">
         <div className="user-head">
           <div className="user-title">
