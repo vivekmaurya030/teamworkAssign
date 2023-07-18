@@ -21,7 +21,7 @@ import Switch from "@mui/material/Switch";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { createOrder } from "../../Redux/OrderRedux";
+import { createOrder } from "../../Redux/orderRedux";
 import { Link } from "react-router-dom";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -118,8 +118,23 @@ const ProductOrder = () => {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
-    apiPostCall1("https://backend-klara.onrender.com/api/v1/order",data)
+    const OrderData = {
+      userId: userDetails.data.userId,
+      date: orderDetail.dateTime,
+      service: orderDetail.service,
+      houseArea: +orderDetail.area,
+      havePet: orderDetail.pet ? true : false,
+      petName: orderDetail.pet,
+      donateToEmployee: orderDetail.supplies ? true : false,
+      donatedAmount: orderDetail.supplies,
+      address: orderDetail.address,
+      notes: orderDetail.note,
+      organisation: orderDetail.organisation,
+    };
+    dispatch(createOrder(OrderData)).then((res) => {
+      // console.log("response is ", res.data);
+      setOpen(true);
+    });
   };
 
   const handleClose = () => {
@@ -145,7 +160,8 @@ const ProductOrder = () => {
   ];
   //  console.log("userdetails is ", userDetails);
   const click = () => {
-    setPreview(!preview);
+    setPreview(true);
+    return;
   };
 
   const [toggled, setToggled] = useState(false);
@@ -158,7 +174,7 @@ const ProductOrder = () => {
     phone: "",
     dateTime: "",
     address: "",
-    area: "",
+    area: 0,
     supplies: "0",
     pet: [],
     note: "",
@@ -177,14 +193,13 @@ const ProductOrder = () => {
   };
 
   const handleOrganisatonSelect = (event, value) => {
-    console.log("event is ", event, value);
-    setServiceList(value);
-    const newArr = value.map((e) => e._id);
-    console.log(" newArr is ", newArr);
+    console.log("event is ", event);
+    console.log("value is   ", value);
     setOrderDetail((prev) => ({
       ...prev,
-      service: newArr,
+      employeeId: value.props.value,
     }));
+    
   };
 
 
@@ -241,25 +256,7 @@ const ProductOrder = () => {
   console.log("data is ----> ", data);
 
   const handleSubmit = async () => {
-    const OrderData = {
-      userId: userDetails.data.userId,
-      date: orderDetail.dateTime,
-      service: orderDetail.service,
-      houseArea: +orderDetail.area,
-      havePet: orderDetail.pet ? true : false,
-      petName: orderDetail.pet,
-      donateToEmployee: orderDetail.supplies ? true : false,
-      donatedAmount: orderDetail.supplies,
-      address: orderDetail.address,
-      notes: orderDetail.note,
-      organisation: orderDetail.organisation,
-    };
     click();
-
-    dispatch(createOrder(OrderData)).then((res) => {
-      console.log("response is ", res);
-      setOrderDetail({});
-    });
   };
 
   const [preview, setPreview] = useState(false);
@@ -576,10 +573,10 @@ const ProductOrder = () => {
                   MenuProps={MenuProps}
                   className="select-organisation"
                   id="organisation-name"
-                  onChange={(e) =>
-                    setOrderDetail((prev) => ({ ...prev, area: e.target.value }))
-                  }
-                  // onChange={handleChange}
+                  // onChange={
+                  //   handleOrganisatonSelect
+                  // }
+                  onChange={handleOrganisatonSelect}
                 >
                 {
                     organisation.map((item,index)=>(
