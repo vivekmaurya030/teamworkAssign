@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './notification.scss'
-import { getNotification, updateNotification } from "../../Redux/OrderRedux"
+import { getNotification, updateNotification } from "../../Redux/orderRedux"
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
