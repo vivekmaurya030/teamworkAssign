@@ -17,7 +17,6 @@ import FoundersPage from "./pages/foundersPage";
 import FeedbackPage from "./pages/feedbackPage";
 import ViewOrderDetailPage from "./pages/viewOrderPage";
 
-
 const Routers = () => {
     return (
         <>
