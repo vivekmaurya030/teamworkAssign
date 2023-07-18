@@ -5,6 +5,9 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ViewOrderDetail from '../viewOrderDetail/viewOrderDetail'
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
+import Loader from "../loader/loader"
 
 const Notification =()=>{
     const dispatch = useDispatch();
@@ -15,7 +18,7 @@ const Notification =()=>{
     const [rejectCount, setRejectCount] = useState()
     const [rejectToggle, setRejectToggle] = useState(false)
     const [acceptToggle, setAcceptToggle] = useState(false)
-
+    const [loader, setLoader] = useState(true);
 
     const combinedReduxNotification = useSelector((state) => state.order.notificationList);
     console.log("combinedReduxNotification is ", combinedReduxNotification);
@@ -36,13 +39,20 @@ const Notification =()=>{
 
     useEffect(() => {
         // localStorage.clear()
-        dispatch(getNotification({}))
+        dispatch(getNotification({})).then(() => {
+            setLoader(false);
+        })
+        // if(combinedReduxNotification.data.length > 0) {
+        //     setLoader(false);
+        // }
         console.log("combinedReduxNotification is ", combinedReduxNotification);
     }, [])
 
     useEffect(() => {
         // localStorage.clear()
-        dispatch(getNotification({}))
+        dispatch(getNotification({})).then(() => {
+            setLoader(false);
+        })
         console.log("combinedReduxNotification is ", combinedReduxNotification);
     }, [acceptToggle, rejectToggle]);
 
@@ -70,6 +80,7 @@ const Notification =()=>{
                 status: "accepted"
             }
             dispatch(updateNotification(updateObj)).then(() => {
+                setLoader(false);
                 setAcceptToggle(true);
             })
         }
@@ -88,6 +99,7 @@ const Notification =()=>{
                 status: "rejected"
             }
             dispatch(updateNotification(updateObj)).then(() => {
+                setLoader(true)
                 setRejectToggle(true);
             })
         }
@@ -97,12 +109,16 @@ const Notification =()=>{
     
 
     return(
-        <div>
+        <>
+            {
+                loader ? <Loader /> : 
+                <div>
             <div className="notification">
            <div className="notification-head">
             <div className="noti-title">
                 <h1>Notification</h1>
                 <p>Mark all as read</p>
+                <Link to="/Loader">Loder</Link>
             </div>
             </div> 
             
@@ -139,6 +155,8 @@ const Notification =()=>{
             </div>
         </div>
         </div>
+            }
+        </>
     )
 }
 

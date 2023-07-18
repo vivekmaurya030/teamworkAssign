@@ -226,10 +226,10 @@ const ProductOrder = () => {
   }, [orderDetail.area, orderDetail.service]);
 
   const data={
-    userId: userDetails.data.userId,
+      userId: userDetails.data.userId,
       date: orderDetail.dateTime,
       service: orderDetail.service,
-      houseArea: orderDetail.area,
+      houseArea: +orderDetail.area,
       havePet: orderDetail.pet ? true : false,
       petName: orderDetail.pet,
       donateToEmployee: orderDetail.supplies ? true : false,
@@ -238,22 +238,23 @@ const ProductOrder = () => {
       notes: orderDetail.note,
       organisation:orderDetail.organisation,
   }
+  console.log("data is ----> ", data);
 
   const handleSubmit = async () => {
     const OrderData = {
       userId: userDetails.data.userId,
       date: orderDetail.dateTime,
       service: orderDetail.service,
-      houseArea: orderDetail.area,
+      houseArea: +orderDetail.area,
       havePet: orderDetail.pet ? true : false,
       petName: orderDetail.pet,
       donateToEmployee: orderDetail.supplies ? true : false,
       donatedAmount: orderDetail.supplies,
       address: orderDetail.address,
       notes: orderDetail.note,
-      organisation:orderDetail.organisation,
+      organisation: orderDetail.organisation,
     };
-    click();
+    
 
     dispatch(createOrder(OrderData)).then((res) => {
       console.log("response is ", res);

@@ -16,6 +16,7 @@ import OurServicesPage from "./pages/ourServicesPage";
 import FoundersPage from "./pages/foundersPage";
 import FeedbackPage from "./pages/feedbackPage";
 import ViewOrderDetailPage from "./pages/viewOrderPage";
+import Loader from "./components/loader/loader";
 
 
 const Routers = () => {
@@ -37,6 +38,7 @@ const Routers = () => {
                     <Route path="/FoundersPage" element={<FoundersPage />}></Route>
                     <Route path="/FeedbackPage" element={<FeedbackPage />}></Route>
                     <Route path="/ViewOrderDetailPage" element={<ViewOrderDetailPage />}></Route>
+                    <Route path="/Loader" element={<Loader />}></Route>
                     <Route exact path="/notification" element={<NewAdmin/>}>
                     </Route>
 

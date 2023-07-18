@@ -11,13 +11,40 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     img{
         height: 150px;
         width: 150px;
         border-radius: 50%;
     }
 }
+.profile-edit-btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    .edit{
+        padding: 1vh 1vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h5{
+            padding: 0;
+            font-size: .8rem;
+            margin: 0;
+        
+
+        }
+    }
+}
+.detail-head{
+    h4{
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+    }
+}
 .profile-body{
+
     padding-top: 5vh;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
@@ -25,4 +52,35 @@
 }
 .profile-detail{
     // width: 50%;
+}
+.profile-bottom{
+    padding: 2vh 5vw;
+    padding-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .update-btn{
+        padding: 1vh 3vw;
+        border: .5px solid #4b006e;
+        background: #4b006e;
+        color: white;
+        border-radius: 20px;
+        font-size: 1.1rem;
+        font-weight: 600;
+
+        &:hover{
+            background: white;
+            color: #4b006e;
+            cursor: pointer;
+        }
+        &:disabled{
+            color: #4b006e;
+            background: grey;
+            border-color: grey;
+            cursor: auto;
+
+        }
+
+
+    }
 }
