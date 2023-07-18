@@ -27,10 +27,10 @@ const HomePage=()=>{
               <img src={whyklara} alt="" />
             </div>
             <div className="why-klara-col2">
-              <h1>Why choose KLARA?</h1>
+              <h1>Why choose KLARA MOON?</h1>
               <p>We understand that regular cleanings are an important part of maintaining a clean, healthy environment.</p>
               <p>Our professionally-trained cleaners will ensure your home or office is free from dirt, dust and debris so you can relax and focus on what's most important: life.</p>
-              <h4>Team Klara</h4>
+              <h4>-Team Klara Moon</h4>
             </div>
           </div>
     

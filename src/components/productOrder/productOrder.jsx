@@ -21,7 +21,7 @@ import Switch from "@mui/material/Switch";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { createOrder } from "../../Redux/orderRedux";
+import { createOrder } from "../../Redux/OrderRedux";
 import { Link } from "react-router-dom";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -254,7 +254,7 @@ const ProductOrder = () => {
       notes: orderDetail.note,
       organisation: orderDetail.organisation,
     };
-    
+    click();
 
     dispatch(createOrder(OrderData)).then((res) => {
       console.log("response is ", res);

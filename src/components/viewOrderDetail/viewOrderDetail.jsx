@@ -20,7 +20,15 @@ const ViewOrderDetail = () => {
   //     }
 
   //   }, [prices])
+  const handlePriceTotal = async (item) => {
+    let tempPrice = 0;
+    for(let obj of item.orderDetails.service) {
+      tempPrice = tempPrice + obj.price
+    }
+    
+    setOrderTotal(tempPrice)
 
+  }
   useEffect(() => {
     const url = window.location.href;
     const params = new URLSearchParams(url.split("?")[1]);
@@ -29,6 +37,8 @@ const ViewOrderDetail = () => {
     apiGETCall1("https://backend-klara.onrender.com/api/v1/notification", { id: id }).then(
       (res) => {
         console.log("fesg", res.data.data);
+        handlePriceTotal(res.data.data.data[0])
+        console.log("ordew rfwuieifbw e4f", res.data.data.data[0]);
         setOrderDetail(res.data.data);
         console.log(orderDetail, "ek");
         // console.log(res.data.data);

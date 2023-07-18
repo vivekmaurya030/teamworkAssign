@@ -35,10 +35,10 @@ function ImageSlider(){
         <div className="searchHead">
           <h1>COME HOME HAPPY!</h1>
         </div>
-        <div class="search">
+        {/* <div class="search">
           <input type="text" name="search" id="search" placeholder="Search services, procduct, etc." />
           <button><SearchIcon /></button>
-        </div>
+        </div> */}
       </div>
       
     </div>

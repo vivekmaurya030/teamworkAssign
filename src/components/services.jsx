@@ -6,6 +6,7 @@ import services3 from './images/services3.png'
 import services4 from './images/services4.png'
 import services5 from './images/services5.png'
 import services6 from './images/services6.png'
+import { Link } from "react-router-dom";
 
 export default function Services(){
     const servicesData=[
@@ -26,7 +27,8 @@ export default function Services(){
             <div className="Services-body">
                 {
                     servicesData.map((service)=>(
-                        <div className="Services-card">
+                        <Link to="/OurServicesPage">
+                            <div className="Services-card">
                             <div className="Services-card-img">
                                 <img src={service.img} alt={service.title} />
                             </div>
@@ -34,6 +36,7 @@ export default function Services(){
                                 <h3>{service.title}</h3>
                             </div>
                         </div>
+                        </Link>
                     ))
                 }
             </div>
