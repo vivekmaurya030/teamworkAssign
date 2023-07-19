@@ -133,8 +133,9 @@ const Notification =()=>{
                     combinedReduxNotification.data?.length > 0 && combinedReduxNotification.data.map((item)=>(
                         <div className="noti-row">
                             <div className="noti-mesage">
-                                <h5><b>{item?.userDetails?.profile?.fullName}</b>&nbsp;is requesting for <b> {item?.orderDetails?.service.map((service) => service.name + ", " )}</b></h5>
+                                <h5><b>{item?.userDetails?.profile?.fullName}</b>&nbsp;is requesting for <b> {item?.orderDetails?.service.map((item) => item.name+ ", " )}</b></h5>
                             </div>
+                            {console.log(item?.orderDetails?.service,"abc")}
                             <div className="noti-action">
                                 {
                                     item.status === 'accepted' || item.status === 'pending' ?                             
