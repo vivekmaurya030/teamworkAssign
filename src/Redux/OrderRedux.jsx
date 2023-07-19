@@ -94,7 +94,7 @@ export const counterSlice = createSlice({
       [updateNotification.fulfilled]: (state, action) => {
       state.isFetching = false
       state.error = null
-      alert("updated successfully!")
+      // alert("updated successfully!")
       // state.notificationList = action.payload.data;
     },  
     }    

@@ -64,14 +64,23 @@
     transition: height .5s;
     color: white
     
-
 }
 .detail{
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.527);
     text-align: center;
+    // overflow: scroll;
     padding: 2vh 1vw;
+    padding-bottom: 0;
+   
+    p{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        font-size: .8rem;
+        // overflow: scroll;
+    }
 }
 .Slide:hover{
     

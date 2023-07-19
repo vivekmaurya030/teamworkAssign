@@ -12,26 +12,33 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import EditIcon from '@mui/icons-material/Edit';
 import  statesList  from "../../../utilities/helpers/stateName"
+import dateFormat from 'dateformat';
+import moment from "moment/moment";
+import Loader from '../../loader/loader'
 
 const UserProfile = () => {
   var userDetails = JSON.parse(localStorage.getItem("userDetails"));
   var [usersData, setUsersData] = useState([]);
+  const [loader,setLoader] = useState(true)
   const handleEdit = () => {
     setEdit(!edit);
+    
   };
   const [serviceData,setServiceData]=useState([])
   const [edit, setEdit] = useState(true);
   useEffect(() => {
     // console.log("isServiceEmpty is ", isServiceEmpty);
-    alert(userDetails?.data?.userId)
+    // alert(userDetails?.data?.userId)
+    
     if(userDetails?.data?.userId) {
       apiGETCall1("https://backend-klara.onrender.com/api/v1/user",{id:userDetails?.data?.userId} ).then(
       (res) => {
         console.log("response is ", res);
           setServiceData(res.data.data.response)
-          console.log(res.data.response,"fkodf");
-          
+          console.log(res.data.data.response,"fkodf");
+          setLoader(false)
       }
+      
     );
     }
     console.log(userDetails?.data?.userId,"fkdofs")
@@ -65,22 +72,25 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="userProfile">
+    <>
+    {
+      loader ? <Loader/> : <div className="userProfile">
       <div className="profile-img">
         <img
-          src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
           alt=""
         />
-        <div className="profile-edit-btn">
+        {/* <div className="profile-edit-btn">
             <button className="edit" onClick={handleEdit}
             style={{background: edit ? "":"white"}}><h5><EditIcon style={{fontSize:".8rem"}} />&nbsp;Edit</h5></button>
-          </div>
+          </div> */}
       </div>
-      <div className="profile-body">
+      {serviceData.map((item)=>(
+        <div className="profile-body">
         <div className="profile-detail">
           
           <div className="detail-head">
-            <h4>First Name:</h4>
+            <h4>Name:</h4>
           </div>
           <div className="detail-input">
             <TextField
@@ -88,8 +98,8 @@ const UserProfile = () => {
               id="email"
               //   label="Email Id :"
               placeholder="Enter your email"
-              disabled={edit ? "true" : ""}
-              // value={}
+              disabled={true}
+              value={item?.profile?.fullName}
               fullWidth={true}
               type="email"
               //   onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
@@ -97,7 +107,7 @@ const UserProfile = () => {
             />
           </div>
         </div>
-        <div className="profile-detail">
+        {/* <div className="profile-detail">
           <div className="detail-head">
             <h4>Last Name:</h4>
           </div>
@@ -115,7 +125,7 @@ const UserProfile = () => {
               sx={edit ? null:TextFieldStyle}
             />
           </div>
-        </div>
+        </div> */}
         <div className="profile-detail">
           <div className="detail-head">
             <h4>Email Id:</h4>
@@ -127,7 +137,7 @@ const UserProfile = () => {
               //   label="Email Id :"
               placeholder="Enter your email"
               disabled={edit ? "true" : ""}
-            //   value={"rakses"}
+              value={item?.email}
               fullWidth={true}
               type="email"
               //   onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
@@ -146,7 +156,7 @@ const UserProfile = () => {
               //   label="Email Id :"
               placeholder="Enter your email"
               disabled={edit ? "true" : ""}
-            //   value={"rakses"}
+              value={item?.phone.work}
               fullWidth={true}
               type="email"
               //   onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
@@ -165,7 +175,7 @@ const UserProfile = () => {
               //   label="Email Id :"
               placeholder="Enter your email"
               disabled={edit ? "true" : ""}
-            //   value={"rakses"}
+              value={item?.phone?.mobile}
               fullWidth={true}
               type="email"
               //   onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
@@ -173,7 +183,7 @@ const UserProfile = () => {
             />
           </div>
         </div>
-        <div className="profile-detail">
+        {/* <div className="profile-detail">
           <div className="detail-head">
             <h4>Gender:</h4>
           </div>
@@ -188,7 +198,7 @@ const UserProfile = () => {
                 //   onChange={(e) => setUserData((prev) => ({ ...prev, gender: e.target.value === 'male' ? 'Male': 'Female' }))}
                   // onChange={handleChange}
                 >
-                  <MenuItem value="" disabled>
+                  <MenuItem value={} disabled>
                     Select Gender
                   </MenuItem>
                   <MenuItem value="male">Male</MenuItem>
@@ -196,7 +206,7 @@ const UserProfile = () => {
                 </Select>
               </FormControl>
           </div>
-        </div>
+        </div> */}
         <div className="profile-detail">
           <div className="detail-head">
             <h4>City</h4>
@@ -208,7 +218,7 @@ const UserProfile = () => {
               //   label="Email Id :"
               placeholder="Enter your email"
               disabled={edit ? "true" : ""}
-            //   value={"rakses"}
+              value={item?.address?.city}
               fullWidth={true}
               type="email"
               //   onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
@@ -241,27 +251,18 @@ const UserProfile = () => {
             <h4>State:</h4>
           </div>
           <div className="detail-input">
-          <FormControl fullWidth sx={edit ? null:TextFieldStyle}>
-                <Select
-                  MenuProps={MenuProps}
-                  className="select-state"
-                  // labelId="state-name"
-                  id="state-name"
-                  disabled={edit ? "true" : ""}
-                  // value="{age}"
-                  label="State"
-                  // onChange={(e) => setUserData((prev) => ({ ...prev, state: e.target.value }))}
-                  // onChange={handleChange}
-                >
-                {
-                    statesList.map((item,index)=>(
-                        <MenuItem value= {item}>{item}</MenuItem>
-                  ))
-                }
-                    {/* Select Country
-                    Country */}
-                </Select>
-              </FormControl>
+          <TextField
+              className="textField"
+              id="email"
+              disabled
+              //   label="Email Id :"
+              // placeholder="Enter your email"
+              value= {item?.address?.state}
+              fullWidth={true}
+              type="email"
+              //   onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
+              sx={edit ? null:TextFieldStyle}
+              />
           </div>
         </div>
         <div className="profile-detail">
@@ -273,9 +274,9 @@ const UserProfile = () => {
               className="textField"
               id="email"
               //   label="Email Id :"
-              placeholder="Enter your email"
+              // placeholder="Enter your email"
               disabled={edit ? "true" : ""}
-            //   value={"rakses"}
+              value={item?.address?.pincode}
               fullWidth={true}
               type="email"
               //   onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
@@ -288,28 +289,44 @@ const UserProfile = () => {
             <h4>Date of Birth:</h4>
           </div>
           <div className="detail-input">
-          <LocalizationProvider
+          {/* <LocalizationProvider
                 dateAdapter={AdapterDayjs}
               >
-                <DemoContainer components={["DatePicker"]}>
+                <DemoContainer components={["DatePicker"]} >
                   <DatePicker
                     // label="Date Of Birth"
                     slotProps={{ textField: { fullWidth: true}}}
                     sx={TextFieldStyle}
                     disableFuture
+                    defaultValue={item?.profile?.dob}                    
                     disabled={edit ? "true":""}
                     // onChange={(e) => setUserData((prev) => ({ ...prev, dob: moment(e.$d).format() }))}
                     // onChange={(e) => console.log("edefbgr is ", moment(e.$d).format())}
                   />
                 </DemoContainer>
-              </LocalizationProvider>
+              </LocalizationProvider> */}
+              <TextField
+              className="textField"
+              id="email"
+              //   label="Email Id :"
+              // placeholder="Enter your email"
+              disabled={edit ? "true" : ""}
+              value={dateFormat(item?.profile?.dob,"dS mmmm yyyy")}
+              fullWidth={true}
+              type="email"
+              //   onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
+              sx={edit ? null:TextFieldStyle}
+            />
           </div>
         </div>
       </div>
-      <div className="profile-bottom">
+      ))}
+      {/* <div className="profile-bottom">
         <button className="update-btn" disabled={edit ? "false":""}>Update</button>
-      </div>
+      </div> */}
     </div>
+    }
+    </>
   );
 };
 

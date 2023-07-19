@@ -101,7 +101,7 @@ const ProductOrder = () => {
   useEffect(() => {
     // console.log("isServiceEmpty is ", isServiceEmpty);
     if (!userDetails) {
-      alert("Please login/signup first!!");
+      // alert("Please login/signup first!!");
       navigate("/");
     }
     apiGETCall1("https://backend-klara.onrender.com/api/v1/masterService", "").then(

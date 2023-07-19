@@ -157,12 +157,12 @@ const ViewOrderDetail = () => {
                     disabled="disabled"
                     className="status-btn"
                     style={{
-                      background:
+                      color:
                         item?.status == "accepted"
                           ? "#11820F"
                           : "" || item?.status == "rejected"
                           ? "#BC0A0A"
-                          : "",
+                          : "" || item?.status =="pending" ? "Yellow":""
                     }}
                   >
                    {item?.status.toLowerCase().charAt(0).toUpperCase() +

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./feedback.scss";
 import feedbackimg from "./img/feedbackimg.png";
 import Rating from "@mui/material/Rating";
@@ -10,17 +10,18 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import { apiPostCall1 } from "../../utilities/site-apis";
 
 const labels = {
-//   0.5: "Useless",
-  1: "Useless",
-//   1.5: "Poor",
-  2: "Poor",
-//   2.5: "Ok",
+  // 0.5: "Useless",
+  1: "Poor",
+  // 1.5: "Poor",
+  2: "Improvement Needed",
+  // 2.5: "Okay",
   3: "Good",
-//   3.5: "Good",
+  // 3.5: "very Good",
   4: "Excellent",
-//   4.5: "Excellent",
+  // 4.5: "Outstanding",
   5: "Outstanding",
 };
 
@@ -29,13 +30,32 @@ function getLabelText(value) {
 }
 
 const Feedback = () => {
-  const [value, setValue] = React.useState(0);
-  const [hover, setHover] = React.useState(-1);
+  const [value, setValue] = useState(0);
+  const [hover, setHover] = useState(-1);
+  const [feedbackData, setFeedbackData] = useState({
+    notificationId:"64b3a7d02aeea8283ced404f",
+    rate:"",
+    satisfied:"",
+    additonalFeedback:"",
+
+  })
+
+  const Feedback ={
+    notificationId: feedbackData.notificationId,
+    ratings: feedbackData.rate.toString(),
+    feedBackService: feedbackData.satisfied,
+    additionalComment: feedbackData.additonalFeedback
+  }
+  const handleFeedbackSubmit =()=>{
+    apiPostCall1("https://backend-klara.onrender.com/api/v1/review",Feedback)
+    console.log(feedbackData)
+    alert(Feedback.ratings)
+  }
 
   const TextFieldStyle = {
     margin: "1vh 0",
     "&:hover fieldset": {
-      boxShadow: "0px 5px 5px #4B006E",
+      boxShadow: "0px 5px 5px #4B006E", 
       outline: "none",
       border: "none",
     },
@@ -99,10 +119,12 @@ const Feedback = () => {
                   }}
                   onChange={(event, newValue) => {
                     setValue(newValue);
+                    setFeedbackData((prev) => ({ ...prev, rate : event.target.value }))
                   }}
                   onChangeActive={(event, newHover) => {
                     setHover(newHover);
                   }}
+                 
                   emptyIcon={
                     <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
                   }
@@ -125,7 +147,7 @@ const Feedback = () => {
                   labelId="staisfaction"
                   id="satisfaction"
                   
-                //   onChange={(e) => setUserData((prev) => ({ ...prev, gender: e.target.value === 'male' ? 'Male': 'Female' }))}
+                  onChange={(e) => setFeedbackData((prev) => ({ ...prev, satisfied: e.target.value === 'yes' ? 'Yes': 'No' }))}
                   // onChange={handleChange}
                 >
                   <MenuItem value="yes">Yes</MenuItem>
@@ -147,7 +169,7 @@ const Feedback = () => {
                 multiline
                 rows={4}
                 fullWidth={true}
-                // onChange={(e) => setContact((prev) => ({ ...prev, message: e.target.value }))}
+                onChange={(e) => setFeedbackData((prev) => ({ ...prev, additonalFeedback: e.target.value }))}
                 type="text"
                 sx={TextFieldStyle}
               />
@@ -166,7 +188,7 @@ const Feedback = () => {
             />
           </div>
           <div className="submit">
-            <button className="sub-feedback-btn" >Submit Feedback</button>
+            <button className="sub-feedback-btn" onClick={handleFeedbackSubmit}>Submit Feedback</button>
           </div>
         </div>
       </div>

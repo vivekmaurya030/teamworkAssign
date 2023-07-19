@@ -14,6 +14,7 @@ import PhotoCameraFrontOutlinedIcon from "@mui/icons-material/PhotoCameraFrontOu
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import { apiGETCall1 } from "../../../utilities/site-apis";
 import Loader from "../../loader/loader";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -165,11 +166,13 @@ const User = () => {
             <SearchOutlinedIcon className="search-icon" />
           </div>
           <div className="new">
+          <Link to="/SignUpPage">
             <button className="btn">
               <PersonAddOutlinedIcon />
               <h6>New Member</h6>
-            </button>
+            </button></Link>
           </div>
+          
         </div>
         <div className="users-body">
         {/* {usersData.map((obj) => { */}

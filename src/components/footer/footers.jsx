@@ -24,7 +24,7 @@ const Footers = () => {
             </div>
         <div className="section-middle">
           <div className="about">
-            <h3 className="heading"><Link to="/AboutUsPage" style={{color
+            <h3 className="heading"><Link to="/FoundersPage" style={{color
             :"white"}}> About Us</Link></h3>
             <p>Aditi Srivastava</p>
             <p>Shiksha Vishwakarma</p>

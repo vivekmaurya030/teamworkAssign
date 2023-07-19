@@ -7,6 +7,7 @@ import Employee from "./admin_component/employee";
 import UpdateUser from "./admin_component/updateUser";
 import Analytics from "./admin_component/analytics";
 import Notification from "../notification/notification";
+import { Link } from "react-router-dom";
 
 const NewAdmin=(prop)=>{
     const [active,setActive]=useState("notification")
@@ -17,8 +18,8 @@ const NewAdmin=(prop)=>{
     const componentMap = {
         userList: <User />,
         employee: <Employee/>,
-        updateUser: <UpdateUser />,
-        analytics: <Analytics />,
+        // updateUser: <UpdateUser />,
+        // analytics: <Analytics />,
         notification: <Notification />,
 
       };
@@ -30,16 +31,17 @@ const NewAdmin=(prop)=>{
             <div className="newadmin-body">
                 <div className="sidebarnav">
                 <div className="sidebar">
-            <div className="admin-search">
+            {/* <div className="admin-search">
                 <input type="search" name="admin-search" id="admin-search" placeholder="Search........" className="nav-search" />
-            </div>
+            </div> */}
             <div className="logo"><h3>KLARA MOON</h3></div>
             <div className="nav">
             <li className={active === 'userList' ? 'active' : ''} onClick={() => handleActive('userList')}>User List</li>
             <li className={active === 'employee' ? 'active' : ''} onClick={() => handleActive('employee')}>Employee</li>
-            <li className={active === 'updateUser' ? 'active' : ''} onClick={() => handleActive('updateUser')}>Update User</li>
-            <li className={active === 'analytics' ? 'active' : ''} onClick={() => handleActive('analytics')}>Analytics</li>
+            {/* <li className={active === 'updateUser' ? 'active' : ''} onClick={() => handleActive('updateUser')}>Update User</li> */}
+            {/* <li className={active === 'analytics' ? 'active' : ''} onClick={() => handleActive('analytics')}>Analytics</li> */}
             <li className={active === 'notification' ? 'active' : ''} onClick={() => handleActive('notification')}>Notification</li>
+            <Link to="/contactPage"><li className={active === 'contactUs' ? 'active' : ''} onClick={() => handleActive('contactUs')}>Contact Us</li></Link>
             </div>
         </div>
                 </div>

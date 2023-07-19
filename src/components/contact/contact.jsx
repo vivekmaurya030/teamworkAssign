@@ -35,7 +35,7 @@ const Contact = () => {
   };
   const handleClick =()=>{
     apiPostCall1('https://backend-klara.onrender.com/api/v1/contactUs',contactData)
-    alert("We will contact you soon..........")
+    // alert("We will contact you soon..........")
     clearField()
     
   }

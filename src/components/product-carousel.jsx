@@ -25,7 +25,7 @@ function ProductImageSlider(){
       <Zoom pauseOnHover={false} canSwipe={false} duration={3500} transitionDuration={1000} arrows={false} >
         {slideImages.map((image,index) => (
           <div key={index}>
-            <div style={{...divStyle,backgroundImage:`linear-gradient(135deg,#4b006e,#4b006e,rgb(75, 0, 110,.70),rgb(255,255,255,.2)), url(${image.url})`}}>
+            <div style={{...divStyle,backgroundImage:`linear-gradient(135deg,#4b006e,#4b006e,rgb(75, 0, 110,.70),rgb(255,255,255,.5)), url(${image.url})`}}>
               
             </div>
           </div>

@@ -105,17 +105,17 @@ const Faqs = () => {
         }}
       >
         <h1>Frequently Asked Questions</h1>
-        <div className="searchbar">
+        {/* <div className="searchbar">
           <input type="text" placeholder="How can we help you?" />
           <button type="submit">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
-        </div>
+        </div> */}
       </div>
       <section id="content">
         {faqData.map((item) => (
           <div className="faq-container">
-            <Accordion style={{background:"#4b006e",color:"white",boxShadow:"0px 0px 10px #4b006e"}}>
+            <Accordion style={{background:"#4b006e9d",color:"white",boxShadow:"0px 0px 10px #4b006e"}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon style={{color:"white"}}/>}
                 aria-controls="panel2a-content"
@@ -140,7 +140,7 @@ const Faqs = () => {
           <h1>Contact us for more!</h1>
           <h3>
             Call us right now at <br />
-            8352729345
+            <a href="tel:+919876543210">+91-987-654-3210</a>
           </h3>
         </div>
       </div>
