@@ -82,11 +82,14 @@
     .status-btn{
         border: none;
         color: white;
-        background: #4b006e;
+        // background: #4b006e;
         padding: 1vh 1vw;
         border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
-    p{
+    p,h5{
         padding: 0;
         margin: 0;
         font-size: 1.2rem ;

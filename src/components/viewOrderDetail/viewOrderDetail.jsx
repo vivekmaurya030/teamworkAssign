@@ -7,6 +7,7 @@ import moment from "moment";
 import { updateNotification } from "../../Redux/OrderRedux";
 import Loader from "../loader/loader";
 import { useDispatch } from "react-redux";
+import dateFormat from 'dateformat';
 
 const ViewOrderDetail = () => {
   const dispatch = useDispatch();
@@ -164,9 +165,9 @@ const ViewOrderDetail = () => {
                           ? "#BC0A0A"
                           : "" || item?.status =="pending" ? "Yellow":""
                     }}
-                  >
-                   {item?.status.toLowerCase().charAt(0).toUpperCase() +
-                          item?.status.slice(1)}
+                  ><h5 style={{color:"black",padding:"0",margin:"0"}}>Status:</h5>&nbsp;
+                   "{item?.status.toLowerCase().charAt(0).toUpperCase() +
+                          item?.status.slice(1)}"
                   </button>
                 </div>
               ))}
@@ -190,7 +191,7 @@ const ViewOrderDetail = () => {
                 {orderDetail.data &&
                   orderDetail.data.map((item) => (
                     <div className="row3-row">
-                      <h5>Date: {item?.orderDetails?.date}</h5>
+                      <h5>Date: {dateFormat(item?.orderDetails?.date,"dS mmmm yyyy")}</h5>
                       <h3>Order Price: ₹&nbsp;{orderTotal}</h3>
                     </div>
                   ))}
