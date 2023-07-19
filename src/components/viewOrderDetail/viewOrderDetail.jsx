@@ -163,7 +163,7 @@ const ViewOrderDetail = () => {
                           ? "#11820F"
                           : "" || item?.status == "rejected"
                           ? "#BC0A0A"
-                          : "" || item?.status =="pending" ? "Yellow":""
+                          : "" || item?.status =="pending" ? "#F2BE22":""
                     }}
                   ><h5 style={{color:"black",padding:"0",margin:"0"}}>Status:</h5>&nbsp;
                    "{item?.status.toLowerCase().charAt(0).toUpperCase() +
