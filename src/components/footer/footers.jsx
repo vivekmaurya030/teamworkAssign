@@ -56,7 +56,7 @@ const Footers = () => {
               <div className="social-btn"><InstagramIcon className="social-icon" id="instagram" /></div>
               <div className="social-btn"><FacebookOutlinedIcon className="social-icon" id="facebook" /></div>
               <div className="social-btn"><WhatsAppIcon className="social-icon" id="whatsapp" /></div>
-              {/* <div className="social-btn"><LinkedInIcon className="social-icon" id="linkedin" /></div> */}
+              <div className="social-btn"><LinkedInIcon className="social-icon" id="linkedin" /></div>
               <div className="social-btn"><YouTubeIcon className="social-icon" id="youtube" /></div>
             </div>
             <div className="play-store">

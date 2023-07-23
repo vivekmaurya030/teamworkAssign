@@ -15,7 +15,8 @@ const divStyle= {
   display:'flex',
   alignItems:'center',
   justifyContent:'center',
-  height:'30vh',
+  height:'15vw',
+  minHeight:"15vh",
   backgroundSize:'100% 100%'
 }
 

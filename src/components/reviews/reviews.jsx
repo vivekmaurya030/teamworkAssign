@@ -21,13 +21,13 @@ import 'swiper/scss/zoom'
 const Reviews=() => {
 
   const feedbackData=[
-    {userId:"12344",profileImg:"https://images.unsplash.com/photo-1550935114-99de2f488f47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",username:"rajesh",star:"★★★★★",message:"I highly recommend KLARA for anyone looking for a reliable and professional cleaning service.I highly recommend KLARA for anyone looking for a reliable and professional cleaning service.I highly recommend KLARA for anyone looking for a reliable and professional cleaning service."},
-    {userId:"12344",profileImg:"https://images.unsplash.com/photo-1550935114-99de2f488f47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",username:"rajesh",star:"★★★★★",message:"The serivce is very good."},
-    {userId:"12344",profileImg:"https://images.unsplash.com/photo-1550935114-99de2f488f47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",username:"rajesh",star:"★★",message:"The serivce is very good."},
-    {userId:"12344",profileImg:"https://images.unsplash.com/photo-1550935114-99de2f488f47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",username:"rajesh",star:"★★★★",message:"The serivce is very good."},
+    {userId:"12344",profileImg:"https://ionicframework.com/docs/img/demos/avatar.svg",username:"rajesh Pandey",star:"★★★★★",message:"Outstanding service, meticulous cleaning, and friendly staff. Highly recommend this cleaning company for their exceptional work."},
+    {userId:"12344",profileImg:"https://ionicframework.com/docs/img/demos/avatar.svg",username:"Majesh Dutta",star:"★★★★★",message:"Reliable, efficient, affordable, and consistently exceeds expectations. A top-notch cleaning company that's worth every penny!"},
+    {userId:"12344",profileImg:"https://ionicframework.com/docs/img/demos/avatar.svg",username:"Saurya Dubey",star:"★★",message:"Impeccable attention to detail, prompt service, and sparkling results every time. A cleaning company I trust and recommend wholeheartedly!"},
+    {userId:"12344",profileImg:"https://ionicframework.com/docs/img/demos/avatar.svg",username:"Micheal Jim",star:"★★★★",message:"From start to finish, a seamless experience. They transformed my space, and I'm thrilled with their professionalism and thoroughness."},
     {userId:"12344",username:"rajesh",star:"★★★",message:"The serivce is very good."},
-    {userId:"12344",profileImg:"https://images.unsplash.com/photo-1550935114-99de2f488f47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",username:"rajesh",star:"★★★★",message:"The serivce is very good."},
-    {userId:"12344",username:"rajesh",star:"★★★",message:"The serivce is very good."}
+    {userId:"12344",profileImg:"https://ionicframework.com/docs/img/demos/avatar.svg",username:"Bondie Care",star:"★★★★",message:"Hands down the best cleaning company I've ever used! Their team goes above and beyond, leaving my home spotless and refreshed."},
+    {userId:"12344",profileImg:"https://ionicframework.com/docs/img/demos/avatar.svg",username:"Calvin Denny",star:"★★★",message:"Effortlessly took care of the messiest areas, leaving my home immaculate. A cleaning company that truly understands and exceeds expectations."}
   ]
 
   return (
@@ -70,19 +70,19 @@ const Reviews=() => {
             <div className='review-card'>
               <div className="review-head">
                 <div className="review-head-img">
-                  <img src={review.profileImg ? review.profileImg:"https://images.unsplash.com/photo-1630568321790-65edcc51b544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"}  alt="" />
+                  <img src={review?.profileImg} alt="" />
                 </div>
                 <div className="review-head-detail">
                   <div className="review-username">
-                    <h2>{  review.username.toUpperCase()}</h2>
+                    <h2>{  review?.username.charAt(0).toUpperCase()+review?.username.slice(1)}</h2>
                   </div>
                   <div className="review-star">
-                      <h3>{review.star}</h3>
+                      <h3>{review?.star}</h3>
                   </div>
                 </div>
               </div>
               <div className="review-body">
-                <p>{review.message}</p>
+                <p>{review?.message}</p>
               </div>
             </div>
           </SwiperSlide>

@@ -27,8 +27,8 @@
     font-family: 'Kumbh Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 48px;
-    line-height: 60px;
+    font-size: 2rem;
+    // line-height: 60px;
     color: #000000;
 }
 .newsletter input{
@@ -41,15 +41,37 @@
 
 }
 .subscribe-btn{
-    width: 269px;
-    height: 49px;
+    // height: 49px;
     background: #000000;
     border-radius: 24.5px;
     font-family: 'Kumbh Sans';
     font-style: normal;
     font-weight: 500;
+    padding: 1vh 4vw;
     font-size: 20px;
     line-height: 25px;
     color: #FFFFFF;
 
+}
+
+@media only screen and (max-width: 400px){
+    .newsletter{
+        padding: 5vh 5vw;
+        input{
+            padding: .6vh 1vw;
+        }
+    }
+    .newsletter-col1 img{
+        width: 150px;
+    }
+    .newsletter-col2{
+        padding: 0;
+        h1{
+            font-size: 1.5rem;
+        }
+        
+    }
+    .subscribe-btn{
+        padding: .6vh 2vw;
+    }
 }

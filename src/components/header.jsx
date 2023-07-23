@@ -4,6 +4,7 @@ import klaralogo from './images/klaralogo.png';
 import { Link } from "react-router-dom";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Header(){
     // console.log("efnrenf", JSON.parse(localStorage.getItem("userDetails")));
@@ -49,9 +50,11 @@ export default function Header(){
                 {/* <li><Link to="/NewAdmin">ADMIN</Link></li> */}
                 {userDetails?.data?.roles !="user" && userDetails ? <Link to="/notification"><NotificationsNoneOutlinedIcon className="userIcon"/></Link> : ""}
                 {userDetails ?  <Link to={handleDashboard()}><PersonOutlineOutlinedIcon className="userIcon"/></Link>: <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
+                
             </ul>
             
         </nav>
+        <div className="menu-icon"><button className="menu-btn"><MenuIcon /></button></div>
     </div>
     )
 }

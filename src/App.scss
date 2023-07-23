@@ -604,3 +604,120 @@ text-shadow: 0px 4px 4px #000000;
   width: fit-content;
   margin-left: 10px;
 }
+.menu-icon{
+  display: none;
+}
+.menu-btn{
+  padding: .5vh ;
+  background: #4B006E;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+
+
+@media only screen and (max-width: 400px){
+.chakachak{
+  height: 27vh;
+  overflow: hidden;
+  h1{
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+}
+.Circular{
+  display: none;
+}
+.menu{
+  display: none;
+}
+.logo-head{
+  h2{
+    font-size: 1.6rem;
+  }
+  h6{
+    font-size: .7rem;
+  }
+}
+.menu-icon{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.header{
+  padding: 1vh 3vw;
+}
+.divStyle{
+  height: 40vh;
+}
+.searchContainer{
+  display: grid;
+  place-items: center;
+  top: 20%;
+
+  .searchHead h1{
+    line-height: normal;
+    font-size: 3rem;
+  }
+}
+.processContainer{
+  padding: 2.5vh 0;
+}
+.process-head{
+  padding: 2.5vh;
+  h1{
+    font-size:1.8rem;
+    font-weight: 600;
+    line-height: normal;
+    padding: 0;
+    margin: 0;
+  }
+}
+.process-row{
+  padding: 0 5vw;
+}
+.process-img{
+  height: 80px;
+  width: 80px;
+}
+.process-text{
+  padding-top: 4vh;
+  .process-number{
+    padding: 1vh 1.5vw;
+  }
+}
+.process-col-arrow{
+  transform: rotate(90deg);
+  margin: 1vh 0;
+}
+.product-image-slider-head h1{
+  font-size: 2rem;
+}
+.justTry-btn{
+  font-size: .8rem;
+  padding: .8vh 3vw;
+}
+.why-klara-container{
+  display: block;
+  padding: 5vh 5vw;
+  .why-klara-col1{
+    padding: 0 8vw;
+  }
+  .why-klara-col2{
+    padding-top: 0;
+    h1{
+      font-size: 1.5rem;
+      padding: 0;
+
+    }
+    p{
+      line-height: 20px;
+      padding: 0 5vw;
+      margin: 0;
+    }
+  }
+}
+}

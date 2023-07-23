@@ -14,7 +14,7 @@ import PhotoCameraFrontOutlinedIcon from "@mui/icons-material/PhotoCameraFrontOu
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import { apiGETCall1 } from "../../../utilities/site-apis";
 import Loader from "../../loader/loader";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -94,6 +94,7 @@ const data = [
 
 const User = () => {
 
+  Navigate=useNavigate()
   const [loader, setLoader] = useState(true);
   var userDetails = JSON.parse(localStorage.getItem("userDetails"));
   var [usersData, setUsersData] = useState([]);
@@ -209,7 +210,7 @@ const User = () => {
                 {/* <h5>{item.state}</h5> */}
               </div>
               <div className="edit-btn user-profile">
-                <div className="edit">
+                <div className="edit" >
                   <RemoveRedEyeOutlinedIcon />
                 </div>
                 <div className="edit">

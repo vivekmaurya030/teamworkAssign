@@ -15,8 +15,10 @@ const divStyle= {
   display:'flex',
   alignItems:'center',
   justifyContent:'center',
-  height:'80vh',
-  backgroundSize:'100% 100%'
+  maxheight :'80vh',
+  height:"38vw",
+  minHeight:"35vh",
+  backgroundSize:'100% 100%',
 }
 
 function ImageSlider(){
@@ -25,7 +27,7 @@ function ImageSlider(){
       <Fade arrows={false} pauseOnHover={false} canSwipe={true} >
         {slideImages.map((image,index) => (
           <div key={index}>
-            <div style={{...divStyle,backgroundImage: `linear-gradient(rgb(75, 0, 110,.6),rgba(0,0,0,0.6)),url(${image.url})`}}>
+            <div style={{...divStyle,backgroundImage: `linear-gradient(rgb(75, 0, 110,.6),rgba(0,0,0,0.6)),url(${image.url})`,}} className="divStyle" >
               
             </div>
           </div>
