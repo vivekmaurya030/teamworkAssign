@@ -61,6 +61,6 @@
     ]
   },
   "devDependencies": {
-    "netlify-cli": "^15.6.0"
+    "netlify-cli": "^15.9.1"
   }
 }
