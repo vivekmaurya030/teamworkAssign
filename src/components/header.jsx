@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import { ReactDOM } from "react";
 import klaralogo from './images/klaralogo.png';
 import { Link } from "react-router-dom";
@@ -24,7 +24,10 @@ export default function Header(){
     userDetails?.data?.roles == "user" ? item="/UserDashboardPage":item="/NewAdmin"
     return item
   }
-    
+    const[open,setOpen]=useState(false)
+    const handleClick=()=>{
+      setOpen(!open)
+    }
     return(
     <div className="header">
         <div className="logo">
@@ -54,7 +57,24 @@ export default function Header(){
             </ul>
             
         </nav>
-        <div className="menu-icon"><button className="menu-btn"><MenuIcon /></button></div>
+        <div className="menu-icon">
+          <button className="menu-btn" onClick={handleClick}><MenuIcon /></button>
+          {open ? <div className="menu-List">
+          <ul>
+                <li><Link to="/">HOME</Link></li>
+                {/* <li><Link to="/ProductOrderPage">PRODUCTS</Link></li> */}
+                <li><Link to="/OurServicesPage">SERVICES</Link></li>
+                {/* <li><Link to="/FeedbackPage">REVIEWS</Link></li> */}
+                <li><Link to="/FAQs">FAQS</Link></li>
+                <li><Link to="/FoundersPage">FOUNDERS</Link></li>
+                {/* <li><Link to="/NewAdmin">ADMIN</Link></li> */}
+                {userDetails?.data?.roles !="user" && userDetails ? <li><Link to="/notification">NOTIFICATIONS</Link></li> : ""}
+                {userDetails ?  <li><Link to={handleDashboard()}>DASHBOARD</Link></li>: <li><Link to="/LogInPage">LOGIN / SIGN UP</Link></li>}
+                
+            </ul>
+          </div>:null}
+          </div>
+        
     </div>
     )
 }

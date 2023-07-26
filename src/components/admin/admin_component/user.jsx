@@ -94,7 +94,7 @@ const data = [
 
 const User = () => {
 
-  Navigate=useNavigate()
+  // Navigate=useNavigate()
   const [loader, setLoader] = useState(true);
   var userDetails = JSON.parse(localStorage.getItem("userDetails"));
   var [usersData, setUsersData] = useState([]);

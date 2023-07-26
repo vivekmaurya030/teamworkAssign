@@ -74,11 +74,11 @@ const ServiceProvider = () => {
         navigation={true}
         breakpoints={{
           100:{
-            slidesPerView:1,
+            slidesPerView:2,
             spaceBetween:10,
           },
           300:{
-            slidesPerView:1,
+            slidesPerView:2,
             spaceBetween:10,
           },
           640: {
@@ -113,7 +113,7 @@ const ServiceProvider = () => {
                 </div>
 
               </div>
-              <div className="card-detail" style={{background:`url(${company.companyImg})`, backgroundSize:'100% 100%',backgroundRepeat:'no-repeat'}}>
+              <div className="card-detail" style={{backgroundImage:`linear-gradient(rgb(75, 0, 110,.8),rgba(0,0,0,0.7)),url(${company.companyImg})`, backgroundSize:'100% 100%',backgroundRepeat:'no-repeat'}}>
                 <div className="detail">
                 <h3>{company.companyName}</h3>
                 <p>{company.companyDetail}</p>
