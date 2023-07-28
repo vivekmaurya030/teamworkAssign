@@ -160,7 +160,8 @@ const ProductOrder = () => {
   ];
   //  console.log("userdetails is ", userDetails);
   const click = () => {
-    setPreview(true);
+    setPreview(!preview);
+    window.scrollTo({bottom:"100vh"})
     return;
   };
 
@@ -372,7 +373,7 @@ const ProductOrder = () => {
                     id="outlined-adornment-password"
                     required
                     type="text"
-                    fullWidth
+                    fullWidth="true"
                     placeholder="Phone number"
                     onChange={(e) =>
                       setOrderDetail((prev) => ({
@@ -478,7 +479,7 @@ const ProductOrder = () => {
           <div className="col">
             <div className="inputHead inputhead-btn">
               <div>
-                <h3>Do you wanna to Donate xx</h3>
+                <h3>Do you wanna to Donate</h3>
               </div>
               <div className="btn-yesno">
                 <p>NO</p>

@@ -147,3 +147,31 @@
     }
 
 }
+
+@media only screen and (max-width: 600px){
+   .admin-head{
+    position: sticky;
+    top: 0;
+   }
+   .logo-head{
+    padding: 1vh 0;
+   }
+    .title{
+        h1{
+        display: none;
+
+        }
+        
+    }
+    .avatar-body{
+        p{
+            font-size: .6rem;
+        }
+    }
+    .avatar-dropdown{
+        padding: .5vh 1vw;
+        li{
+            font-size: .7rem;
+        }
+    }
+}

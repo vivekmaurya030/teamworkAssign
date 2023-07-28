@@ -23,11 +23,12 @@ var userDetails = JSON.parse(localStorage.getItem("userDetails"))
     }
     return(
         <div className="admin-head">
-        <div className="logo">
-          <h1>KLARA MOON</h1>
-          <p>
-            Cleaning Service Providing&nbsp;<span className="cmp">Company</span>
-          </p>
+         <div className="logo-head">
+          <h2>KLARA MOON</h2>
+          <h6>
+            Cleaning Service Providing&nbsp;
+            <span className="cmpy">Company</span>
+          </h6>
         </div>
         <div className="title">
           <h1>{prop.title}</h1>
@@ -37,7 +38,7 @@ var userDetails = JSON.parse(localStorage.getItem("userDetails"))
           <img
             src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
             alt=""
-            style={{ height: "40px", width: "40px", borderRadius: "50%" }}
+            style={{ height: "4vh", width: "4vh", borderRadius: "50%" }}
             
           />
           <p>{userDetails?.data?.email}</p>

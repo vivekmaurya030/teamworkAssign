@@ -265,3 +265,81 @@
 .ok-btn{
     padding: 0 5vw;
 }
+
+@media only screen and (max-width: 600px){
+    .productOrder{
+        flex-direction: column;
+        align-items: default;
+        width: 100%;
+        padding: 2vh;
+    }
+    .col1{
+        width: 100%;
+        padding: 0 0vw;
+
+    }
+    .row1{
+        padding: 2vw;
+        h4{
+            padding: 0;
+            margin: 0;
+            font-size: .8rem;
+        }
+        .dash{
+            height: 1px;
+            width: 10px;
+            margin-top: -2px;
+        }
+    }
+    .row2{
+        padding: 0 5vw;
+        h1{
+            font-size: 1.5rem;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    .row3{
+        padding: 0 6.5vw;
+        p{
+            padding: 1vh 0;
+            font-size: .6rem;
+        }
+    }
+    .col2,.col3{
+        padding: 1vh 5vw;
+        height: auto;
+        align-items: initial;
+        justify-content: initial;
+    }
+    .inputHead{
+        h3{
+            font-size: .9rem;
+        }
+    }
+    .btn-yesno{
+        p{
+            font-size: .7rem;
+        }
+    }
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            height: 200px;
+        }
+    }
+    .col2-row1{
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    // .input{
+    //     // width: 100%;
+    //     padding: 0;
+    //     margin: 0;
+    // }
+}
